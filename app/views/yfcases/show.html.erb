@@ -1,0 +1,118 @@
+<p id="notice"><%= notice %></p>
+
+<table >
+  <!-- 第一列 -->
+    <tr>
+        <th>案號</th>
+        <td>
+            <%= @yfcase.casenumber %>
+        </td>
+        <th>地址</th>
+        <td colspan="3"><%= @yfcase.address %></td>
+    </tr>
+
+    <!-- 第二列 -->
+    <tr>
+        <th>地號</th>
+        <td>
+            <ul>
+                <% @yfcase.lands.each do |land| %>
+                <li>
+                    <%= land.landnumber %>
+                </li>
+                <% end %>
+            </ul>
+        </td>
+        <th rowspan="2">地坪</th>
+        <td rowspan="2"><%= @yfcase.landarea %></td>
+        <th rowspan="2">持分</th>
+        <td rowspan="2"><%= @yfcase.landholdingpoint %></td>
+    </tr>
+    <tr>
+      <th>地號謄本</th>
+    <td><%= @yfcase.landurl %></td>
+    </tr>
+
+    <!-- 第三列 -->
+    <tr>
+        <th>建號</th>
+        <td>
+          <ul>
+                <% @yfcase.builds.each do |build| %>
+                <li>
+                    <%= build.buildnumber %>
+                </li>
+                <% end %>
+            </ul>
+        </td>
+        <th rowspan="2">建坪</th>
+        <td rowspan="2"><%= @yfcase.buildarea %></td>
+        <th rowspan="2">持分</th>
+        <td rowspan="2"><%= @yfcase.buildholdingpoint %></td>
+        <th>建物型/使用</th>
+        <td><%= @yfcase.buildtype %></td>
+
+    </tr>
+    <tr>
+      <th>建號謄本</th>
+    <td><%= @yfcase.buildurl %></td>
+    <th>使用分區</th>
+        <td><%= @yfcase.usearea %></td>
+    </tr>
+
+    <!-- 第四列 -->
+    <tr>
+      <th rowspan="5">拍賣日</th>
+      <td rowspan="5">輸入拍賣日</td>
+      <th colspan="2">拍別</th>
+      <th>底價(NT)</th>
+      <th>坪價(坪)</th>
+      <th>時價(坪)</th>
+      <th>CP</th>
+      <th>建議加價</th>
+      <th>保証金</th>
+    </tr>
+    <tr>
+      <td></td>
+      <th>第一拍</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <th>第二拍</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <th>第三拍</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <th>第四拍</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+</table>
+<%= link_to 'Edit', edit_yfcase_path(@yfcase) %> |
+<%= link_to 'Back', yfcases_path %>

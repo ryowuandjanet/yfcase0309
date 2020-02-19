@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  landnumber: MyString
+  yfcase_id: 
+
+two:
+  landnumber: MyString
+  yfcase_id: 

@@ -1,0 +1,90 @@
+<%= form_for(@yfcase) do |f| %>
+  <% if @yfcase.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@yfcase.errors.count, "error") %> prohibited this yfcase from being saved:</h2>
+
+      <ul>
+      <% @yfcase.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :casenumber %><br>
+    <%= f.text_field :casenumber %>
+  </div>
+
+  <div class="field">
+    <h3>Lands</h3>
+    <div id="lands">
+        <%= f.fields_for :lands do |land| %>
+
+            <%= render 'land_fields', f: land %>
+
+        <% end %>
+        <div class="links">
+            <%= link_to_add_association 'add Land', f, :lands %>
+        </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :landurl %><br>
+    <%= f.text_field :landurl %>
+  </div>
+  <div class="field">
+    <%= f.label :landarea %><br>
+    <%= f.text_field :landarea %>
+  </div>
+  <div class="field">
+    <%= f.label :landholdingpoint %><br>
+    <%= f.text_field :landholdingpoint %>
+  </div>
+
+
+  <div class="field">
+    <h3>Builds</h3>
+    <div id="builds">
+        <%= f.fields_for :builds do |build| %>
+
+            <%= render 'build_fields', f: build %>
+
+        <% end %>
+        <div class="links">
+            <%= link_to_add_association 'add Build', f, :builds %>
+        </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :buildurl %><br>
+    <%= f.text_field :buildurl %>
+  </div>
+  <div class="field">
+    <%= f.label :buildarea %><br>
+    <%= f.text_field :buildarea %>
+  </div>
+  <div class="field">
+    <%= f.label :buildholdingpoint %><br>
+    <%= f.text_field :buildholdingpoint %>
+  </div>
+  <div class="field">
+    <%= f.label :buildtype %><br>
+    <%= f.text_field :buildtype %>
+  </div>
+  <div class="field">
+    <%= f.label :usearea %><br>
+    <%= f.text_field :usearea %>
+  </div>
+   
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

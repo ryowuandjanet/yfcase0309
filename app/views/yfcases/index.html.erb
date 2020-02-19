@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Yfcases</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Casenumber</th>
+      <th>Address</th>
+      <th>Landurl</th>
+      <th>Landarea</th>
+      <th>Landholdingpoint</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @yfcases.each do |yfcase| %>
+      <tr>
+        <td><%= yfcase.casenumber %></td>
+        <td><%= yfcase.address %></td>
+        <td><%= yfcase.landurl %></td>
+        <td><%= yfcase.landarea %></td>
+        <td><%= yfcase.landholdingpoint %></td>
+        <td><%= link_to 'Show', yfcase %></td>
+        <td><%= link_to 'Edit', edit_yfcase_path(yfcase) %></td>
+        <td><%= link_to 'Destroy', yfcase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Yfcase', new_yfcase_path %>

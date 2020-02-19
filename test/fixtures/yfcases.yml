@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  casenumber: MyString
+  address: MyString
+  landurl: MyString
+  landarea: 9.99
+  landholdingpoint: MyString
+
+two:
+  casenumber: MyString
+  address: MyString
+  landurl: MyString
+  landarea: 9.99
+  landholdingpoint: MyString
