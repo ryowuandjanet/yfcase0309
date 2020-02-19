@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200219090839) do
+ActiveRecord::Schema.define(version: 20200219161705) do
 
   create_table "builds", force: :cascade do |t|
     t.string   "buildnumber"
@@ -44,6 +44,16 @@ ActiveRecord::Schema.define(version: 20200219090839) do
     t.string   "buildholdingpoint"
     t.string   "buildtype"
     t.string   "usearea"
+    t.date     "auctionday"
+    t.string   "auctionlevel"
+    t.integer  "floorprice"
+    t.integer  "price"
+    t.integer  "currentprice"
+    t.decimal  "cp",                precision: 4, scale: 3
+    t.integer  "suggestedincrease"
+    t.integer  "margin"
+    t.string   "creditor"
+    t.string   "debtor"
   end
 
 end

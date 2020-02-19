@@ -17,6 +17,15 @@
   </div>
 
   <div class="field">
+    <%= f.label :debtor %><br>
+    <%= f.text_field :debtor %>
+  </div>
+  <div class="field">
+    <%= f.label :creditor %><br>
+    <%= f.text_field :creditor %>
+  </div>
+  
+  <div class="field">
     <h3>Lands</h3>
     <div id="lands">
         <%= f.fields_for :lands do |land| %>
@@ -76,13 +85,43 @@
   </div>
   <div class="field">
     <%= f.label :buildtype %><br>
-    <%= f.text_field :buildtype %>
+    <%= f.select(:buildtype,Yfcase::CLASS_LIST) %>
   </div>
   <div class="field">
     <%= f.label :usearea %><br>
-    <%= f.text_field :usearea %>
+    <%= f.select(:usearea,Yfcase::AREA_LIST) %>
   </div>
-   
+  
+
+  <div class="field">
+    <%= f.label :auctionday %><br>
+    <%= f.text_field :auctionday %>
+  </div>
+  <div class="field">
+    <%= f.label :auctionlevel %><br>
+    <%= f.select(:auctionlevel,Yfcase::AUCTION_LIST) %>
+  </div>
+  <div class="field">
+    <%= f.label :floorprice %><br>
+    <%= f.text_field :floorprice %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :currentprice %><br>
+    <%= f.text_field :currentprice %>
+  </div>
+
+  <div class="field">
+    <%= f.label :suggestedincrease %><br>
+    <%= f.text_field :suggestedincrease %>
+  </div>
+  <div class="field">
+    <%= f.label :margin %><br>
+    <%= f.text_field :margin %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>

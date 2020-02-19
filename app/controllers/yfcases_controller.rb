@@ -10,6 +10,9 @@ class YfcasesController < ApplicationController
   # GET /yfcases/1
   # GET /yfcases/1.json
   def show
+    currentprice = @yfcase.currentprice.to_f
+    bioprice = @yfcase.price.to_f
+    @cp = (currentprice / bioprice ).round(4)
   end
 
   # GET /yfcases/new
@@ -61,6 +64,10 @@ class YfcasesController < ApplicationController
     end
   end
 
+  def result
+   
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_yfcase
@@ -69,6 +76,6 @@ class YfcasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def yfcase_params
-      params.require(:yfcase).permit(:casenumber, :address, :landurl, :landarea, :landholdingpoint,:buildurl,:buildarea,:buildholdingpoint,:buildtype,:usearea,lands_attributes: [:id, :landnumber, :_destroy],builds_attributes: [:id, :buildnumber, :_destroy])
+      params.require(:yfcase).permit(:casenumber, :address, :landurl, :landarea, :landholdingpoint,:buildurl,:buildarea,:buildholdingpoint,:buildtype,:usearea,:auctionday,:auctionlevel,:floorprice,:price,:currentprice,:suggestedincrease,:margin,:creditor,:debtor,lands_attributes: [:id, :landnumber, :_destroy],builds_attributes: [:id, :buildnumber, :_destroy])
     end
 end

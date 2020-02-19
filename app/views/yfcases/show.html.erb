@@ -11,17 +11,23 @@
         <td colspan="3"><%= @yfcase.address %></td>
     </tr>
 
-    <!-- 第二列 -->
+  <!-- 第二列 -->
+    <tr>
+        <th>債務人</th>
+        <td>
+            <%= @yfcase.debtor %>
+        </td>
+        <th>債權人</th>
+        <td colspan="3"><%= @yfcase.creditor %></td>
+    </tr>
+
+    <!-- 第三列 -->
     <tr>
         <th>地號</th>
         <td>
-            <ul>
-                <% @yfcase.lands.each do |land| %>
-                <li>
-                    <%= land.landnumber %>
-                </li>
-                <% end %>
-            </ul>
+            <% @yfcase.lands.each do |land| %>
+              <%= land.landnumber %><br>
+            <% end %>
         </td>
         <th rowspan="2">地坪</th>
         <td rowspan="2"><%= @yfcase.landarea %></td>
@@ -33,17 +39,13 @@
     <td><%= @yfcase.landurl %></td>
     </tr>
 
-    <!-- 第三列 -->
+    <!-- 第四列 -->
     <tr>
         <th>建號</th>
         <td>
-          <ul>
-                <% @yfcase.builds.each do |build| %>
-                <li>
-                    <%= build.buildnumber %>
-                </li>
-                <% end %>
-            </ul>
+          <% @yfcase.builds.each do |build| %>
+            <%= build.buildnumber %><br>
+          <% end %>
         </td>
         <th rowspan="2">建坪</th>
         <td rowspan="2"><%= @yfcase.buildarea %></td>
@@ -60,10 +62,10 @@
         <td><%= @yfcase.usearea %></td>
     </tr>
 
-    <!-- 第四列 -->
+    <!-- 第五列 -->
     <tr>
       <th rowspan="5">拍賣日</th>
-      <td rowspan="5">輸入拍賣日</td>
+      <td rowspan="5"><%= @yfcase.auctionday %></td>
       <th colspan="2">拍別</th>
       <th>底價(NT)</th>
       <th>坪價(坪)</th>
@@ -73,45 +75,45 @@
       <th>保証金</th>
     </tr>
     <tr>
-      <td></td>
+      <td><% if @yfcase.auctionlevel == "第一拍" %>V<% end %></td>
       <th>第一拍</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td><% if @yfcase.auctionlevel == "第一拍" %><%= @yfcase.floorprice %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第一拍" %><%= @yfcase.price %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第一拍" %><%= @yfcase.currentprice %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第一拍" %><%= @cp %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第一拍" %><%= @yfcase.suggestedincrease %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第一拍" %><%= @yfcase.margin %><% end %></td>
     </tr>
 
     <tr>
-      <td></td>
+      <td><% if @yfcase.auctionlevel == "第二拍" %>V<% end %></td>
       <th>第二拍</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td><% if @yfcase.auctionlevel == "第二拍" %><%= @yfcase.floorprice %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第二拍" %><%= @yfcase.price %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第二拍" %><%= @yfcase.currentprice %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第二拍" %><%= @cp %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第二拍" %><%= @yfcase.suggestedincrease %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第二拍" %><%= @yfcase.margin %><% end %></td>
     </tr>
     <tr>
-      <td></td>
+      <td><% if @yfcase.auctionlevel == "第三拍" %>V<% end %></td>
       <th>第三拍</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td><% if @yfcase.auctionlevel == "第三拍" %><%= @yfcase.floorprice %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第三拍" %><%= @yfcase.price %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第三拍" %><%= @yfcase.currentprice %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第三拍" %><%= @cp %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第三拍" %><%= @yfcase.suggestedincrease %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第三拍" %><%= @yfcase.margin %><% end %></td>
     </tr>
     <tr>
-      <td></td>
+      <td><% if @yfcase.auctionlevel == "第四拍" %>V<% end %></td>
       <th>第四拍</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td><% if @yfcase.auctionlevel == "第四拍" %><%= @yfcase.floorprice %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第四拍" %><%= @yfcase.price %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第四拍" %><%= @yfcase.currentprice %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第四拍" %><%= @cp %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第四拍" %><%= @yfcase.suggestedincrease %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第四拍" %><%= @yfcase.margin %><% end %></td>
     </tr>
 </table>
 <%= link_to 'Edit', edit_yfcase_path(@yfcase) %> |
