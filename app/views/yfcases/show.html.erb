@@ -32,7 +32,7 @@
         <th rowspan="2">地坪</th>
         <td rowspan="2"><%= @yfcase.landarea %></td>
         <th rowspan="2">持分</th>
-        <td rowspan="2"><%= @yfcase.landholdingpoint %></td>
+        <td rowspan="2"><%= @yfcase.landholdingpointperson %>/<%= @yfcase.landholdingpointall %></td>
     </tr>
     <tr>
       <th>地號謄本</th>
@@ -50,7 +50,7 @@
         <th rowspan="2">建坪</th>
         <td rowspan="2"><%= @yfcase.buildarea %></td>
         <th rowspan="2">持分</th>
-        <td rowspan="2"><%= @yfcase.buildholdingpoint %></td>
+        <td rowspan="2"><%= @yfcase.buildholdingpointperson %>/<%= @yfcase.buildholdingpointall %></td>
         <th>建物型/使用</th>
         <td><%= @yfcase.buildtype %></td>
 
@@ -114,6 +114,92 @@
       <td><% if @yfcase.auctionlevel == "第四拍" %><%= @cp %><% end %></td>
       <td><% if @yfcase.auctionlevel == "第四拍" %><%= @yfcase.suggestedincrease %><% end %></td>
       <td><% if @yfcase.auctionlevel == "第四拍" %><%= @yfcase.margin %><% end %></td>
+    </tr>
+
+    <!-- 勘查記錄 -->
+    <tr>
+      <th rowspan="10">勘查記錄</th>
+      <th>初勘日期</th>
+      <td colspan="8"><%= @yfcase.firstsurveydate %></td>
+    </tr>
+    <tr>
+      <th>會勘日期</th>
+      <td colspan="8"><%= @yfcase.othersurveydate %></td>
+    </tr>
+    <tr>
+      <th>勘查記錄</th>
+      <td colspan="8"><%= @yfcase.surveyrecord %></td>
+    </tr>
+    <tr>
+      <th>法拍公告(證物三)</th>
+      <td colspan="8"><%= @yfcase.foreclosureannouncement %></td>
+    </tr>
+    <tr>
+      <th>物件照片(證物四)</th>
+      <td colspan="8"><%= @yfcase.objectphotos %></td>
+    </tr>
+    <tr>
+      <th>實價登錄市價</th>
+      <td colspan="8"><%= @yfcase.registeredmarketprice %></td>
+    </tr>
+    <tr>
+      <th>實價登錄地圖(證物五)</th>
+      <td colspan="8"><%= @yfcase.registrationmap %></td>
+    </tr>
+    <tr>
+      <th>實價登錄照片(證物六)</th>
+      <td colspan="8"><%= @yfcase.registrationphoto %></td>
+    </tr>
+    <tr>
+      <th>法拍記錄(證物七)</th>
+      <td colspan="8"><%= @yfcase.foreclosurerecord %></td>
+    </tr>
+    <tr>
+      <th>備註</th>
+      <td colspan="8"><%= @yfcase.surveyremark %></td>
+    </tr>
+
+    <!-- 會勘決議 -->
+    <tr>
+      <th>會勘決議</th>
+      <td colspan="9"><%= @yfcase.surveyresolution %></td>
+    </tr>
+
+    <!-- 最終決定 -->
+    <tr>
+      <th rowspan="6">最終決定</th>
+      <th>區域負責人</th>
+      <th>結論</th>
+      <th colspan="2">副署人員</th>
+      <th>同意/不同意</th>
+    </tr>
+
+    <tr>
+      <td rowspan="5"><%= @yfcase.finaldecisionheader %></td>
+      <td rowspan="5"><%= @yfcase.finaldecisionconclusion %></td>
+      <th>勘查員1</th>
+      <td><%= @yfcase.finaldecisionsurveyordecide1 %></td>
+      <td><%= @yfcase.finaldecisionsurveyordecide1 %></td>
+    </tr>
+    <tr>
+      <th>勘查員2</th>
+      <td><%= @yfcase.finaldecisionsurveyordecide2 %></td>
+      <td><%= @yfcase.finaldecisionsurveyordecide2 %></td>
+    </tr>
+    <tr>
+      <th>勘查員3</th>
+      <td><%= @yfcase.finaldecisionsurveyordecide3 %></td>
+      <td><%= @yfcase.finaldecisionsurveyordecide3 %></td>
+    </tr>
+    <tr>
+      <th>勘查員4</th>
+      <td><%= @yfcase.finaldecisionsurveyordecide4 %></td>
+      <td><%= @yfcase.finaldecisionsurveyordecide4 %></td>
+    </tr>
+    <tr>
+      <th>勘查員5</th>
+      <td><%= @yfcase.finaldecisionsurveyordecide5 %></td>
+      <td><%= @yfcase.finaldecisionsurveyordecide5 %></td>
     </tr>
 </table>
 <%= link_to 'Edit', edit_yfcase_path(@yfcase) %> |

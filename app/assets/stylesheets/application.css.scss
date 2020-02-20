@@ -16,10 +16,13 @@
 table {
   border-collapse: collapse;
 }
- tabel, th ,td{
- 	border:1px solid black;
- }
+tabel, th ,td{
+	border:1px solid black;
+}
 
- td{
- 	color:blue;
- }
+th{
+	background-color: #ddd;
+}
+td{
+	color:blue;
+}

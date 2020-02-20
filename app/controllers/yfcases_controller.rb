@@ -76,6 +76,15 @@ class YfcasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def yfcase_params
-      params.require(:yfcase).permit(:casenumber, :address, :landurl, :landarea, :landholdingpoint,:buildurl,:buildarea,:buildholdingpoint,:buildtype,:usearea,:auctionday,:auctionlevel,:floorprice,:price,:currentprice,:suggestedincrease,:margin,:creditor,:debtor,lands_attributes: [:id, :landnumber, :_destroy],builds_attributes: [:id, :buildnumber, :_destroy])
+      params.require(:yfcase).permit(:casenumber, :address, \
+        :creditor,:debtor, \
+        :landurl, :landarea, :landholdingpointperson, :landholdingpointall, \
+        :buildurl,:buildarea, :buildholdingpointperson, :buildholdingpointall, :buildtype,:usearea, \
+        :auctionday,:auctionlevel,:floorprice,:price,:currentprice,:suggestedincrease,:margin,\
+        :firstsurveydate ,:othersurveydate ,:surveyrecord ,:foreclosureannouncement ,:objectphotos ,:registeredmarketprice ,:registrationmap ,:registrationphoto ,:foreclosurerecord ,:surveyremark, \
+        :surveyresolution , \
+        :finaldecisionheader ,:finaldecisionconclusion , \
+        :finaldecisionsurveyordecide1 ,:finaldecisionsurveyordecide2 ,:finaldecisionsurveyordecide3 ,:finaldecisionsurveyordecide4 ,:finaldecisionsurveyordecide5 , \
+        lands_attributes: [:id, :landnumber, :_destroy],builds_attributes: [:id, :buildnumber, :_destroy])
     end
 end

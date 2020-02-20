@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200219161705) do
+ActiveRecord::Schema.define(version: 20200220091732) do
 
   create_table "builds", force: :cascade do |t|
     t.string   "buildnumber"
@@ -35,13 +35,11 @@ ActiveRecord::Schema.define(version: 20200219161705) do
     t.string   "casenumber"
     t.string   "address"
     t.string   "landurl"
-    t.decimal  "landarea",          precision: 9, scale: 2
-    t.string   "landholdingpoint"
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
+    t.decimal  "landarea",                     precision: 9, scale: 2
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
     t.string   "buildurl"
-    t.decimal  "buildarea",         precision: 6, scale: 2
-    t.string   "buildholdingpoint"
+    t.decimal  "buildarea",                    precision: 6, scale: 2
     t.string   "buildtype"
     t.string   "usearea"
     t.date     "auctionday"
@@ -49,11 +47,33 @@ ActiveRecord::Schema.define(version: 20200219161705) do
     t.integer  "floorprice"
     t.integer  "price"
     t.integer  "currentprice"
-    t.decimal  "cp",                precision: 4, scale: 3
+    t.decimal  "cp",                           precision: 4, scale: 3
     t.integer  "suggestedincrease"
     t.integer  "margin"
     t.string   "creditor"
     t.string   "debtor"
+    t.date     "firstsurveydate"
+    t.date     "othersurveydate"
+    t.string   "surveyrecord"
+    t.string   "foreclosureannouncement"
+    t.string   "objectphotos"
+    t.string   "registeredmarketprice"
+    t.string   "registrationmap"
+    t.string   "registrationphoto"
+    t.string   "foreclosurerecord"
+    t.string   "surveyremark"
+    t.string   "surveyresolution"
+    t.string   "finaldecisionheader"
+    t.string   "finaldecisionconclusion"
+    t.string   "finaldecisionsurveyordecide1"
+    t.string   "finaldecisionsurveyordecide2"
+    t.string   "finaldecisionsurveyordecide3"
+    t.string   "finaldecisionsurveyordecide4"
+    t.string   "finaldecisionsurveyordecide5"
+    t.integer  "landholdingpointperson"
+    t.integer  "landholdingpointall"
+    t.integer  "buildholdingpointperson"
+    t.integer  "buildholdingpointall"
   end
 
 end

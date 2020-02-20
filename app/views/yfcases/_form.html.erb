@@ -12,21 +12,25 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :casenumber %><br>
+    <%= f.label :casenumber,"案號" %>
     <%= f.text_field :casenumber %>
+  </div>
+  <div class="field">
+    <%= f.label :address,"地址" %>
+    <%= f.text_field :address %>
   </div>
 
   <div class="field">
-    <%= f.label :debtor %><br>
+    <%= f.label :debtor,"債務人" %>
     <%= f.text_field :debtor %>
   </div>
   <div class="field">
-    <%= f.label :creditor %><br>
+    <%= f.label :creditor,"債權人" %>
     <%= f.text_field :creditor %>
   </div>
   
   <div class="field">
-    <h3>Lands</h3>
+    <h3>地號</h3>
     <div id="lands">
         <%= f.fields_for :lands do |land| %>
 
@@ -34,31 +38,31 @@
 
         <% end %>
         <div class="links">
-            <%= link_to_add_association 'add Land', f, :lands %>
+            <%= link_to_add_association '新增地號', f, :lands %>
         </div>
     </div>
   </div>
 
   <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
+    <%= f.label :landurl,"地號謄本" %>
+    <%= f.url_field :landurl %>
   </div>
   <div class="field">
-    <%= f.label :landurl %><br>
-    <%= f.text_field :landurl %>
+    <%= f.label :landarea,"地坪" %>
+    <%= f.number_field :landarea, :step => 0.01 %>
   </div>
   <div class="field">
-    <%= f.label :landarea %><br>
-    <%= f.text_field :landarea %>
+    <%= f.label :landholdingpointperson,"地坪持分(個人)" %>
+    <%= f.number_field :landholdingpointperson %>
   </div>
-  <div class="field">
-    <%= f.label :landholdingpoint %><br>
-    <%= f.text_field :landholdingpoint %>
+    <div class="field">
+    <%= f.label :landholdingpointall,"地坪持分(所有)" %>
+    <%= f.number_field :landholdingpointall %>
   </div>
 
 
   <div class="field">
-    <h3>Builds</h3>
+    <h3>建號</h3>
     <div id="builds">
         <%= f.fields_for :builds do |build| %>
 
@@ -66,61 +70,144 @@
 
         <% end %>
         <div class="links">
-            <%= link_to_add_association 'add Build', f, :builds %>
+            <%= link_to_add_association '新增建號', f, :builds %>
         </div>
     </div>
   </div>
 
   <div class="field">
-    <%= f.label :buildurl %><br>
+    <%= f.label :buildurl,"建號謄本" %>
     <%= f.text_field :buildurl %>
   </div>
   <div class="field">
-    <%= f.label :buildarea %><br>
-    <%= f.text_field :buildarea %>
+    <%= f.label :buildarea,"建坪" %>
+    <%= f.number_field :buildarea, :step => 0.01 %>
   </div>
   <div class="field">
-    <%= f.label :buildholdingpoint %><br>
-    <%= f.text_field :buildholdingpoint %>
+    <%= f.label :buildholdingpointperson,"建坪持分(個人)" %>
+    <%= f.number_field :buildholdingpointperson %>
+  </div>
+    <div class="field">
+    <%= f.label :buildholdingpointall,"建坪持分(所有)" %>
+    <%= f.number_field :buildholdingpointall %>
   </div>
   <div class="field">
-    <%= f.label :buildtype %><br>
+    <%= f.label :buildtype,"建物型/使用" %>
     <%= f.select(:buildtype,Yfcase::CLASS_LIST) %>
   </div>
   <div class="field">
-    <%= f.label :usearea %><br>
+    <%= f.label :usearea,"使用分區" %>
     <%= f.select(:usearea,Yfcase::AREA_LIST) %>
   </div>
   
 
   <div class="field">
-    <%= f.label :auctionday %><br>
-    <%= f.text_field :auctionday %>
+    <%= f.label :auctionday,"拍賣日" %>
+    <%= f.date_select :auctionday,use_month_numbers: true %>
   </div>
   <div class="field">
-    <%= f.label :auctionlevel %><br>
+    <%= f.label :auctionlevel,"拍別" %>
     <%= f.select(:auctionlevel,Yfcase::AUCTION_LIST) %>
   </div>
   <div class="field">
-    <%= f.label :floorprice %><br>
-    <%= f.text_field :floorprice %>
+    <%= f.label :floorprice,"底價(NT)" %>
+    <%= f.number_field :floorprice %>
   </div>
   <div class="field">
-    <%= f.label :price %><br>
-    <%= f.text_field :price %>
+    <%= f.label :price,"坪價(坪)" %>
+    <%= f.number_field :price %>
   </div>
   <div class="field">
-    <%= f.label :currentprice %><br>
-    <%= f.text_field :currentprice %>
+    <%= f.label :currentprice,"時價(坪)" %>
+    <%= f.number_field :currentprice %>
   </div>
 
   <div class="field">
-    <%= f.label :suggestedincrease %><br>
-    <%= f.text_field :suggestedincrease %>
+    <%= f.label :suggestedincrease,"建議加價" %>
+    <%= f.number_field :suggestedincrease %>
   </div>
   <div class="field">
-    <%= f.label :margin %><br>
-    <%= f.text_field :margin %>
+    <%= f.label :margin,"保証金" %>
+    <%= f.number_field :margin %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :firstsurveydate,"初勘日期" %>
+    <%= f.date_select :firstsurveydate,use_month_numbers: true %>
+  </div>
+  <div class="field">
+    <%= f.label :othersurveydate,"會勘日期" %>
+    <%= f.date_select :othersurveydate,use_month_numbers: true %>
+  </div>
+  <div class="field">
+    <%= f.label :surveyrecord,"勘查記錄" %>
+    <%= f.text_field :surveyrecord %>
+  </div>
+  <div class="field">
+    <%= f.label :foreclosureannouncement,"法拍公告(證物三)" %>
+    <%= f.text_field :foreclosureannouncement %>
+  </div>
+  <div class="field">
+    <%= f.label :objectphotos,"物件照片(證物四)" %>
+    <%= f.text_field :objectphotos %>
+  </div>
+  <div class="field">
+    <%= f.label :registeredmarketprice,"實價登錄市價" %>
+    <%= f.text_field :registeredmarketprice %>
+  </div>
+
+  <div class="field">
+    <%= f.label :registrationmap,"實價登錄地圖(證物五)" %>
+    <%= f.text_field :registrationmap %>
+  </div>
+  <div class="field">
+    <%= f.label :registrationphoto,"實價登錄照片(證物六)" %>
+    <%= f.text_field :registrationphoto %>
+  </div>
+  <div class="field">
+    <%= f.label :foreclosurerecord,"法拍記錄(證物七)" %>
+    <%= f.text_field :foreclosurerecord %>
+  </div>
+  <div class="field">
+    <%= f.label :surveyremark,"備註" %>
+    <%= f.text_field :surveyremark %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :surveyresolution,"會勘決議" %>
+    <%= f.text_field :surveyresolution %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :finaldecisionheader,"區域負責人" %>
+    <%= f.select(:finaldecisionheader,Yfcase::JUDGMENT_LIST) %>
+  </div>
+  <div class="field">
+    <%= f.label :finaldecisionconclusion,"結論" %>
+    <%= f.text_field :finaldecisionconclusion %>
+  </div>
+  <div class="field">
+    <%= f.label :finaldecisionsurveyordecide1,"勘查員1" %>
+    <%= f.text_field :finaldecisionsurveyordecide1 %>
+  </div>
+  <div class="field">
+    <%= f.label :finaldecisionsurveyordecide2,"勘查員2" %>
+    <%= f.text_field :finaldecisionsurveyordecide2 %>
+  </div>
+  <div class="field">
+    <%= f.label :finaldecisionsurveyordecide3,"勘查員3" %>
+    <%= f.text_field :finaldecisionsurveyordecide3 %>
+  </div>
+  <div class="field">
+    <%= f.label :finaldecisionsurveyordecide4,"勘查員4" %>
+    <%= f.text_field :finaldecisionsurveyordecide4 %>
+  </div>
+  <div class="field">
+    <%= f.label :finaldecisionsurveyordecide5,"勘查員5" %>
+    <%= f.text_field :finaldecisionsurveyordecide5 %>
   </div>
 
   <div class="actions">
