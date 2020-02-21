@@ -114,10 +114,6 @@
     <%= f.number_field :floorprice %>
   </div>
   <div class="field">
-    <%= f.label :price,"坪價(坪)" %>
-    <%= f.number_field :price %>
-  </div>
-  <div class="field">
     <%= f.label :currentprice,"時價(坪)" %>
     <%= f.number_field :currentprice %>
   </div>
@@ -140,10 +136,19 @@
     <%= f.label :othersurveydate,"會勘日期" %>
     <%= f.date_select :othersurveydate,use_month_numbers: true %>
   </div>
+
   <div class="field">
-    <%= f.label :surveyrecord,"勘查記錄" %>
-    <%= f.text_field :surveyrecord %>
+    <h3>物件資料</h3>
+      <div id="objectbuilds">
+        <%= f.fields_for :objectbuilds do |objectbuild| %>
+          <%= render 'objectbuild_fields', f: objectbuild %>
+        <% end %>
+      <div class="links">
+        <%= link_to_add_association '新增物件', f, :objectbuilds %>
+      </div>
+    </div>
   </div>
+
   <div class="field">
     <%= f.label :foreclosureannouncement,"法拍公告(證物三)" %>
     <%= f.text_field :foreclosureannouncement %>

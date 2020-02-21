@@ -48,9 +48,10 @@
           <% end %>
         </td>
         <th rowspan="2">建坪</th>
-        <td rowspan="2"><%= @yfcase.buildarea %></td>
+        <td rowspan="2"><%= @yfcase.buildarea %> 平方公尺<br><%= @buildarea.round(2) %> 坪</td>
         <th rowspan="2">持分</th>
         <td rowspan="2"><%= @yfcase.buildholdingpointperson %>/<%= @yfcase.buildholdingpointall %></td>
+        <td style="border-left:hidden;border-bottom:hidden;"><%= @buildholdingpointaream2.round(2) %> 平方公尺</td>
         <th>建物型/使用</th>
         <td><%= @yfcase.buildtype %></td>
 
@@ -58,6 +59,7 @@
     <tr>
       <th>建號謄本</th>
     <td><%= @yfcase.buildurl %></td>
+    <td style="border-left:hidden;border-top:hidden;"><%= @buildholdingpointarea.round(2) %> 坪</td>
     <th>使用分區</th>
         <td><%= @yfcase.usearea %></td>
     </tr>
@@ -77,50 +79,52 @@
     <tr>
       <td><% if @yfcase.auctionlevel == "第一拍" %>V<% end %></td>
       <th>第一拍</th>
-      <td><% if @yfcase.auctionlevel == "第一拍" %><%= @yfcase.floorprice %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第一拍" %><%= @yfcase.price %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第一拍" %><%= @yfcase.currentprice %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第一拍" %><%= number_to_currency(@yfcase.floorprice, unit: "", precision: 0 ) %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第一拍" %><%= number_to_currency(@buildprice, unit: "", precision: 0 ) %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第一拍" %><%= number_to_currency(nowprice(buildplus(@objectbuilds.find(1).totalprice,@objectbuilds.find(1).buildarea,@objectbuilds.find(1).plusa,@objectbuilds.find(1).plusb),buildplus(@objectbuilds.find(2).totalprice,@objectbuilds.find(1).buildarea,@objectbuilds.find(2).plusa,@objectbuilds.find(2).plusb)), unit: "", precision: 0 ) %><% end %></td>
       <td><% if @yfcase.auctionlevel == "第一拍" %><%= @cp %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第一拍" %><%= @yfcase.suggestedincrease %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第一拍" %><%= @yfcase.margin %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第一拍" %><%= number_to_currency(@yfcase.suggestedincrease, unit: "", precision: 0 ) %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第一拍" %><%= number_to_currency(@yfcase.margin, unit: "", precision: 0 ) %><% end %></td>
     </tr>
 
     <tr>
       <td><% if @yfcase.auctionlevel == "第二拍" %>V<% end %></td>
       <th>第二拍</th>
-      <td><% if @yfcase.auctionlevel == "第二拍" %><%= @yfcase.floorprice %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第二拍" %><%= @yfcase.price %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第二拍" %><%= @yfcase.currentprice %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第二拍" %><%= number_to_currency(@yfcase.floorprice, unit: "", precision: 0 ) %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第二拍" %><%= number_to_currency(@buildprice, unit: "", precision: 0 ) %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第二拍" %><%= number_to_currency(nowprice(buildplus(@objectbuilds.find(1).totalprice,@objectbuilds.find(1).buildarea,@objectbuilds.find(1).plusa,@objectbuilds.find(1).plusb),buildplus(@objectbuilds.find(2).totalprice,@objectbuilds.find(1).buildarea,@objectbuilds.find(2).plusa,@objectbuilds.find(2).plusb)), unit: "", precision: 0 ) %><% end %></td>
       <td><% if @yfcase.auctionlevel == "第二拍" %><%= @cp %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第二拍" %><%= @yfcase.suggestedincrease %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第二拍" %><%= @yfcase.margin %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第二拍" %><%= number_to_currency(@yfcase.suggestedincrease, unit: "", precision: 0 ) %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第二拍" %><%= number_to_currency(@yfcase.margin, unit: "", precision: 0 ) %><% end %></td>
     </tr>
     <tr>
       <td><% if @yfcase.auctionlevel == "第三拍" %>V<% end %></td>
       <th>第三拍</th>
-      <td><% if @yfcase.auctionlevel == "第三拍" %><%= @yfcase.floorprice %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第三拍" %><%= @yfcase.price %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第三拍" %><%= @yfcase.currentprice %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第三拍" %><%= number_to_currency(@yfcase.floorprice, unit: "", precision: 0 ) %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第三拍" %><%= number_to_currency(@buildprice, unit: "", precision: 0 ) %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第三拍" %><%= number_to_currency(nowprice(buildplus(@objectbuilds.find(1).totalprice,@objectbuilds.find(1).buildarea,@objectbuilds.find(1).plusa,@objectbuilds.find(1).plusb),buildplus(@objectbuilds.find(2).totalprice,@objectbuilds.find(1).buildarea,@objectbuilds.find(2).plusa,@objectbuilds.find(2).plusb)), unit: "", precision: 0 ) %><% end %></td>
       <td><% if @yfcase.auctionlevel == "第三拍" %><%= @cp %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第三拍" %><%= @yfcase.suggestedincrease %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第三拍" %><%= @yfcase.margin %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第三拍" %><%= number_to_currency(@yfcase.suggestedincrease, unit: "", precision: 0 ) %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第三拍" %><%= number_to_currency(@yfcase.margin, unit: "", precision: 0 ) %><% end %></td>
     </tr>
     <tr>
       <td><% if @yfcase.auctionlevel == "第四拍" %>V<% end %></td>
       <th>第四拍</th>
-      <td><% if @yfcase.auctionlevel == "第四拍" %><%= @yfcase.floorprice %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第四拍" %><%= @yfcase.price %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第四拍" %><%= @yfcase.currentprice %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第四拍" %><%= number_to_currency(@yfcase.floorprice, unit: "", precision: 0 ) %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第四拍" %><%= number_to_currency(@buildprice, unit: "", precision: 0 ) %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第四拍" %><%= number_to_currency(nowprice(buildplus(@objectbuilds.find(1).totalprice,@objectbuilds.find(1).buildarea,@objectbuilds.find(1).plusa,@objectbuilds.find(1).plusb),buildplus(@objectbuilds.find(2).totalprice,@objectbuilds.find(1).buildarea,@objectbuilds.find(2).plusa,@objectbuilds.find(2).plusb)), unit: "", precision: 0 ) %><% end %></td>
       <td><% if @yfcase.auctionlevel == "第四拍" %><%= @cp %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第四拍" %><%= @yfcase.suggestedincrease %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第四拍" %><%= @yfcase.margin %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第四拍" %><%= number_to_currency(@yfcase.suggestedincrease, unit: "", precision: 0 ) %><% end %></td>
+      <td><% if @yfcase.auctionlevel == "第四拍" %><%= number_to_currency(@yfcase.margin, unit: "", precision: 0 ) %><% end %></td>
     </tr>
 
     <!-- 勘查記錄 -->
     <tr>
       <th rowspan="10">勘查記錄</th>
       <th>初勘日期</th>
-      <td colspan="8"><%= @yfcase.firstsurveydate %></td>
+      <td colspan="8"><%= @yfcase.firstsurveydate %>
+        
+      </td>
     </tr>
     <tr>
       <th>會勘日期</th>
@@ -128,7 +132,40 @@
     </tr>
     <tr>
       <th>勘查記錄</th>
-      <td colspan="8"><%= @yfcase.surveyrecord %></td>
+      <td colspan="8">
+        <table>
+          <tr>
+            <th>地址</th>
+            <th>總價(萬)</th>
+            <th>建坪(萬)</th>
+            <th>單價(萬)</th>
+            <th>屋齡(年)</th>
+            <th>單位</th>
+            <th>樓高</th>
+     
+            <th>勘查員A</th>
+            <th>加成A</th>
+            <th>勘查員B</th>
+            <th>加成B</th>
+          </tr>
+            <% @yfcase.objectbuilds.each do |objectbuild| %>
+              <tr>
+                <td><%= objectbuild.address %></td>
+                <td><%= objectbuild.totalprice %></td>
+                <td><%= objectbuild.buildarea %></td>
+                <td><%= divtwo(objectbuild.totalprice,objectbuild.buildarea).round(2) %></td>
+                <td><%= objectbuild.house %></td>
+                <td><%= objectbuild.unit %></td>
+                <td><%= objectbuild.floorheight %></td>
+          
+                <td><%= objectbuild.surveyora %></td>
+                <td><%= objectbuild.plusa %></td>
+                <td><%= objectbuild.surveyorb %></td>
+                <td><%= objectbuild.plusb %></td>
+              </tr>
+            <% end %>
+        </table>
+      </td>
     </tr>
     <tr>
       <th>法拍公告(證物三)</th>

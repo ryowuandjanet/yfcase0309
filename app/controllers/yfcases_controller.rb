@@ -10,9 +10,20 @@ class YfcasesController < ApplicationController
   # GET /yfcases/1
   # GET /yfcases/1.json
   def show
+    buildholdingpoint = @yfcase.buildholdingpointperson.to_f / @yfcase.buildholdingpointall.to_f
+    floorprice = @yfcase.floorprice.to_f
+    buildarea = @yfcase.buildarea.to_f 
     currentprice = @yfcase.currentprice.to_f
-    bioprice = @yfcase.price.to_f
-    @cp = (currentprice / bioprice ).round(4)
+    
+    @buildarea = buildarea * 0.3025
+    @buildholdingpointarea = @buildarea * buildholdingpoint
+    @buildholdingpointaream2 = buildarea * buildholdingpoint
+
+    @objectbuilds=@yfcase.objectbuilds
+
+
+    @buildprice = (floorprice / (@buildarea * buildholdingpoint)).round(0)
+    @cp = (currentprice / @buildprice ).round(4)
   end
 
   # GET /yfcases/new
@@ -69,7 +80,7 @@ class YfcasesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # Use callbacks to share common setup or constraints between actions.k
     def set_yfcase
       @yfcase = Yfcase.find(params[:id])
     end
@@ -85,6 +96,7 @@ class YfcasesController < ApplicationController
         :surveyresolution , \
         :finaldecisionheader ,:finaldecisionconclusion , \
         :finaldecisionsurveyordecide1 ,:finaldecisionsurveyordecide2 ,:finaldecisionsurveyordecide3 ,:finaldecisionsurveyordecide4 ,:finaldecisionsurveyordecide5 , \
-        lands_attributes: [:id, :landnumber, :_destroy],builds_attributes: [:id, :buildnumber, :_destroy])
+        lands_attributes: [:id, :landnumber, :_destroy],builds_attributes: [:id, :buildnumber, :_destroy], \
+        objectbuilds_attributes: [:id, :address, :totalprice, :buildarea, :unitprice, :house, :unit, :floorheight, :surveyora, :surveyorb, :plusa, :plusb, :_destroy])
     end
 end

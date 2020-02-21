@@ -1,6 +1,7 @@
 class Yfcase < ActiveRecord::Base
 	has_many :lands,dependent: :delete_all
 	has_many :builds,dependent: :delete_all
+	has_many :objectbuilds,dependent: :delete_all
 
 	AUCTION_LIST=["第一拍","第二拍","第三拍","第四拍"]
 	CLASS_LIST=["1公寓(5樓含以下無電梯)","2透天厝","3店面(店舖)","4辦公商業大樓","5住宅大樓(11層含以上有電梯)","6華廈(10層含以下有電梯)","7套房(1房(1廳)1衛)","8工廠","9廠辦","10農舍","11倉庫","Z其他等型態"]
@@ -8,5 +9,8 @@ class Yfcase < ActiveRecord::Base
 	JUDGMENT_LIST=["3拍進場","4拍進場","放棄"]
 	accepts_nested_attributes_for :lands,reject_if: proc { |attributes| attributes['landnumber'].blank? },allow_destroy: true
 	accepts_nested_attributes_for :builds,reject_if: proc { |attributes| attributes['buildnumber'].blank? },allow_destroy: true
+	accepts_nested_attributes_for :objectbuilds, reject_if: :all_blank,allow_destroy: true
 	validates :casenumber, presence: true
 end
+
+  
