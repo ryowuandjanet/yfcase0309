@@ -1,139 +1,139 @@
 <p id="notice"><%= notice %></p>
+<h1>YF評量表</h1>
+<table style="width: 1080px;">
 
-<table >
   <!-- 第一列 -->
-    <tr>
-        <th>案號</th>
-        <td>
-            <%= @yfcase.casenumber %>
-        </td>
-        <th>地址</th>
-        <td colspan="3"><%= @yfcase.address %></td>
-    </tr>
+  <tr>
+    <th style="width: 6%;">案號</th>
+    <td style="width: 24%;" colspan="2"><%= @yfcase.casenumber %></td>
+    <th style="width: 5%;">地址</th>
+    <td style="width: 66%;" colspan="8"><%= @yfcase.address %></td>
+  </tr>
 
   <!-- 第二列 -->
-    <tr>
-        <th>債務人</th>
-        <td>
-            <%= @yfcase.debtor %>
-        </td>
-        <th>債權人</th>
-        <td colspan="3"><%= @yfcase.creditor %></td>
-    </tr>
+  <tr>
+    <th style="width: 6%;">債務人</th>
+    <td style="width: 24%;" colspan="2"><%= @yfcase.debtor %></td>
+    <th style="width: 5%;">債權人</th>
+    <td style="width: 66%;" colspan="8"><%= @yfcase.creditor %></td>
+  </tr>
 
-    <!-- 第三列 -->
-    <tr>
-        <th>地號</th>
-        <td>
-            <% @yfcase.lands.each do |land| %>
-              <%= land.landnumber %><br>
-            <% end %>
-        </td>
-        <th rowspan="2">地坪</th>
-        <td rowspan="2"><%= @yfcase.landarea %></td>
-        <th rowspan="2">持分</th>
-        <td rowspan="2"><%= @yfcase.landholdingpointperson %>/<%= @yfcase.landholdingpointall %></td>
-    </tr>
-    <tr>
-      <th>地號謄本</th>
-    <td><%= @yfcase.landurl %></td>
-    </tr>
+  <!-- 第三列 -->
+  <tr>
+    <th style="width: 6%;">地號</th>
+    <td style="width: 24%;" colspan="2">
+      <% @yfcase.lands.each do |land| %>
+        <%= land.landnumber %><br>
+      <% end %>
+    </td>
+    <th style="width: 5%;" rowspan="2">地坪</th>
+    <td style="width: 13%;" colspan="2" rowspan="2"><%= @yfcase.landarea %></td>
+    <th style="width: 7%;" rowspan="2">持分</th>
+    <td style="width: 46%;" colspan="5" rowspan="2"><%= @yfcase.landholdingpointperson %>/<%= @yfcase.landholdingpointall %></td>
+  </tr>
+  <tr>
+    <th style="width: 6%;">地號謄本</th>
+    <td style="width: 24%;" colspan="2"><%= link_to @yfcase.landurl, @yfcase.landurl %></td>
+  </tr>
 
-    <!-- 第四列 -->
-    <tr>
-        <th>建號</th>
-        <td>
-          <% @yfcase.builds.each do |build| %>
-            <%= build.buildnumber %><br>
-          <% end %>
-        </td>
-        <th rowspan="2">建坪</th>
-        <td rowspan="2"><%= @yfcase.buildarea %> 平方公尺<br><%= @buildarea.round(2) %> 坪</td>
-        <th rowspan="2">持分</th>
-        <td rowspan="2"><%= @yfcase.buildholdingpointperson %>/<%= @yfcase.buildholdingpointall %></td>
-        <td style="border-left:hidden;border-bottom:hidden;"><%= @buildholdingpointaream2.round(2) %> 平方公尺</td>
-        <th>建物型/使用</th>
-        <td><%= @yfcase.buildtype %></td>
+  <!-- 第四列 -->
+  <tr>
+    <th style="width: 6%;">建號</th>
+    <td style="width: 24%;" colspan="2">
+      <% @yfcase.builds.each do |build| %>
+        <%= build.buildnumber %><br>
+      <% end %>
+    </td>
+    <th style="width: 5%;" rowspan="2">建坪</th>
+    <td style="width: 13%;" colspan="2" rowspan="2"><%= @yfcase.buildarea %> 平方公尺<br><%= @buildarea.round(2) %> 坪</td>
+    <th style="width: 7%;" rowspan="2">持分</th>
+    <td style="width: 7%;" rowspan="2"><%= @yfcase.buildholdingpointperson %>/<%= @yfcase.buildholdingpointall %></td>
+    <td style="width: 7%;" rowspan="2" colspan="2" style="border-left:hidden;">
+      <%= @buildholdingpointaream2.round(2) %> 平方公尺<br>
+      <%= @buildholdingpointarea.round(2) %> 坪
+    </td>
+    <th style="width: 9%;">建物型/使用</th>
+    <td style="width: 18%;"><%= @yfcase.buildtype %></td>
+  </tr>
+  <tr>
+    <th style="width: 6%;">建號謄本</th>
+    <td style="width: 24%;" colspan="2"><%= link_to @yfcase.buildurl, @yfcase.buildurl %></td>
+    <th style="width: 9%;">使用分區</th>
+    <td style="width: 18%;"><%= @yfcase.usearea %></td>
+  </tr>
 
-    </tr>
-    <tr>
-      <th>建號謄本</th>
-    <td><%= @yfcase.buildurl %></td>
-    <td style="border-left:hidden;border-top:hidden;"><%= @buildholdingpointarea.round(2) %> 坪</td>
-    <th>使用分區</th>
-        <td><%= @yfcase.usearea %></td>
-    </tr>
+  <!-- 第五列 -->
+  <tr>
+    <th style="width: 6%;" rowspan="5">拍賣日</th>
+    <td style="width: 24%;" colspan="2"  rowspan="5"><%= @yfcase.auctionday %></td>
+    <th style="width: 10%;" colspan="2">拍別</th>
+    <th style="width: 8%;">底價(NT)</th>
+    <th style="width: 7%;">坪價(坪)</th>
+    <th style="width: 7%;">時價(坪)</th>
+    <th style="width: 6%;">CP</th>
+    <th style="width: 6%;">建議加價</th>
+    <th style="width: 9%;">保証金</th>
+    <th style="width: 18%;">備註</th>    
+  </tr>
+  <tr>
+    <td style="width: 5%;"><% if @yfcase.auctionlevel == "第一拍" %>V<% end %></td>
+    <th style="width: 5%;">第一拍</th>
+    <td style="width: 8%;"><% if @yfcase.auctionlevel == "第一拍" %><%= number_to_currency(@yfcase.floorprice, unit: "", precision: 0 ) %><% end %></td>
+    <td style="width: 7%;"><% if @yfcase.auctionlevel == "第一拍" %><%= number_to_currency(@buildprice, unit: "", precision: 0 ) %><% end %></td>
+    <td style="width: 7%;"><% if @yfcase.auctionlevel == "第一拍" %><%= number_to_currency(@ojbectbuildaverage, unit: "", precision: 0 ) %><% end %></td>
+    <td style="width: 6%;"><% if @yfcase.auctionlevel == "第一拍" %><%= @cp.round(2) %><% end %></td>
+    <td style="width: 6%;"><% if @yfcase.auctionlevel == "第一拍" %><%= number_to_currency(@yfcase.suggestedincrease, unit: "", precision: 0 ) %><% end %></td>
+    <td style="width: 9%;"><% if @yfcase.auctionlevel == "第一拍" %><%= number_to_currency(@yfcase.margin, unit: "", precision: 0 ) %><% end %></td>
+    <td style="width: 18%;"></td>  
+  </tr>
+  <tr>
+    <td style="width: 5%;"><% if @yfcase.auctionlevel == "第二拍" %>V<% end %></td>
+    <th style="width: 5%;">第二拍</th>
+    <td style="width: 8%;"><% if @yfcase.auctionlevel == "第二拍" %><%= number_to_currency(@yfcase.floorprice, unit: "", precision: 0 ) %><% end %></td>
+    <td style="width: 7%;"><% if @yfcase.auctionlevel == "第二拍" %><%= number_to_currency(@buildprice, unit: "", precision: 0 ) %><% end %></td>
+    <td style="width: 7%;"><% if @yfcase.auctionlevel == "第二拍" %><%= number_to_currency(@ojbectbuildaverage, unit: "", precision: 0 ) %><% end %></td>
+    <td style="width: 6%;"><% if @yfcase.auctionlevel == "第二拍" %><%= @cp.round(2) %><% end %></td>
+    <td style="width: 6%;"><% if @yfcase.auctionlevel == "第二拍" %><%= number_to_currency(@yfcase.suggestedincrease, unit: "", precision: 0 ) %><% end %></td>
+    <td style="width: 9%;"><% if @yfcase.auctionlevel == "第二拍" %><%= number_to_currency(@yfcase.margin, unit: "", precision: 0 ) %><% end %></td>
+    <td style="width: 18%;"></td>  
+  </tr>
+  <tr>
+    <td style="width: 5%;"><% if @yfcase.auctionlevel == "第三拍" %>V<% end %></td>
+    <th style="width: 5%;">第三拍</th>
+    <td style="width: 8%;"><% if @yfcase.auctionlevel == "第三拍" %><%= number_to_currency(@yfcase.floorprice, unit: "", precision: 0 ) %><% end %></td>
+    <td style="width: 7%;"><% if @yfcase.auctionlevel == "第三拍" %><%= number_to_currency(@buildprice, unit: "", precision: 0 ) %><% end %></td>
+    <td style="width: 7%;"><% if @yfcase.auctionlevel == "第三拍" %><%= number_to_currency(@ojbectbuildaverage, unit: "", precision: 0 ) %><% end %></td>
+    <td style="width: 6%;"><% if @yfcase.auctionlevel == "第三拍" %><%= @cp.round(2) %><% end %></td>
+    <td style="width: 6%;"><% if @yfcase.auctionlevel == "第三拍" %><%= number_to_currency(@yfcase.suggestedincrease, unit: "", precision: 0 ) %><% end %></td>
+    <td style="width: 9%;"><% if @yfcase.auctionlevel == "第三拍" %><%= number_to_currency(@yfcase.margin, unit: "", precision: 0 ) %><% end %></td>
+    <td style="width: 18%;"></td>  
+  </tr>
+  <tr>
+    <td style="width: 5%;"><% if @yfcase.auctionlevel == "第四拍" %>V<% end %></td>
+    <th style="width: 5%;">第四拍</th>
+    <td style="width: 8%;"><% if @yfcase.auctionlevel == "第四拍" %><%= number_to_currency(@yfcase.floorprice, unit: "", precision: 0 ) %><% end %></td>
+    <td style="width: 7%;"><% if @yfcase.auctionlevel == "第四拍" %><%= number_to_currency(@buildprice, unit: "", precision: 0 ) %><% end %></td>
+    <td style="width: 7%;"><% if @yfcase.auctionlevel == "第四拍" %><%= number_to_currency(@ojbectbuildaverage, unit: "", precision: 0 ) %><% end %></td>
+    <td style="width: 6%;"><% if @yfcase.auctionlevel == "第四拍" %><%= @cp.round(2) %><% end %></td>
+    <td style="width: 6%;"><% if @yfcase.auctionlevel == "第四拍" %><%= number_to_currency(@yfcase.suggestedincrease, unit: "", precision: 0 ) %><% end %></td>
+    <td style="width: 9%;"><% if @yfcase.auctionlevel == "第四拍" %><%= number_to_currency(@yfcase.margin, unit: "", precision: 0 ) %><% end %></td>
+    <td style="width: 18%;"></td>  
+  </tr>
 
-    <!-- 第五列 -->
-    <tr>
-      <th rowspan="5">拍賣日</th>
-      <td rowspan="5"><%= @yfcase.auctionday %></td>
-      <th colspan="2">拍別</th>
-      <th>底價(NT)</th>
-      <th>坪價(坪)</th>
-      <th>時價(坪)</th>
-      <th>CP</th>
-      <th>建議加價</th>
-      <th>保証金</th>
-    </tr>
-    <tr>
-      <td><% if @yfcase.auctionlevel == "第一拍" %>V<% end %></td>
-      <th>第一拍</th>
-      <td><% if @yfcase.auctionlevel == "第一拍" %><%= number_to_currency(@yfcase.floorprice, unit: "", precision: 0 ) %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第一拍" %><%= number_to_currency(@buildprice, unit: "", precision: 0 ) %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第一拍" %><%= number_to_currency(nowprice(buildplus(@objectbuilds.find(1).totalprice,@objectbuilds.find(1).buildarea,@objectbuilds.find(1).plusa,@objectbuilds.find(1).plusb),buildplus(@objectbuilds.find(2).totalprice,@objectbuilds.find(1).buildarea,@objectbuilds.find(2).plusa,@objectbuilds.find(2).plusb)), unit: "", precision: 0 ) %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第一拍" %><%= @cp %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第一拍" %><%= number_to_currency(@yfcase.suggestedincrease, unit: "", precision: 0 ) %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第一拍" %><%= number_to_currency(@yfcase.margin, unit: "", precision: 0 ) %><% end %></td>
-    </tr>
-
-    <tr>
-      <td><% if @yfcase.auctionlevel == "第二拍" %>V<% end %></td>
-      <th>第二拍</th>
-      <td><% if @yfcase.auctionlevel == "第二拍" %><%= number_to_currency(@yfcase.floorprice, unit: "", precision: 0 ) %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第二拍" %><%= number_to_currency(@buildprice, unit: "", precision: 0 ) %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第二拍" %><%= number_to_currency(nowprice(buildplus(@objectbuilds.find(1).totalprice,@objectbuilds.find(1).buildarea,@objectbuilds.find(1).plusa,@objectbuilds.find(1).plusb),buildplus(@objectbuilds.find(2).totalprice,@objectbuilds.find(1).buildarea,@objectbuilds.find(2).plusa,@objectbuilds.find(2).plusb)), unit: "", precision: 0 ) %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第二拍" %><%= @cp %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第二拍" %><%= number_to_currency(@yfcase.suggestedincrease, unit: "", precision: 0 ) %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第二拍" %><%= number_to_currency(@yfcase.margin, unit: "", precision: 0 ) %><% end %></td>
-    </tr>
-    <tr>
-      <td><% if @yfcase.auctionlevel == "第三拍" %>V<% end %></td>
-      <th>第三拍</th>
-      <td><% if @yfcase.auctionlevel == "第三拍" %><%= number_to_currency(@yfcase.floorprice, unit: "", precision: 0 ) %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第三拍" %><%= number_to_currency(@buildprice, unit: "", precision: 0 ) %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第三拍" %><%= number_to_currency(nowprice(buildplus(@objectbuilds.find(1).totalprice,@objectbuilds.find(1).buildarea,@objectbuilds.find(1).plusa,@objectbuilds.find(1).plusb),buildplus(@objectbuilds.find(2).totalprice,@objectbuilds.find(1).buildarea,@objectbuilds.find(2).plusa,@objectbuilds.find(2).plusb)), unit: "", precision: 0 ) %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第三拍" %><%= @cp %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第三拍" %><%= number_to_currency(@yfcase.suggestedincrease, unit: "", precision: 0 ) %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第三拍" %><%= number_to_currency(@yfcase.margin, unit: "", precision: 0 ) %><% end %></td>
-    </tr>
-    <tr>
-      <td><% if @yfcase.auctionlevel == "第四拍" %>V<% end %></td>
-      <th>第四拍</th>
-      <td><% if @yfcase.auctionlevel == "第四拍" %><%= number_to_currency(@yfcase.floorprice, unit: "", precision: 0 ) %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第四拍" %><%= number_to_currency(@buildprice, unit: "", precision: 0 ) %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第四拍" %><%= number_to_currency(nowprice(buildplus(@objectbuilds.find(1).totalprice,@objectbuilds.find(1).buildarea,@objectbuilds.find(1).plusa,@objectbuilds.find(1).plusb),buildplus(@objectbuilds.find(2).totalprice,@objectbuilds.find(1).buildarea,@objectbuilds.find(2).plusa,@objectbuilds.find(2).plusb)), unit: "", precision: 0 ) %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第四拍" %><%= @cp %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第四拍" %><%= number_to_currency(@yfcase.suggestedincrease, unit: "", precision: 0 ) %><% end %></td>
-      <td><% if @yfcase.auctionlevel == "第四拍" %><%= number_to_currency(@yfcase.margin, unit: "", precision: 0 ) %><% end %></td>
-    </tr>
-
-    <!-- 勘查記錄 -->
-    <tr>
-      <th rowspan="10">勘查記錄</th>
-      <th>初勘日期</th>
-      <td colspan="8"><%= @yfcase.firstsurveydate %>
-        
-      </td>
-    </tr>
-    <tr>
-      <th>會勘日期</th>
-      <td colspan="8"><%= @yfcase.othersurveydate %></td>
-    </tr>
-    <tr>
-      <th>勘查記錄</th>
-      <td colspan="8">
-        <table>
+  <!-- 勘查記錄 -->
+  <tr>
+    <th style="width: 6%;" rowspan="10">勘查記錄</th>
+    <th style="width: 16%;">初勘日期</th>
+    <td style="width: 79%;" colspan="10"><%= @yfcase.firstsurveydate %></td> 
+  </tr> 
+  <tr>
+    <th style="width: 16%;">會勘日期</th>
+    <td style="width: 79%;" colspan="10"><%= @yfcase.othersurveydate %></td> 
+  </tr> 
+  <tr>
+    <th style="width: 16%;">勘查記錄</th>
+    <td style="width: 79%;" colspan="10">
+       <table>
           <tr>
             <th>地址</th>
             <th>總價(萬)</th>
@@ -165,79 +165,78 @@
               </tr>
             <% end %>
         </table>
-      </td>
-    </tr>
-    <tr>
-      <th>法拍公告(證物三)</th>
-      <td colspan="8"><%= @yfcase.foreclosureannouncement %></td>
-    </tr>
-    <tr>
-      <th>物件照片(證物四)</th>
-      <td colspan="8"><%= @yfcase.objectphotos %></td>
-    </tr>
-    <tr>
-      <th>實價登錄市價</th>
-      <td colspan="8"><%= @yfcase.registeredmarketprice %></td>
-    </tr>
-    <tr>
-      <th>實價登錄地圖(證物五)</th>
-      <td colspan="8"><%= @yfcase.registrationmap %></td>
-    </tr>
-    <tr>
-      <th>實價登錄照片(證物六)</th>
-      <td colspan="8"><%= @yfcase.registrationphoto %></td>
-    </tr>
-    <tr>
-      <th>法拍記錄(證物七)</th>
-      <td colspan="8"><%= @yfcase.foreclosurerecord %></td>
-    </tr>
-    <tr>
-      <th>備註</th>
-      <td colspan="8"><%= @yfcase.surveyremark %></td>
-    </tr>
+    </td> 
+  </tr> 
+  <tr>
+    <th style="width: 16%;">法拍公告(證物三)</th>
+    <td style="width: 79%;" colspan="10"><%= @yfcase.foreclosureannouncement %></td> 
+  </tr> 
+  <tr>
+    <th style="width: 16%;">物件照片(證物四)</th>
+    <td style="width: 79%;" colspan="10"><%= @yfcase.objectphotos %></td> 
+  </tr> 
+  <tr>
+    <th style="width: 16%;">實價登錄市價</th>
+    <td style="width: 79%;" colspan="10"><%= @yfcase.registeredmarketprice %></td> 
+  </tr> 
+  <tr>
+    <th style="width: 16%;">實價登錄地圖(證物五)</th>
+    <td style="width: 79%;" colspan="10"><%= @yfcase.registrationmap %></td> 
+  </tr> 
+  <tr>
+    <th style="width: 16%;">實價登錄照片(證物六)</th>
+    <td style="width: 79%;" colspan="10"><%= @yfcase.registrationphoto %></td> 
+  </tr> 
+  <tr>
+    <th style="width: 16%;">法拍記錄(證物七)</th>
+    <td style="width: 79%;" colspan="10"><%= @yfcase.foreclosurerecord %></td> 
+  </tr> 
+  <tr>
+    <th style="width: 16%;">備註</th>
+    <td style="width: 79%;" colspan="10"><%= @yfcase.surveyremark %></td> 
+  </tr> 
 
-    <!-- 會勘決議 -->
-    <tr>
-      <th>會勘決議</th>
-      <td colspan="9"><%= @yfcase.surveyresolution %></td>
-    </tr>
+  <!-- 會勘決議 -->
+  <tr>
+    <th style="width: 6%;">會勘決議</th>
+    <td style="width: 94%;" colspan="11"><%= @yfcase.surveyresolution %></td> 
+  </tr> 
 
-    <!-- 最終決定 -->
-    <tr>
-      <th rowspan="6">最終決定</th>
-      <th>區域負責人</th>
-      <th>結論</th>
-      <th colspan="2">副署人員</th>
-      <th>同意/不同意</th>
-    </tr>
-
-    <tr>
-      <td rowspan="5"><%= @yfcase.finaldecisionheader %></td>
-      <td rowspan="5"><%= @yfcase.finaldecisionconclusion %></td>
-      <th>勘查員1</th>
-      <td><%= @yfcase.finaldecisionsurveyordecide1 %></td>
-      <td><%= @yfcase.finaldecisionsurveyordecide1 %></td>
-    </tr>
-    <tr>
-      <th>勘查員2</th>
-      <td><%= @yfcase.finaldecisionsurveyordecide2 %></td>
-      <td><%= @yfcase.finaldecisionsurveyordecide2 %></td>
-    </tr>
-    <tr>
-      <th>勘查員3</th>
-      <td><%= @yfcase.finaldecisionsurveyordecide3 %></td>
-      <td><%= @yfcase.finaldecisionsurveyordecide3 %></td>
-    </tr>
-    <tr>
-      <th>勘查員4</th>
-      <td><%= @yfcase.finaldecisionsurveyordecide4 %></td>
-      <td><%= @yfcase.finaldecisionsurveyordecide4 %></td>
-    </tr>
-    <tr>
-      <th>勘查員5</th>
-      <td><%= @yfcase.finaldecisionsurveyordecide5 %></td>
-      <td><%= @yfcase.finaldecisionsurveyordecide5 %></td>
-    </tr>
-</table>
+  <!-- 最終決定 -->
+  <tr>
+    <th style="width: 6%;" rowspan="6">最終決定</th>
+    <th style="width: 34%;" colspan="4">結論</th>
+    <th style="width: 15%;" colspan="2">區域負責人</th>
+    <th style="width: 28%;" colspan="4">副署人員</th>
+    <th style="width: 18%;">同意/不同意</th>
+  </tr>
+  <tr>
+    <td style="width: 34%;" colspan="4" rowspan="5"><%= @yfcase.finaldecisionconclusion %></td>
+    <td style="width: 15%;" colspan="2" rowspan="5"><%= @yfcase.finaldecisionheader %></td>
+    <th style="width: 13%;" colspan="2">勘查員1</th>
+    <td style="width: 15%;" colspan="2"><%= @yfcase.finaldecisionsurveyordecide1 %></td>
+    <td style="width: 18%;"><%= @yfcase.finaldecisionsurveyordecide1 %></td>
+  </tr>
+  <tr>
+    <th style="width: 13%;" colspan="2">勘查員2</th>
+    <td style="width: 15%;" colspan="2"><%= @yfcase.finaldecisionsurveyordecide2 %></td>
+    <td style="width: 18%;"><%= @yfcase.finaldecisionsurveyordecide2 %></td>
+  </tr>
+  <tr>
+    <th style="width: 13%;" colspan="2">勘查員3</th>
+    <td style="width: 15%;" colspan="2"><%= @yfcase.finaldecisionsurveyordecide3 %></td>
+    <td style="width: 18%;"><%= @yfcase.finaldecisionsurveyordecide3 %></td>
+  </tr>
+  <tr>
+    <th style="width: 13%;" colspan="2">勘查員4</th>
+    <td style="width: 15%;" colspan="2"><%= @yfcase.finaldecisionsurveyordecide4 %></td>
+    <td style="width: 18%;"><%= @yfcase.finaldecisionsurveyordecide4 %></td>
+  </tr>
+  <tr>
+  <th style="width: 13%;" colspan="2">勘查員5</th>
+    <td style="width: 15%;" colspan="2"><%= @yfcase.finaldecisionsurveyordecide5 %></td>
+    <td style="width: 18%;"><%= @yfcase.finaldecisionsurveyordecide5 %></td>
+  </tr>
+<table >
 <%= link_to 'Edit', edit_yfcase_path(@yfcase) %> |
 <%= link_to 'Back', yfcases_path %>

@@ -138,7 +138,7 @@
   </div>
 
   <div class="field">
-    <h3>物件資料</h3>
+    <h3>物件資料</h3>            
       <div id="objectbuilds">
         <%= f.fields_for :objectbuilds do |objectbuild| %>
           <%= render 'objectbuild_fields', f: objectbuild %>
@@ -188,11 +188,11 @@
 
   <div class="field">
     <%= f.label :finaldecisionheader,"區域負責人" %>
-    <%= f.select(:finaldecisionheader,Yfcase::JUDGMENT_LIST) %>
+    <%= f.text_field :finaldecisionheader %>
   </div>
   <div class="field">
     <%= f.label :finaldecisionconclusion,"結論" %>
-    <%= f.text_field :finaldecisionconclusion %>
+    <%= f.select(:finaldecisionconclusion,Yfcase::JUDGMENT_LIST)  %>
   </div>
   <div class="field">
     <%= f.label :finaldecisionsurveyordecide1,"勘查員1" %>

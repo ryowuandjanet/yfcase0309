@@ -20,10 +20,12 @@ class YfcasesController < ApplicationController
     @buildholdingpointaream2 = buildarea * buildholdingpoint
 
     @objectbuilds=@yfcase.objectbuilds
+    @ojbectbuildaverage=@objectbuilds.map{|n| [ n.unitprice * ((n.plusb+n.plusa) / 2 )] }.sum.sum.fdiv(@yfcase.objectbuilds.count)
 
 
     @buildprice = (floorprice / (@buildarea * buildholdingpoint)).round(0)
-    @cp = (currentprice / @buildprice ).round(4)
+    @cp = (@ojbectbuildaverage / @buildprice ).round(4)
+
   end
 
   # GET /yfcases/new

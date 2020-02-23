@@ -1,27 +1,35 @@
 <div class="nested-fields">
     <div class="field">
-        <%= f.label :address %>
-        <%= f.text_field :address %>
-        <%= f.label :totalprice %>
-        <%= f.text_field :totalprice %>
-        <%= f.label :buildarea %>
-        <%= f.text_field :buildarea %>  
-        <%= f.label :unitprice %>
-        <%= f.text_field :unitprice %>
-        <%= f.label :house %>
-        <%= f.text_field :house %>
-        <%= f.label :unit %>
-        <%= f.text_field :unit %>        
-        <%= f.label :floorheight %>
-        <%= f.text_field :floorheight %>
-        <%= f.label :surveyora %>
-        <%= f.text_field :surveyora %>
-        <%= f.label :surveyorb %>
-        <%= f.text_field :surveyorb %>
-        <%= f.label :plusa %>
-        <%= f.text_field :plusa %>
-        <%= f.label :plusb %>
-        <%= f.text_field :plusb %>
+        <table>
+            <tr>
+                <th><%= f.label :address,"地址" %></th>
+                <th><%= f.label :totalprice,"總價(萬)" %></th>
+                <th><%= f.label :buildarea,"建坪(萬)" %></th>
+                <th><%= f.label :unitprice,"單價(萬)" %></th>
+                <th><%= f.label :house,"屋齡(年)" %></th>
+                <th><%= f.label :unit,"單位" %></th>
+                <th><%= f.label :floorheight,"樓高" %></th>
+                <th><%= f.label :surveyora,"勘查員A" %></th>
+                <th><%= f.label :plusa,"加成A" %></th>
+                <th><%= f.label :surveyorb,"勘查員B" %></th>
+                <th><%= f.label :plusb,"加成B" %></th>
+            </tr>
+            <tr>
+                <td><%= f.text_field :address %></td>
+                <td><%= f.text_field :totalprice, size: "6" %></td>
+                <td><%= f.text_field :buildarea, size: "6" %>  </td>
+                <td><%= f.text_field :unitprice, size: "6" %></td>
+                <td><%= f.text_field :house, size: "6" %></td> 
+                <td><%= f.text_field :unit %>  </td>
+                <td><%= f.text_field :floorheight, size: "6" %></td>
+                <td><%= f.text_field :surveyora, size: "8" %></td>
+                <td><%= f.text_field :plusa, size: "6" %></td>
+                <td><%= f.text_field :surveyorb, size: "8" %></td>
+                <td><%= f.text_field :plusb, size: "6" %></td>
+            </tr>
+        </table>
     	<%= link_to_remove_association "刪除物件", f %>
     </div>
 </div>
+
+                          
