@@ -70,8 +70,8 @@
     <th style="width: 8%;">底價(NT)</th>
     <th style="width: 7%;">坪價(坪)</th>
     <th style="width: 7%;">時價(坪)</th>
-    <th style="width: 6%;">CP</th>
-    <th style="width: 6%;">建議加價</th>
+    <th style="width: 5%;">CP</th>
+    <th style="width: 7%;">建議加價</th>
     <th style="width: 9%;">保証金</th>
     <th style="width: 18%;">備註</th>    
   </tr>
@@ -81,8 +81,8 @@
     <td style="width: 8%;"><% if @yfcase.auctionlevel == "第一拍" %><%= number_to_currency(@yfcase.floorprice, unit: "", precision: 0 ) %><% end %></td>
     <td style="width: 7%;"><% if @yfcase.auctionlevel == "第一拍" %><%= number_to_currency(@buildprice, unit: "", precision: 0 ) %><% end %></td>
     <td style="width: 7%;"><% if @yfcase.auctionlevel == "第一拍" %><%= number_to_currency(@ojbectbuildaverage, unit: "", precision: 0 ) %><% end %></td>
-    <td style="width: 6%;"><% if @yfcase.auctionlevel == "第一拍" %><%= @cp.round(2) %><% end %></td>
-    <td style="width: 6%;"><% if @yfcase.auctionlevel == "第一拍" %><%= number_to_currency(@yfcase.suggestedincrease, unit: "", precision: 0 ) %><% end %></td>
+    <td style="width: 5%;"><% if @yfcase.auctionlevel == "第一拍" %><%= @cp.round(2) %><% end %></td>
+    <td style="width: 7%;"><% if @yfcase.auctionlevel == "第一拍" %><%= number_to_currency(@yfcase.suggestedincrease, unit: "", precision: 0 ) %><% end %></td>
     <td style="width: 9%;"><% if @yfcase.auctionlevel == "第一拍" %><%= number_to_currency(@yfcase.margin, unit: "", precision: 0 ) %><% end %></td>
     <td style="width: 18%;"></td>  
   </tr>
@@ -92,8 +92,8 @@
     <td style="width: 8%;"><% if @yfcase.auctionlevel == "第二拍" %><%= number_to_currency(@yfcase.floorprice, unit: "", precision: 0 ) %><% end %></td>
     <td style="width: 7%;"><% if @yfcase.auctionlevel == "第二拍" %><%= number_to_currency(@buildprice, unit: "", precision: 0 ) %><% end %></td>
     <td style="width: 7%;"><% if @yfcase.auctionlevel == "第二拍" %><%= number_to_currency(@ojbectbuildaverage, unit: "", precision: 0 ) %><% end %></td>
-    <td style="width: 6%;"><% if @yfcase.auctionlevel == "第二拍" %><%= @cp.round(2) %><% end %></td>
-    <td style="width: 6%;"><% if @yfcase.auctionlevel == "第二拍" %><%= number_to_currency(@yfcase.suggestedincrease, unit: "", precision: 0 ) %><% end %></td>
+    <td style="width: 5%;"><% if @yfcase.auctionlevel == "第二拍" %><%= @cp.round(2) %><% end %></td>
+    <td style="width: 7%;"><% if @yfcase.auctionlevel == "第二拍" %><%= number_to_currency(@yfcase.suggestedincrease, unit: "", precision: 0 ) %><% end %></td>
     <td style="width: 9%;"><% if @yfcase.auctionlevel == "第二拍" %><%= number_to_currency(@yfcase.margin, unit: "", precision: 0 ) %><% end %></td>
     <td style="width: 18%;"></td>  
   </tr>
@@ -103,8 +103,8 @@
     <td style="width: 8%;"><% if @yfcase.auctionlevel == "第三拍" %><%= number_to_currency(@yfcase.floorprice, unit: "", precision: 0 ) %><% end %></td>
     <td style="width: 7%;"><% if @yfcase.auctionlevel == "第三拍" %><%= number_to_currency(@buildprice, unit: "", precision: 0 ) %><% end %></td>
     <td style="width: 7%;"><% if @yfcase.auctionlevel == "第三拍" %><%= number_to_currency(@ojbectbuildaverage, unit: "", precision: 0 ) %><% end %></td>
-    <td style="width: 6%;"><% if @yfcase.auctionlevel == "第三拍" %><%= @cp.round(2) %><% end %></td>
-    <td style="width: 6%;"><% if @yfcase.auctionlevel == "第三拍" %><%= number_to_currency(@yfcase.suggestedincrease, unit: "", precision: 0 ) %><% end %></td>
+    <td style="width: 5%;"><% if @yfcase.auctionlevel == "第三拍" %><%= @cp.round(2) %><% end %></td>
+    <td style="width: 7%;"><% if @yfcase.auctionlevel == "第三拍" %><%= number_to_currency(@yfcase.suggestedincrease, unit: "", precision: 0 ) %><% end %></td>
     <td style="width: 9%;"><% if @yfcase.auctionlevel == "第三拍" %><%= number_to_currency(@yfcase.margin, unit: "", precision: 0 ) %><% end %></td>
     <td style="width: 18%;"></td>  
   </tr>
@@ -114,8 +114,8 @@
     <td style="width: 8%;"><% if @yfcase.auctionlevel == "第四拍" %><%= number_to_currency(@yfcase.floorprice, unit: "", precision: 0 ) %><% end %></td>
     <td style="width: 7%;"><% if @yfcase.auctionlevel == "第四拍" %><%= number_to_currency(@buildprice, unit: "", precision: 0 ) %><% end %></td>
     <td style="width: 7%;"><% if @yfcase.auctionlevel == "第四拍" %><%= number_to_currency(@ojbectbuildaverage, unit: "", precision: 0 ) %><% end %></td>
-    <td style="width: 6%;"><% if @yfcase.auctionlevel == "第四拍" %><%= @cp.round(2) %><% end %></td>
-    <td style="width: 6%;"><% if @yfcase.auctionlevel == "第四拍" %><%= number_to_currency(@yfcase.suggestedincrease, unit: "", precision: 0 ) %><% end %></td>
+    <td style="width: 5%;"><% if @yfcase.auctionlevel == "第四拍" %><%= @cp.round(2) %><% end %></td>
+    <td style="width: 7%;"><% if @yfcase.auctionlevel == "第四拍" %><%= number_to_currency(@yfcase.suggestedincrease, unit: "", precision: 0 ) %><% end %></td>
     <td style="width: 9%;"><% if @yfcase.auctionlevel == "第四拍" %><%= number_to_currency(@yfcase.margin, unit: "", precision: 0 ) %><% end %></td>
     <td style="width: 18%;"></td>  
   </tr>
@@ -153,7 +153,7 @@
                 <td><%= objectbuild.address %></td>
                 <td><%= objectbuild.totalprice %></td>
                 <td><%= objectbuild.buildarea %></td>
-                <td><%= divtwo(objectbuild.totalprice,objectbuild.buildarea).round(2) %></td>
+                <td><%= holdingpoint(objectbuild.totalprice,objectbuild.buildarea).round(2) %></td>
                 <td><%= objectbuild.house %></td>
                 <td><%= objectbuild.unit %></td>
                 <td><%= objectbuild.floorheight %></td>

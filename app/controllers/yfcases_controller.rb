@@ -20,7 +20,7 @@ class YfcasesController < ApplicationController
     @buildholdingpointaream2 = buildarea * buildholdingpoint
 
     @objectbuilds=@yfcase.objectbuilds
-    @ojbectbuildaverage=@objectbuilds.map{|n| [ n.unitprice * ((n.plusb+n.plusa) / 2 )] }.sum.sum.fdiv(@yfcase.objectbuilds.count)
+    @ojbectbuildaverage=@objectbuilds.map{|n| [ (n.totalprice/n.buildarea.to_f) * ((n.plusb.to_f+n.plusa.to_f) / 2 )*10000] }.sum.sum.fdiv(@yfcase.objectbuilds.count)
 
 
     @buildprice = (floorprice / (@buildarea * buildholdingpoint)).round(0)
@@ -77,15 +77,14 @@ class YfcasesController < ApplicationController
     end
   end
 
-  def result
-   
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.k
     def set_yfcase
       @yfcase = Yfcase.find(params[:id])
     end
+
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def yfcase_params
