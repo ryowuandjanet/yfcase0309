@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.10'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', git: "https://github.com/larskanis/sqlite3-ruby", branch: "add-gemspec"
+# gem 'sqlite3', git: "https://github.com/larskanis/sqlite3-ruby", branch: "add-gemspec"
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -38,10 +38,13 @@ gem 'font-awesome-sass', '4.7.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'pg' , group: :production  #新增
+gem 'rails_12factor' , group: :production  #新增
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+	gem 'sqlite3'  #新增
+	# Call 'byebug' anywhere in the code to stop execution and get a debugger console
+	gem 'byebug'
 end
 
 group :development do
