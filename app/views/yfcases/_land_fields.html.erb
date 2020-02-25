@@ -1,6 +1,25 @@
 <div class="nested-fields">
     <div class="field">
-        <%= f.text_field :landnumber %>
-        <%= link_to_remove_association "刪除地號", f %>
+        <table>
+            <tr>
+                <th><%= f.label :landnumber,"地號" %></th>
+                <th><%= f.label :landarea,"地坪(平方公尺)" %></th>
+                <th><%= f.label :landholdingpointperson,"持分(個人)" %></th>
+                <th><%= f.label :landholdingpointall,"持分(所有)" %></th>
+                <th><%= f.label :landurl,"地號謄本" %></th>
+                <th>項目</th>
+            </tr>
+            <tr>
+            	<td><%= f.text_field :landnumber %></td>
+            	<td><%= f.number_field :landarea, :step => 0.01 %></td>
+            	<td><%= f.number_field :landholdingpointperson %></td>
+            	<td><%= f.number_field :landholdingpointall %></td>
+            	<td><%= f.url_field :landurl %></td>
+            	<td><%= link_to_remove_association "刪除地號", f %></td>
+            </tr>
+        </table>
+    	 
     </div>
 </div>
+
+

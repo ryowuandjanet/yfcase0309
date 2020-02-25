@@ -32,7 +32,11 @@
           <% end %>
         </td>
         <!-- 地坪 -->
-        <td><%= yfcase.landarea %></td>
+        <td>
+          <% yfcase.lands.each do |land| %>
+            <%= land.landarea %><br>
+          <% end %>
+        </td>
         <!-- 建號 -->
         <td>
           <% yfcase.builds.each do |build| %>

@@ -90,7 +90,6 @@ class YfcasesController < ApplicationController
     def yfcase_params
       params.require(:yfcase).permit(:casenumber, :address, \
         :creditor,:debtor, \
-        :landurl, :landarea, :landholdingpointperson, :landholdingpointall, \
         :buildurl,:buildarea, :buildholdingpointperson, :buildholdingpointall, :buildtype,:usearea, \
         :auctionday,:auctionlevel,:floorprice,:price,:currentprice,:suggestedincrease,:margin,:click,:monitor,\
         :firstsurveydate ,:othersurveydate ,:surveyrecord ,:foreclosureannouncement ,:objectphotos ,:registeredmarketprice ,:registrationmap ,:registrationphoto ,:foreclosurerecord ,:surveyremark, \
@@ -98,7 +97,7 @@ class YfcasesController < ApplicationController
         :surveyresolution , \
         :finaldecisionheader ,:finaldecisionconclusion , \
         :finaldecisionsurveyordecide1 ,:finaldecisionsurveyordecide2 ,:finaldecisionsurveyordecide3 ,:finaldecisionsurveyordecide4 ,:finaldecisionsurveyordecide5 , \
-        lands_attributes: [:id, :landnumber, :_destroy],builds_attributes: [:id, :buildnumber, :_destroy], \
+        lands_attributes: [:id, :landnumber, :landurl, :landarea, :landholdingpointperson, :landholdingpointall, :_destroy],builds_attributes: [:id, :buildnumber, :_destroy], \
         objectbuilds_attributes: [:id, :address, :totalprice, :buildarea, :unitprice, :house, :unit, :floorheight, :surveyora, :surveyorb, :plusa, :plusb, :_destroy])
     end
 end

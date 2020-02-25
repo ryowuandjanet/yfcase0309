@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200225082228) do
+ActiveRecord::Schema.define(version: 20200225093219) do
 
   create_table "builds", force: :cascade do |t|
     t.string   "buildnumber"
@@ -25,8 +25,12 @@ ActiveRecord::Schema.define(version: 20200225082228) do
   create_table "lands", force: :cascade do |t|
     t.string   "landnumber"
     t.integer  "yfcase_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+    t.string   "landurl"
+    t.decimal  "landarea",               precision: 7, scale: 2
+    t.integer  "landholdingpointperson"
+    t.integer  "landholdingpointall"
   end
 
   add_index "lands", ["yfcase_id"], name: "index_lands_on_yfcase_id"
@@ -53,8 +57,6 @@ ActiveRecord::Schema.define(version: 20200225082228) do
   create_table "yfcases", force: :cascade do |t|
     t.string   "casenumber"
     t.string   "address"
-    t.string   "landurl"
-    t.decimal  "landarea",                     precision: 9, scale: 2
     t.datetime "created_at",                                           null: false
     t.datetime "updated_at",                                           null: false
     t.string   "buildurl"
@@ -89,8 +91,6 @@ ActiveRecord::Schema.define(version: 20200225082228) do
     t.string   "finaldecisionsurveyordecide3"
     t.string   "finaldecisionsurveyordecide4"
     t.string   "finaldecisionsurveyordecide5"
-    t.integer  "landholdingpointperson"
-    t.integer  "landholdingpointall"
     t.integer  "buildholdingpointperson"
     t.integer  "buildholdingpointall"
     t.integer  "click"

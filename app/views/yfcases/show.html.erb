@@ -135,14 +135,29 @@
       <%= land.landnumber %><br>
     <% end %>
   </td>
-  <td colspan=2 class=xl14621207 style='border-left:none'><%= link_to @yfcase.landurl, @yfcase.landurl %>　</td>
-  <td colspan=3 class=xl14521207 width=117 style='border-left:none;width:87pt'>
-    <%= area(@yfcase.landarea,1,1,1).round(2) %> (<%= area(@yfcase.landarea,1,1,0.3025).round(2) %>)
+  <td colspan=2 class=xl14621207 style='border-left:none'>
+    <% @yfcase.lands.each do |land| %>
+      <% if land.landurl == "" %>
+       <%= link_to " " %> <br>
+      <% else%>
+       <%= link_to "連結", land.landurl, target: "_blank" %>　<br>
+      <% end %>
+    <% end %>
   </td>
-  <td colspan=2 class=xl14721207 width=78 style='border-left:none;width:58pt'><%= @yfcase.landholdingpointperson %>/<%= @yfcase.landholdingpointall %></td>
-  <td colspan=3 class=xl14721207 width=117 style='border-right:1.0pt solid black;
-  border-left:none;width:87pt'>
-    <%= area(@yfcase.landarea,@yfcase.landholdingpointperson,@yfcase.landholdingpointall,1).round(2) %> (<%= area(@yfcase.landarea,@yfcase.landholdingpointperson,@yfcase.landholdingpointall,0.3025).round(2) %>)
+  <td colspan=3 class=xl14521207 width=117 style='border-left:none;width:87pt'>
+    <% @yfcase.lands.each do |land| %>
+      <%= area(land.landarea,1,1,1).round(2) %> (<%= area(land.landarea,1,1,0.3025).round(2) %>) <br>
+    <% end %>
+  </td>
+  <td colspan=2 class=xl14721207 width=78 style='border-left:none;width:58pt'>
+    <% @yfcase.lands.each do |land| %>
+      <%= land.landholdingpointperson %>/<%= land.landholdingpointall %> <br>
+    <% end %>
+  </td>
+  <td colspan=3 class=xl14721207 width=117 style='border-right:1.0pt solid black;border-left:none;width:87pt'>
+    <% @yfcase.lands.each do |land| %>
+      <%= area(land.landarea,land.landholdingpointperson,land.landholdingpointall,1).round(2) %> (<%= area(land.landarea,land.landholdingpointperson,land.landholdingpointall,0.3025).round(2) %>) <br>
+    <% end %>
   </td>
   <td class=xl6421207></td>
   <td colspan=3 class=xl9621207 width=117 style='border-right:1.0pt solid black;
