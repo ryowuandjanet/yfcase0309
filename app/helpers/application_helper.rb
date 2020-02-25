@@ -54,6 +54,7 @@ module ApplicationHelper
 		else
 			return result
 		end
-	end
+	end	
+
 end
 

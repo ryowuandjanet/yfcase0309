@@ -84,7 +84,9 @@ class YfcasesController < ApplicationController
       @yfcase = Yfcase.find(params[:id])
     end
 
-
+    def meantest
+      @plusa = Yfcase.find(prarms[:id]).objectbuilds
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def yfcase_params
@@ -98,6 +100,6 @@ class YfcasesController < ApplicationController
         :finaldecisionheader ,:finaldecisionconclusion , \
         :finaldecisionsurveyordecide1 ,:finaldecisionsurveyordecide2 ,:finaldecisionsurveyordecide3 ,:finaldecisionsurveyordecide4 ,:finaldecisionsurveyordecide5 , \
         lands_attributes: [:id, :landnumber, :landurl, :landarea, :landholdingpointperson, :landholdingpointall, :_destroy],builds_attributes: [:id, :buildnumber, :_destroy], \
-        objectbuilds_attributes: [:id, :address, :totalprice, :buildarea, :unitprice, :house, :unit, :floorheight, :surveyora, :surveyorb, :plusa, :plusb, :_destroy])
+        objectbuilds_attributes: [:id, :address, :totalprice, :buildarea, :unitprice, :house, :unit, :floorheight, :surveyora, :surveyorb, :plusa, :plusb, :objectbuildurl, :_destroy])
     end
 end

@@ -13,18 +13,14 @@
 
   <div class="field">
     <%= f.label :casenumber,"案號" %>
-    <%= f.text_field :casenumber %>
-  </div>
-  <div class="field">
+    <%= f.text_field :casenumber, size: 30 %>
     <%= f.label :address,"地址" %>
-    <%= f.text_field :address %>
+    <%= f.text_field :address, size: 90 %>
   </div>
 
   <div class="field">
     <%= f.label :debtor,"債務人" %>
     <%= f.text_field :debtor %>
-  </div>
-  <div class="field">
     <%= f.label :creditor,"債權人" %>
     <%= f.text_field :creditor %>
   </div>
@@ -47,9 +43,7 @@
     <h3>建號</h3>
     <div id="builds">
         <%= f.fields_for :builds do |build| %>
-
             <%= render 'build_fields', f: build %>
-
         <% end %>
         <div class="links">
             <%= link_to_add_association '新增建號', f, :builds %>
@@ -140,37 +134,37 @@
   <div class="field">
     <%= f.label :foreclosureannouncement,"法拍公告(證物三)" %>
     <%= f.text_field :foreclosureannouncement %>
-    <%= f.text_field :foreclosureannouncementlink %>
+    <%= f.text_field :foreclosureannouncementlink, size: 60 %>
   </div>
   <div class="field">
     <%= f.label :objectphotos,"物件照片(證物四)" %>
     <%= f.text_field :objectphotos %>
-    <%= f.text_field :objectphotoslink %>
+    <%= f.text_field :objectphotoslink, size: 60 %>
   </div>
   <div class="field">
     <%= f.label :registeredmarketprice,"實價登錄市價" %>
     <%= f.text_field :registeredmarketprice %>
-    <%= f.text_field :registeredmarketpricelink %>
+    <%= f.text_field :registeredmarketpricelink, size: 60 %>
   </div>
 
   <div class="field">
     <%= f.label :registrationmap,"實價登錄地圖(證物五)" %>
     <%= f.text_field :registrationmap %>
-    <%= f.text_field :registrationmaplink %>
+    <%= f.text_field :registrationmaplink, size: 60 %>
   </div>
   <div class="field">
     <%= f.label :registrationphoto,"實價登錄照片(證物六)" %>
     <%= f.text_field :registrationphoto %>
-    <%= f.text_field :registrationphotolink %>
+    <%= f.text_field :registrationphotolink, size: 60 %>
   </div>
   <div class="field">
     <%= f.label :foreclosurerecord,"法拍記錄(證物七)" %>
     <%= f.text_field :foreclosurerecord %>
-    <%= f.text_field :foreclosurerecordlink %>
+    <%= f.text_field :foreclosurerecordlink, size: 60 %>
   </div>
   <div class="field">
     <%= f.label :surveyremark,"備註" %>
-    <%= f.text_field :surveyremark %>
+    <%= f.text_field :surveyremark, size: 60 %>
   </div>
 
 

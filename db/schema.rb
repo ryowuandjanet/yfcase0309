@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200225093219) do
+ActiveRecord::Schema.define(version: 20200225132308) do
 
   create_table "builds", force: :cascade do |t|
     t.string   "buildnumber"
@@ -38,18 +38,19 @@ ActiveRecord::Schema.define(version: 20200225093219) do
   create_table "objectbuilds", force: :cascade do |t|
     t.string   "address"
     t.integer  "totalprice"
-    t.decimal  "buildarea",   precision: 9, scale: 2
+    t.decimal  "buildarea",      precision: 9, scale: 2
     t.integer  "unitprice"
-    t.decimal  "house",       precision: 5, scale: 2
+    t.decimal  "house",          precision: 5, scale: 2
     t.string   "unit"
     t.string   "floorheight"
     t.integer  "yfcase_id"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.string   "surveyora"
     t.string   "surveyorb"
-    t.decimal  "plusa",       precision: 3, scale: 2
-    t.decimal  "plusb",       precision: 3, scale: 2
+    t.decimal  "plusa",          precision: 3, scale: 2
+    t.decimal  "plusb",          precision: 3, scale: 2
+    t.string   "objectbuildurl"
   end
 
   add_index "objectbuilds", ["yfcase_id"], name: "index_objectbuilds_on_yfcase_id"

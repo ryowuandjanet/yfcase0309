@@ -12,6 +12,7 @@
                 <th><%= f.label :plusa,"加成A" %></th>
                 <th><%= f.label :surveyorb,"勘查員B" %></th>
                 <th><%= f.label :plusb,"加成B" %></th>
+                <th><%= f.label :objectbuildurl,"附件連結" %></th>
                 <th>項目</th>
             </tr>
             <tr>
@@ -25,6 +26,7 @@
                 <td><%= f.text_field :plusa, size: "4" %></td>
                 <td><%= f.text_field :surveyorb, size: "8" %></td>
                 <td><%= f.text_field :plusb, size: "4" %></td>
+                <td><%= f.text_field :objectbuildurl, size: "4" %></td>
                 <td><%= link_to_remove_association "刪除物件", f %></td>
             </tr>
         </table>
