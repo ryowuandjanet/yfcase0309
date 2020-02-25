@@ -11,6 +11,12 @@ module ApplicationHelper
 		return result
 	end
 
+	# 計算面積 ( 面積 , 持分[個人] , 持分[所有] , 倍數[平方公尺=0.3025坪] ) 
+	def area(area,holdingpointperson,holdingpointall,multiple)
+		result = area.to_f * multiple * (holdingpointperson.to_f / holdingpointall.to_f)
+		return result 
+	end
+
 	# 計算坪價 ( 底價 , 建坪[坪] , 持分[個人] , 持分[所有] ) 
 	def unitprice(floorprice,buildarea,buildholdingpointperson,buildholdingpointall)
 		result= floorprice / (buildarea * 0.3025*(buildholdingpointperson.to_f / buildholdingpointall.to_f))
@@ -38,6 +44,16 @@ module ApplicationHelper
 	def nowprice(objecta,objectb)
 		result= ( objecta + objectb ) / 2 * 10000
 		return result
+	end
+
+	# 計算建議加價費用 ( 點閱 , 監控  ) 
+	def suggestedincrease(click,monitor)
+		result=((((click.to_f-100)/100).abs.ceil)*(monitor.to_f/100*3))
+		if result > 0.15
+			return  0.15
+		else
+			return result
+		end
 	end
 end
 

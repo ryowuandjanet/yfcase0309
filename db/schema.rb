@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200221075639) do
+ActiveRecord::Schema.define(version: 20200225082228) do
 
   create_table "builds", force: :cascade do |t|
     t.string   "buildnumber"
@@ -93,6 +93,14 @@ ActiveRecord::Schema.define(version: 20200221075639) do
     t.integer  "landholdingpointall"
     t.integer  "buildholdingpointperson"
     t.integer  "buildholdingpointall"
+    t.integer  "click"
+    t.integer  "monitor"
+    t.string   "foreclosureannouncementlink"
+    t.string   "objectphotoslink"
+    t.string   "registeredmarketpricelink"
+    t.string   "registrationmaplink"
+    t.string   "registrationphotolink"
+    t.string   "foreclosurerecordlink"
   end
 
 end

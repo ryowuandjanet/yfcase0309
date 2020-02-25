@@ -114,6 +114,15 @@
     <%= f.number_field :floorprice %>
   </div>
 
+  <div class="field">
+    <%= f.label :click,"點閱" %>
+    <%= f.number_field :click %>
+  </div>
+
+  <div class="field">
+    <%= f.label :monitor,"監控" %>
+    <%= f.number_field :monitor %>
+  </div>
 
   <div class="field">
     <%= f.label :suggestedincrease,"建議加價" %>
@@ -149,27 +158,33 @@
   <div class="field">
     <%= f.label :foreclosureannouncement,"法拍公告(證物三)" %>
     <%= f.text_field :foreclosureannouncement %>
+    <%= f.text_field :foreclosureannouncementlink %>
   </div>
   <div class="field">
     <%= f.label :objectphotos,"物件照片(證物四)" %>
     <%= f.text_field :objectphotos %>
+    <%= f.text_field :objectphotoslink %>
   </div>
   <div class="field">
     <%= f.label :registeredmarketprice,"實價登錄市價" %>
     <%= f.text_field :registeredmarketprice %>
+    <%= f.text_field :registeredmarketpricelink %>
   </div>
 
   <div class="field">
     <%= f.label :registrationmap,"實價登錄地圖(證物五)" %>
     <%= f.text_field :registrationmap %>
+    <%= f.text_field :registrationmaplink %>
   </div>
   <div class="field">
     <%= f.label :registrationphoto,"實價登錄照片(證物六)" %>
     <%= f.text_field :registrationphoto %>
+    <%= f.text_field :registrationphotolink %>
   </div>
   <div class="field">
     <%= f.label :foreclosurerecord,"法拍記錄(證物七)" %>
     <%= f.text_field :foreclosurerecord %>
+    <%= f.text_field :foreclosurerecordlink %>
   </div>
   <div class="field">
     <%= f.label :surveyremark,"備註" %>

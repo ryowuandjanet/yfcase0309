@@ -92,8 +92,9 @@ class YfcasesController < ApplicationController
         :creditor,:debtor, \
         :landurl, :landarea, :landholdingpointperson, :landholdingpointall, \
         :buildurl,:buildarea, :buildholdingpointperson, :buildholdingpointall, :buildtype,:usearea, \
-        :auctionday,:auctionlevel,:floorprice,:price,:currentprice,:suggestedincrease,:margin,\
+        :auctionday,:auctionlevel,:floorprice,:price,:currentprice,:suggestedincrease,:margin,:click,:monitor,\
         :firstsurveydate ,:othersurveydate ,:surveyrecord ,:foreclosureannouncement ,:objectphotos ,:registeredmarketprice ,:registrationmap ,:registrationphoto ,:foreclosurerecord ,:surveyremark, \
+        :foreclosureannouncementlink,:objectphotoslink,:registeredmarketpricelink,:registrationmaplink,:registrationphotolink,:foreclosurerecordlink, \
         :surveyresolution , \
         :finaldecisionheader ,:finaldecisionconclusion , \
         :finaldecisionsurveyordecide1 ,:finaldecisionsurveyordecide2 ,:finaldecisionsurveyordecide3 ,:finaldecisionsurveyordecide4 ,:finaldecisionsurveyordecide5 , \
