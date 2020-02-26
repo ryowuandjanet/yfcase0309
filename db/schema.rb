@@ -11,13 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200225132308) do
+ActiveRecord::Schema.define(version: 20200226054134) do
 
   create_table "builds", force: :cascade do |t|
     t.string   "buildnumber"
     t.integer  "yfcase_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.string   "buildurl"
+    t.decimal  "buildarea",               precision: 6, scale: 2
+    t.string   "buildholdingpointperson"
+    t.string   "buildholdingpointall"
+    t.string   "buildtype"
+    t.string   "usearea"
   end
 
   add_index "builds", ["yfcase_id"], name: "index_builds_on_yfcase_id"
@@ -58,25 +64,16 @@ ActiveRecord::Schema.define(version: 20200225132308) do
   create_table "yfcases", force: :cascade do |t|
     t.string   "casenumber"
     t.string   "address"
-    t.datetime "created_at",                                           null: false
-    t.datetime "updated_at",                                           null: false
-    t.string   "buildurl"
-    t.decimal  "buildarea",                    precision: 6, scale: 2
-    t.string   "buildtype"
-    t.string   "usearea"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.date     "auctionday"
     t.string   "auctionlevel"
     t.integer  "floorprice"
-    t.integer  "price"
-    t.integer  "currentprice"
-    t.decimal  "cp",                           precision: 4, scale: 3
-    t.integer  "suggestedincrease"
     t.integer  "margin"
     t.string   "creditor"
     t.string   "debtor"
     t.date     "firstsurveydate"
     t.date     "othersurveydate"
-    t.string   "surveyrecord"
     t.string   "foreclosureannouncement"
     t.string   "objectphotos"
     t.string   "registeredmarketprice"
@@ -92,8 +89,6 @@ ActiveRecord::Schema.define(version: 20200225132308) do
     t.string   "finaldecisionsurveyordecide3"
     t.string   "finaldecisionsurveyordecide4"
     t.string   "finaldecisionsurveyordecide5"
-    t.integer  "buildholdingpointperson"
-    t.integer  "buildholdingpointall"
     t.integer  "click"
     t.integer  "monitor"
     t.string   "foreclosureannouncementlink"

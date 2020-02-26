@@ -1,6 +1,27 @@
 <div class="nested-fields">
     <div class="field">
-        <%= f.text_field :buildnumber %>
-        <%= link_to_remove_association "刪除建號", f %>
+        <table>
+            <tr>
+                <th><%= f.label :buildnumber,"建號" %></th>
+                <th><%= f.label :buildarea,"建坪(平方公尺)" %></th>
+                <th><%= f.label :buildholdingpointperson,"持分(個人)" %></th>
+                <th><%= f.label :buildholdingpointall,"持分(所有)" %></th>
+                <th><%= f.label :buildtype,"建物型/使用" %></th>
+                <th><%= f.label :usearea,"使用分區" %></th> 
+                <th><%= f.label :buildurl,"地號謄本" %></th>
+                <th>項目</th>
+            </tr>
+            <tr>
+            	<td><%= f.text_field :buildnumber %></td>
+            	<td><%= f.number_field :buildarea, :step => 0.01 %></td>
+            	<td><%= f.number_field :buildholdingpointperson %></td>
+            	<td><%= f.number_field :buildholdingpointall %></td>
+                <td><%= f.select(:buildtype,Yfcase::CLASS_LIST) %></td> 
+                <td><%= f.select(:usearea,Yfcase::AREA_LIST) %></td>           	
+            	<td><%= f.url_field :buildurl %></td>
+            	<td><%= link_to_remove_association "刪除地號", f %></td>
+            </tr>
+        </table>
+    	 
     </div>
 </div>

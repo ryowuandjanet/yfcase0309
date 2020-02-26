@@ -51,31 +51,6 @@
     </div>
   </div>
 
-  <div class="field">
-    <%= f.label :buildurl,"建號謄本" %>
-    <%= f.text_field :buildurl %>
-  </div>
-  <div class="field">
-    <%= f.label :buildarea,"建坪" %>
-    <%= f.number_field :buildarea, :step => 0.01 %>
-  </div>
-  <div class="field">
-    <%= f.label :buildholdingpointperson,"建坪持分(個人)" %>
-    <%= f.number_field :buildholdingpointperson %>
-  </div>
-    <div class="field">
-    <%= f.label :buildholdingpointall,"建坪持分(所有)" %>
-    <%= f.number_field :buildholdingpointall %>
-  </div>
-  <div class="field">
-    <%= f.label :buildtype,"建物型/使用" %>
-    <%= f.select(:buildtype,Yfcase::CLASS_LIST) %>
-  </div>
-  <div class="field">
-    <%= f.label :usearea,"使用分區" %>
-    <%= f.select(:usearea,Yfcase::AREA_LIST) %>
-  </div>
-  
 
   <div class="field">
     <%= f.label :auctionday,"拍賣日" %>
@@ -87,7 +62,7 @@
   </div>
   <div class="field">
     <%= f.label :floorprice,"底價(NT)" %>
-    <%= f.number_field :floorprice %>
+    <%= f.number_field :floorprice, value: 0 %>
   </div>
 
   <div class="field">
@@ -100,10 +75,6 @@
     <%= f.number_field :monitor %>
   </div>
 
-  <div class="field">
-    <%= f.label :suggestedincrease,"建議加價" %>
-    <%= f.number_field :suggestedincrease %>
-  </div>
   <div class="field">
     <%= f.label :margin,"保証金" %>
     <%= f.number_field :margin %>

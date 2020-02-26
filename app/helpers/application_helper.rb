@@ -31,6 +31,16 @@ module ApplicationHelper
 		return unitprice * plus
 	end
 
+	# 計算建議加價費用 ( 點閱 , 監控  ) 
+	def suggestedincrease(click,monitor)
+		result=((((click.to_f-100)/100).abs.ceil)*(monitor.to_f/100*3))
+		if result > 0.15
+			return  0.15
+		else
+			return result
+		end
+	end	
+
 	def averagebetween(arga,argb)
 		return (arga+argb) / 2
 	end
@@ -46,15 +56,4 @@ module ApplicationHelper
 		return result
 	end
 
-	# 計算建議加價費用 ( 點閱 , 監控  ) 
-	def suggestedincrease(click,monitor)
-		result=((((click.to_f-100)/100).abs.ceil)*(monitor.to_f/100*3))
-		if result > 0.15
-			return  0.15
-		else
-			return result
-		end
-	end	
-
 end
-

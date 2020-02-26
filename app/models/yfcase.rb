@@ -9,7 +9,7 @@ class Yfcase < ActiveRecord::Base
 	JUDGMENT_LIST=["3拍進場","4拍進場","放棄"]
 	accepts_nested_attributes_for :lands,reject_if: proc { |attributes| attributes['landnumber'].blank? },allow_destroy: true
 	accepts_nested_attributes_for :builds,reject_if: proc { |attributes| attributes['buildnumber'].blank? },allow_destroy: true
-	accepts_nested_attributes_for :objectbuilds, reject_if: :all_blank,allow_destroy: true
+	accepts_nested_attributes_for :objectbuilds, reject_if: proc { |attributes| attributes['address'].blank? },allow_destroy: true
 	validates :casenumber, presence: true
 end
 

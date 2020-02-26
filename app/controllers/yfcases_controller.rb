@@ -1,4 +1,5 @@
 class YfcasesController < ApplicationController
+  include ApplicationHelper
   before_action :set_yfcase, only: [:show, :edit, :update, :destroy]
 
   # GET /yfcases
@@ -10,27 +11,29 @@ class YfcasesController < ApplicationController
   # GET /yfcases/1
   # GET /yfcases/1.json
   def show
-    buildholdingpoint = @yfcase.buildholdingpointperson.to_f / @yfcase.buildholdingpointall.to_f
-    floorprice = @yfcase.floorprice.to_f
-    buildarea = @yfcase.buildarea.to_f 
-    currentprice = @yfcase.currentprice.to_f
-    
-    @buildarea = buildarea * 0.3025
-    @buildholdingpointarea = @buildarea * buildholdingpoint
-    @buildholdingpointaream2 = buildarea * buildholdingpoint
+    # 地坪總面積 (平方公尺)
+    @landtotalarea = @yfcase.lands.map { |n| [n.landarea.to_f * (n.landholdingpointperson.to_f / n.landholdingpointall.to_f)] }.sum.sum 
 
-    @objectbuilds=@yfcase.objectbuilds
-    @ojbectbuildaverage=@objectbuilds.map{|n| [ (n.totalprice/n.buildarea.to_f) * ((n.plusb.to_f+n.plusa.to_f) / 2 )*10000] }.sum.sum.fdiv(@yfcase.objectbuilds.count)
+    # 建坪總面積 (平方公尺)
+    @buildtotalarea = @yfcase.builds.map { |n| [n.buildarea.to_f * (n.buildholdingpointperson.to_f / n.buildholdingpointall.to_f)] }.sum.sum 
 
+    # 坪價(萬)
+    @pingprice = @yfcase.floorprice.to_f / @buildtotalarea.to_f
 
-    @buildprice = (floorprice / (@buildarea * buildholdingpoint)).round(0)
-    @cp = (@ojbectbuildaverage / @buildprice ).round(4)
+    # 時價(萬)
+    marketpricecount = @yfcase.objectbuilds.count
+    marketpricesum = @yfcase.objectbuilds.map { |n| [(n.totalprice/n.buildarea.to_f)*((n.plusa.to_f+n.plusb.to_f)/2)*10000] }.sum.sum
+    @marketprice = ( marketpricesum / marketpricecount).to_f
+    @marketpriceplusa = @yfcase.objectbuilds.map { |n| [n.totalprice.to_f*n.plusa.to_f,n.totalprice.to_f*n.plusb.to_f] }.sum
 
+    @a=@yfcase.objectbuilds(params[:yfcase_id]).first.plusa
+    # 建議加價 (%
+    @suggestedincrease = suggestedincrease(@yfcase.click,@yfcase.monitor)
   end
 
   # GET /yfcases/new
   def new
-    @yfcase = Yfcase.new
+    @yfcase = Yfcase.new(floorprice: 0,margin: 0, click: 0, monitor: 0)
   end
 
   # GET /yfcases/1/edit
@@ -77,29 +80,24 @@ class YfcasesController < ApplicationController
     end
   end
 
-
   private
     # Use callbacks to share common setup or constraints between actions.k
     def set_yfcase
       @yfcase = Yfcase.find(params[:id])
     end
 
-    def meantest
-      @plusa = Yfcase.find(prarms[:id]).objectbuilds
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def yfcase_params
       params.require(:yfcase).permit(:casenumber, :address, \
         :creditor,:debtor, \
-        :buildurl,:buildarea, :buildholdingpointperson, :buildholdingpointall, :buildtype,:usearea, \
-        :auctionday,:auctionlevel,:floorprice,:price,:currentprice,:suggestedincrease,:margin,:click,:monitor,\
+        :auctionday,:auctionlevel,:floorprice,:margin,:click,:monitor,\
         :firstsurveydate ,:othersurveydate ,:surveyrecord ,:foreclosureannouncement ,:objectphotos ,:registeredmarketprice ,:registrationmap ,:registrationphoto ,:foreclosurerecord ,:surveyremark, \
         :foreclosureannouncementlink,:objectphotoslink,:registeredmarketpricelink,:registrationmaplink,:registrationphotolink,:foreclosurerecordlink, \
         :surveyresolution , \
         :finaldecisionheader ,:finaldecisionconclusion , \
         :finaldecisionsurveyordecide1 ,:finaldecisionsurveyordecide2 ,:finaldecisionsurveyordecide3 ,:finaldecisionsurveyordecide4 ,:finaldecisionsurveyordecide5 , \
-        lands_attributes: [:id, :landnumber, :landurl, :landarea, :landholdingpointperson, :landholdingpointall, :_destroy],builds_attributes: [:id, :buildnumber, :_destroy], \
+        lands_attributes: [:id, :landnumber, :landurl, :landarea, :landholdingpointperson, :landholdingpointall, :_destroy], \
+        builds_attributes: [:id, :buildnumber,:buildurl,:buildarea, :buildholdingpointperson, :buildholdingpointall, :buildtype,:usearea, :_destroy], \
         objectbuilds_attributes: [:id, :address, :totalprice, :buildarea, :unitprice, :house, :unit, :floorheight, :surveyora, :surveyorb, :plusa, :plusb, :objectbuildurl, :_destroy])
     end
 end

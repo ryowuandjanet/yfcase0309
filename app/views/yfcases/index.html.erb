@@ -10,10 +10,7 @@
       <th>地號</th>
       <th>地坪</th>
       <th>建號</th>
-      <th>建坪(坪)</th>
-      <th>時價</th>
-      <th>坪價(NT)</th>
-      <th>CP值</th>
+
       <th colspan="3">項目</th>
     </tr>
   </thead>
@@ -43,20 +40,7 @@
             <%= build.buildnumber %><br>
           <% end %>
         </td>
-        <!-- 建坪(坪) -->
-        <td><%= squaremetertoping(yfcase.buildarea).round(2) %>坪</td>
-        <!-- 時價 -->
-        <td>
-            <% marketprice = yfcase.objectbuilds.map { |n| [(n.totalprice/n.buildarea.to_f)*((n.plusa.to_f+n.plusb.to_f)/2)*10000] }.sum.instance_eval { reduce(:+)/size.to_f } %> 
-            <%= number_to_currency(marketprice, unit: "", precision: 0 ) %>
-        </td>
-        <!-- 坪價 -->
-        <td><%= number_to_currency(unitprice(yfcase.floorprice,yfcase.buildarea,yfcase.buildholdingpointperson,yfcase.buildholdingpointall), unit: "", precision: 0 ) %></td>
-        <td>
-            <% marketprice = yfcase.objectbuilds.map { |n| [(n.totalprice/n.buildarea.to_f)*((n.plusa.to_f+n.plusb.to_f)/2)*10000] }.sum.instance_eval { reduce(:+)/size.to_f } %>
-            <% unitprice=unitprice(yfcase.floorprice,yfcase.buildarea,yfcase.buildholdingpointperson,yfcase.buildholdingpointall) %>
-            <%= (marketprice / unitprice).round(2) %>
-        </td>
+
 
         <td><%= link_to 'Show', yfcase %></td>
         <td><%= link_to 'Edit', edit_yfcase_path(yfcase) %></td>
