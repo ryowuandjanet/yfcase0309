@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200226054134) do
+ActiveRecord::Schema.define(version: 20200226161502) do
 
   create_table "builds", force: :cascade do |t|
     t.string   "buildnumber"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20200226054134) do
     t.decimal  "plusa",          precision: 3, scale: 2
     t.decimal  "plusb",          precision: 3, scale: 2
     t.string   "objectbuildurl"
+    t.decimal  "mesaprice",      precision: 9, scale: 2
   end
 
   add_index "objectbuilds", ["yfcase_id"], name: "index_objectbuilds_on_yfcase_id"

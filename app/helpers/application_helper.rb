@@ -41,6 +41,17 @@ module ApplicationHelper
 		end
 	end	
 
+	def testvalue(x,a,b)
+		if a == nil && b == nil
+			 0
+		elsif b == nil
+			 x * a
+		else
+			 x * ((a+b)/2)
+		end
+	end
+
+
 	def averagebetween(arga,argb)
 		return (arga+argb) / 2
 	end

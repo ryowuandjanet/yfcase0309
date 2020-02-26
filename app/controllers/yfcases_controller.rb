@@ -26,7 +26,7 @@ class YfcasesController < ApplicationController
     @marketprice = ( marketpricesum / marketpricecount).to_f
     @marketpriceplusa = @yfcase.objectbuilds.map { |n| [n.totalprice.to_f*n.plusa.to_f,n.totalprice.to_f*n.plusb.to_f] }.sum
 
-    @a=@yfcase.objectbuilds(params[:yfcase_id]).first.plusa
+
     # 建議加價 (%
     @suggestedincrease = suggestedincrease(@yfcase.click,@yfcase.monitor)
   end
@@ -44,6 +44,7 @@ class YfcasesController < ApplicationController
   # POST /yfcases.json
   def create
     @yfcase = Yfcase.new(yfcase_params)
+    @bb = 2.to_f+1.to_f
 
     respond_to do |format|
       if @yfcase.save
@@ -98,6 +99,6 @@ class YfcasesController < ApplicationController
         :finaldecisionsurveyordecide1 ,:finaldecisionsurveyordecide2 ,:finaldecisionsurveyordecide3 ,:finaldecisionsurveyordecide4 ,:finaldecisionsurveyordecide5 , \
         lands_attributes: [:id, :landnumber, :landurl, :landarea, :landholdingpointperson, :landholdingpointall, :_destroy], \
         builds_attributes: [:id, :buildnumber,:buildurl,:buildarea, :buildholdingpointperson, :buildholdingpointall, :buildtype,:usearea, :_destroy], \
-        objectbuilds_attributes: [:id, :address, :totalprice, :buildarea, :unitprice, :house, :unit, :floorheight, :surveyora, :surveyorb, :plusa, :plusb, :objectbuildurl, :_destroy])
+        objectbuilds_attributes: [:id, :address, :totalprice, :buildarea, :unitprice, :house, :unit, :floorheight, :surveyora, :surveyorb, :plusa, :plusb, :objectbuildurl, :mesaprice, :_destroy])
     end
 end

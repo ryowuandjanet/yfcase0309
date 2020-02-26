@@ -8,9 +8,12 @@
  <tr height=48 style='height:36.0pt'>
   <td colspan=25 height=48 class=xl15121207 width=975 style='height:36.0pt;width:725pt'>YF評量表</td>
  </tr>
+  
 
-<%= @marketpriceplusa %>
-<%= @a %>
+<% @yfcase.objectbuilds.each do |yf| %>
+  <%= testvalue(yf.totalprice.to_f/yf.buildarea.to_f,yf.plusa,yf.plusb) %>
+<% end %>
+
 
  <tr height=10 style='mso-height-source:userset;height:7.5pt'>
   <td height=10 class=xl6421207 style='height:7.5pt'></td>
@@ -580,6 +583,7 @@
         <th>加成A</th>
         <th>勘查員B</th>
         <th>加成B</th>
+        <th>計算</th>
       </tr>
       <% @yfcase.objectbuilds.each do |objectbuild| %>
         <tr>
@@ -602,6 +606,12 @@
           <td><%= objectbuild.plusa %></td>
           <td><%= objectbuild.surveyorb %></td>
           <td><%= objectbuild.plusb %></td>
+
+          <td>
+            <%= testvalue(objectbuild.totalprice.to_f/objectbuild.buildarea.to_f,objectbuild.plusa,objectbuild.plusb) %>
+
+          </td>
+
         </tr>
       <% end %>
     </table>
