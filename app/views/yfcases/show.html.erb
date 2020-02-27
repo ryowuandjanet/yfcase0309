@@ -8,11 +8,14 @@
  <tr height=48 style='height:36.0pt'>
   <td colspan=25 height=48 class=xl15121207 width=975 style='height:36.0pt;width:725pt'>YF評量表</td>
  </tr>
-  
 
-<% @yfcase.objectbuilds.each do |yf| %>
-  <%= testvalue(yf.totalprice.to_f/yf.buildarea.to_f,yf.plusa,yf.plusb) %>
-<% end %>
+   <% @yfcase.objectbuilds.each do |objectbuild| %>
+      <% @list = testvalue(objectbuild.totalprice.to_f / objectbuild.buildarea.to_f ,objectbuild.plusa,objectbuild.plusb).to_f %>
+   <% end %> 
+
+
+
+
 
 
  <tr height=10 style='mso-height-source:userset;height:7.5pt'>
@@ -167,7 +170,9 @@
     </td>
     <td class=xl6421207></td>
     <td colspan=3 class=xl9621207 width=117 style='border-right:1.0pt solid black;width:87pt'>
+
         <%= number_to_currency(@landtotalarea , unit: "", precision: 2) %> (<%= number_to_currency(@landtotalarea * 0.3025, unit: "", precision: 2) %>)
+
     </td>
     <td class=xl6421207>
     </td>
@@ -347,6 +352,7 @@
       <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
           <%= number_to_currency(@pingprice, unit: "", precision: 0 ) %>
       </td>
+      <!-- 時價欄位 -->
       <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
           <%= number_to_currency(@marketprice, unit: "", precision: 0 ) %>
       </td>
@@ -391,7 +397,9 @@
           <%= number_to_currency(@pingprice, unit: "", precision: 0 ) %>
       </td>
       <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
+
           <%= number_to_currency(@marketprice, unit: "", precision: 0 ) %>
+
       </td>
       <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
           <%= (@marketprice / @pingprice).round(2) %>
@@ -508,7 +516,7 @@
  <tr height=23 style='mso-height-source:userset;height:17.45pt'>
   <td colspan=5 height=23 class=xl8221207 width=195 style='height:17.45pt;width:145pt'>實價登錄市價</td>
   <td colspan=20 class=xl12621207 width=780 style='border-right:1.0pt solid black;border-left:none;width:580pt'>
-    <%= link_to @yfcase.registeredmarketprice, @yfcase.registeredmarketpricelink, target: "_blank" %>
+    <%= link_to @yfcase.registeredmarketpricetext, @yfcase.registeredmarketpricelink, target: "_blank" %>
   </td>
  </tr>
  <tr height=18 style='height:13.5pt'>
@@ -609,7 +617,6 @@
 
           <td>
             <%= testvalue(objectbuild.totalprice.to_f/objectbuild.buildarea.to_f,objectbuild.plusa,objectbuild.plusb) %>
-
           </td>
 
         </tr>

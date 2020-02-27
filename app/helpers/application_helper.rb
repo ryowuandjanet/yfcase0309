@@ -43,14 +43,17 @@ module ApplicationHelper
 
 	def testvalue(x,a,b)
 		if a == nil && b == nil
-			 0
+			x * 1
 		elsif b == nil
-			 x * a
+			x * a
 		else
-			 x * ((a+b)/2)
+			x * ((a+b)/2)
 		end
 	end
 
+	def all_tags
+	  tags.map(&:totalpriced)
+	end
 
 	def averagebetween(arga,argb)
 		return (arga+argb) / 2

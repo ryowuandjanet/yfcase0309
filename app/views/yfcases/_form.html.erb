@@ -62,7 +62,7 @@
   </div>
   <div class="field">
     <%= f.label :floorprice,"底價(NT)" %>
-    <%= f.number_field :floorprice, value: 0 %>
+    <%= f.number_field :floorprice %>
   </div>
 
   <div class="field">
@@ -114,8 +114,9 @@
   </div>
   <div class="field">
     <%= f.label :registeredmarketprice,"實價登錄市價" %>
-    <%= f.text_field :registeredmarketprice %>
-    <%= f.text_field :registeredmarketpricelink, size: 60 %>
+    <%= f.text_area :registeredmarketprice, size: "24x6" %>
+    <%= f.text_field :registeredmarketpricetext %>
+    <%= f.text_field :registeredmarketpricelink %>
   </div>
 
   <div class="field">

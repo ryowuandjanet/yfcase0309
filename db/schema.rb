@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200226161502) do
+ActiveRecord::Schema.define(version: 20200227064345) do
 
   create_table "builds", force: :cascade do |t|
     t.string   "buildnumber"
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 20200226161502) do
     t.date     "othersurveydate"
     t.string   "foreclosureannouncement"
     t.string   "objectphotos"
-    t.string   "registeredmarketprice"
+    t.text     "registeredmarketprice"
     t.string   "registrationmap"
     t.string   "registrationphoto"
     t.string   "foreclosurerecord"
@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 20200226161502) do
     t.string   "registrationmaplink"
     t.string   "registrationphotolink"
     t.string   "foreclosurerecordlink"
+    t.string   "registeredmarketpricetext"
   end
 
 end

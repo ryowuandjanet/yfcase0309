@@ -12,7 +12,7 @@ class YfcasesController < ApplicationController
   # GET /yfcases/1.json
   def show
     # 地坪總面積 (平方公尺)
-    @landtotalarea = @yfcase.lands.map { |n| [n.landarea.to_f * (n.landholdingpointperson.to_f / n.landholdingpointall.to_f)] }.sum.sum 
+    @landtotalarea = @yfcase.lands.map{ |n| [n.landarea.to_f * (n.landholdingpointperson.to_f / n.landholdingpointall.to_f)] }.sum.sum
 
     # 建坪總面積 (平方公尺)
     @buildtotalarea = @yfcase.builds.map { |n| [n.buildarea.to_f * (n.buildholdingpointperson.to_f / n.buildholdingpointall.to_f)] }.sum.sum 
@@ -22,18 +22,19 @@ class YfcasesController < ApplicationController
 
     # 時價(萬)
     marketpricecount = @yfcase.objectbuilds.count
-    marketpricesum = @yfcase.objectbuilds.map { |n| [(n.totalprice/n.buildarea.to_f)*((n.plusa.to_f+n.plusb.to_f)/2)*10000] }.sum.sum
-    @marketprice = ( marketpricesum / marketpricecount).to_f
+    marketpricesum=@yfcase.objectbuilds.map { |n| [(testvalue(n.totalprice.to_f / n.buildarea.to_f ,n.plusa,n.plusb))] }.sum
+    @marketprice = marketpricesum.map!{|e| e.to_f}.sum.fdiv(marketpricesum.size) * 10000
     @marketpriceplusa = @yfcase.objectbuilds.map { |n| [n.totalprice.to_f*n.plusa.to_f,n.totalprice.to_f*n.plusb.to_f] }.sum
 
 
-    # 建議加價 (%
+
+    # 建議加價 (%)
     @suggestedincrease = suggestedincrease(@yfcase.click,@yfcase.monitor)
   end
 
   # GET /yfcases/new
   def new
-    @yfcase = Yfcase.new(floorprice: 0,margin: 0, click: 0, monitor: 0)
+    @yfcase = Yfcase.new(margin: 0, click: 0, monitor: 0)
   end
 
   # GET /yfcases/1/edit
@@ -92,7 +93,7 @@ class YfcasesController < ApplicationController
       params.require(:yfcase).permit(:casenumber, :address, \
         :creditor,:debtor, \
         :auctionday,:auctionlevel,:floorprice,:margin,:click,:monitor,\
-        :firstsurveydate ,:othersurveydate ,:surveyrecord ,:foreclosureannouncement ,:objectphotos ,:registeredmarketprice ,:registrationmap ,:registrationphoto ,:foreclosurerecord ,:surveyremark, \
+        :firstsurveydate ,:othersurveydate ,:surveyrecord ,:foreclosureannouncement ,:objectphotos ,:registeredmarketprice,:registeredmarketpricetext ,:registrationmap ,:registrationphoto ,:foreclosurerecord ,:surveyremark, \
         :foreclosureannouncementlink,:objectphotoslink,:registeredmarketpricelink,:registrationmaplink,:registrationphotolink,:foreclosurerecordlink, \
         :surveyresolution , \
         :finaldecisionheader ,:finaldecisionconclusion , \
