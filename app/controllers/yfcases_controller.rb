@@ -12,19 +12,18 @@ class YfcasesController < ApplicationController
   # GET /yfcases/1.json
   def show
     # 地坪總面積 (平方公尺)
-    @landtotalarea = @yfcase.lands.map{ |n| [n.landarea.to_f * (n.landholdingpointperson.to_f / n.landholdingpointall.to_f)] }.sum.sum
-
+    @landtotalarea = @yfcase.lands.map{ |n| [n.landarea.to_f * (n.landholdingpointperson.to_f / n.landholdingpointall.to_f)] }.flatten.sum
     # 建坪總面積 (平方公尺)
-    @buildtotalarea = @yfcase.builds.map { |n| [n.buildarea.to_f * (n.buildholdingpointperson.to_f / n.buildholdingpointall.to_f)] }.sum.sum 
+    @buildtotalarea = @yfcase.builds.map { |n| [n.buildarea.to_f * (n.buildholdingpointperson.to_f / n.buildholdingpointall.to_f)] }.flatten.sum 
 
     # 坪價(萬)
     @pingprice = @yfcase.floorprice.to_f / @buildtotalarea.to_f
 
     # 時價(萬)
     marketpricecount = @yfcase.objectbuilds.count
-    marketpricesum=@yfcase.objectbuilds.map { |n| [(testvalue(n.totalprice.to_f / n.buildarea.to_f ,n.plusa,n.plusb))] }.sum
+    marketpricesum=@yfcase.objectbuilds.map { |n| [(testvalue(n.totalprice.to_f / n.buildarea.to_f ,n.plusa,n.plusb))] }.flatten
     @marketprice = marketpricesum.map!{|e| e.to_f}.sum.fdiv(marketpricesum.size) * 10000
-    @marketpriceplusa = @yfcase.objectbuilds.map { |n| [n.totalprice.to_f*n.plusa.to_f,n.totalprice.to_f*n.plusb.to_f] }.sum
+    @marketpriceplusa = @yfcase.objectbuilds.map { |n| [n.totalprice.to_f*n.plusa.to_f,n.totalprice.to_f*n.plusb.to_f] }.flatten
 
 
 
@@ -34,7 +33,7 @@ class YfcasesController < ApplicationController
 
   # GET /yfcases/new
   def new
-    @yfcase = Yfcase.new(margin: 0, click: 0, monitor: 0)
+    @yfcase = Yfcase.new(floorprice:0,margin: 0, click: 0, monitor: 0)
   end
 
   # GET /yfcases/1/edit
