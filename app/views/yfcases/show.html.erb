@@ -302,16 +302,32 @@
           第一拍
       </td>
       <td colspan=2 class=xl11421207 width=78 style='border-left:none;width:58pt'>
+        <% if @yfcase.floorprice == 0 %>
+          <%= " " %>
+        <% else %>
           <%= number_to_currency(@yfcase.floorprice, unit: "", precision: 0 ) %>
+        <% end %>
       </td>
       <td colspan=2 class=xl11521207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
+        <% if @yfcase.floorprice == 0 || @yfcase.builds.count == 0 %>
+          <%= " " %>
+        <% else %>
           <%= number_to_currency(@pingprice, unit: "", precision: 0 ) %>
+        <% end %>
       </td>
       <td colspan=2 class=xl11521207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
+        <% if @yfcase.objectbuilds.count == 0 %>
+          <%= " " %>
+        <% else %>
           <%= number_to_currency(@marketprice, unit: "", precision: 0 ) %>
+        <% end %>
       </td>
       <td colspan=2 class=xl11521207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
+        <% if  @yfcase.floorprice == 0 || @yfcase.builds.count == 0 || @yfcase.objectbuilds.count == 0 %>
+          <%= " " %>
+        <% else %>
           <%= (@marketprice / @pingprice).round(2) %>
+        <% end %>
       </td>
       <td colspan=2 class=xl11521207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
           <%= @yfcase.click %>
@@ -320,7 +336,11 @@
           <%= @yfcase.monitor %>
       </td>
       <td colspan=2 class=xl11521207 width=114 style='border-left:1px #777777 dotted;width:94pt'>
+        <% if @yfcase.floorprice == 0 %>
+          <%= " " %>
+        <% else %>
           (<%= @suggestedincrease*100 %>%)<%= number_to_currency(@suggestedincrease*@yfcase.floorprice, unit: "", precision: 0 ) %>
+        <% end %>
       </td>
       <td colspan=2 class=xl11521207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
           <%= number_to_currency(@yfcase.margin, unit: "", precision: 0 ) %>
@@ -348,17 +368,33 @@
       </td>
       <td colspan=4 class=xl7121207 width=156 style='border-left:none;width:116pt'>第二拍</td>
       <td colspan=2 class=xl11721207 width=78 style='border-left:none;width:58pt'>
+        <% if @yfcase.floorprice == 0 %>
+          <%= " " %>
+        <% else %>
           <%= number_to_currency(@yfcase.floorprice, unit: "", precision: 0 ) %>
+        <% end %>
       </td>
       <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
+        <% if @yfcase.floorprice == 0 || @yfcase.builds.count == 0 %>
+          <%= " " %>
+        <% else %>
           <%= number_to_currency(@pingprice, unit: "", precision: 0 ) %>
+        <% end %>
       </td>
       <!-- 時價欄位 -->
       <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
+        <% if @yfcase.objectbuilds.count == 0 %>
+          <%= " " %>
+        <% else %>
           <%= number_to_currency(@marketprice, unit: "", precision: 0 ) %>
+        <% end %>
       </td>
       <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
+        <% if  @yfcase.floorprice == 0 || @yfcase.builds.count == 0 || @yfcase.objectbuilds.count == 0 %>
+          <%= " " %>
+        <% else %>
           <%= (@marketprice / @pingprice).round(2) %>
+        <% end %>
       </td>
       <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
           <%= @yfcase.click %>
@@ -367,7 +403,11 @@
           <%= @yfcase.monitor %>
       </td>
       <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
+        <% if @yfcase.floorprice == 0 %>
+          <%= " " %>
+        <% else %>
           (<%= @suggestedincrease*100 %>%)<%= number_to_currency(@suggestedincrease*@yfcase.floorprice, unit: "", precision: 0 ) %>
+        <% end %>
       </td>
       <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
           <%= number_to_currency(@yfcase.margin, unit: "", precision: 0 ) %>
@@ -392,18 +432,32 @@
       <td height=18 class=xl7721207 width=39 style='height:13.5pt;border-top:none;width:29pt'>V</td>
       <td colspan=4 class=xl7121207 width=156 style='border-left:none;width:116pt'>第三拍</td>
       <td colspan=2 class=xl11721207 width=78 style='border-left:none;width:58pt'>
+        <% if @yfcase.floorprice == 0 %>
+          <%= " " %>
+        <% else %>
           <%= number_to_currency(@yfcase.floorprice, unit: "", precision: 0 ) %>
+        <% end %>
       </td>
       <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
+        <% if @yfcase.floorprice == 0 || @yfcase.builds.count == 0 %>
+          <%= " " %>
+        <% else %>
           <%= number_to_currency(@pingprice, unit: "", precision: 0 ) %>
+        <% end %>
       </td>
       <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
-
+        <% if @yfcase.objectbuilds.count == 0 %>
+          <%= " " %>
+        <% else %>
           <%= number_to_currency(@marketprice, unit: "", precision: 0 ) %>
-
+        <% end %>
       </td>
       <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
+        <% if  @yfcase.floorprice == 0 || @yfcase.builds.count == 0 || @yfcase.objectbuilds.count == 0 %>
+          <%= " " %>
+        <% else %>
           <%= (@marketprice / @pingprice).round(2) %>
+        <% end %>
       </td>
       <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
           <%= @yfcase.click %>
@@ -412,7 +466,11 @@
           <%= @yfcase.monitor %>
       </td>
       <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
+        <% if @yfcase.floorprice == 0 %>
+          <%= " " %>
+        <% else %>
           (<%= @suggestedincrease*100 %>%)<%= number_to_currency(@suggestedincrease*@yfcase.floorprice, unit: "", precision: 0 ) %>
+        <% end %>
       </td>
       <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
           <%= number_to_currency(@yfcase.margin, unit: "", precision: 0 ) %>
@@ -437,16 +495,32 @@
       <td height=19 class=xl7821207 width=39 style='height:14.25pt;border-top:none;width:29pt'>V</td>
       <td colspan=4 class=xl7921207 width=156 style='border-left:none;width:116pt'>第四拍</td>
       <td colspan=2 class=xl12021207 width=78 style='border-left:none;width:58pt'>
+        <% if @yfcase.floorprice == 0 %>
+          <%= " " %>
+        <% else %>
           <%= number_to_currency(@yfcase.floorprice, unit: "", precision: 0 ) %>
+        <% end %>
       </td>
       <td colspan=2 class=xl12121207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
+        <% if @yfcase.floorprice == 0 || @yfcase.builds.count == 0 %>
+          <%= " " %>
+        <% else %>
           <%= number_to_currency(@pingprice, unit: "", precision: 0 ) %>
+        <% end %>
       </td>
       <td colspan=2 class=xl12121207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
+        <% if @yfcase.objectbuilds.count == 0 %>
+          <%= " " %>
+        <% else %>
           <%= number_to_currency(@marketprice, unit: "", precision: 0 ) %>
+        <% end %>
       </td>
       <td colspan=2 class=xl12121207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
+        <% if  @yfcase.floorprice == 0 || @yfcase.builds.count == 0 || @yfcase.objectbuilds.count == 0 %>
+          <%= " " %>
+        <% else %>
           <%= (@marketprice / @pingprice).round(2) %>
+        <% end %>
       </td>
       <td colspan=2 class=xl12121207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
           <%= @yfcase.click %>
@@ -455,7 +529,11 @@
           <%= @yfcase.monitor %>
       </td>
       <td colspan=2 class=xl12121207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
+        <% if @yfcase.floorprice == 0 %>
+          <%= " " %>
+        <% else %>
           (<%= @suggestedincrease*100 %>%)<%= number_to_currency(@suggestedincrease*@yfcase.floorprice, unit: "", precision: 0 ) %>
+        <% end %>
       </td>
       <td colspan=2 class=xl12121207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
           <%= number_to_currency(@yfcase.margin, unit: "", precision: 0 ) %>
@@ -722,5 +800,9 @@
  <![endif]>
 </table>
 </div>
-<%= link_to 'Edit', edit_yfcase_path(@yfcase) %> |
-<%= link_to 'Back', yfcases_path %>
+<br>
+<div id="showitem">
+  <%= link_to 'Edit', edit_yfcase_path(@yfcase),class: "btn btn-primary" %> |
+  <%= link_to 'Back', yfcases_path,class: "btn btn-info" %>
+</div>
+

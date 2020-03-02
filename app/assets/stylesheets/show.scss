@@ -1,3 +1,4 @@
+
 .font521207
 	{color:windowtext;
 	font-size:9.0pt;
@@ -1944,3 +1945,66 @@ rt
 	font-family:新細明體, serif;
 	mso-font-charset:136;
 	mso-char-type:none;}
+
+#surveyrecord {
+	border:1px solid #000;
+	width:100%;
+}
+
+#surveyrecord tr{
+	border-bottom: 1px dashed #333;
+}
+#surveyrecord th{
+	font-family:微軟正黑體, sans-serif;
+	font-weight:bold;
+	border: 1px solid #000;
+	color:#000;
+}
+
+#builds th{
+	font-family:微軟正黑體, sans-serif;
+	font-weight:bold;
+	border: 1px solid #000;
+	color:#000;
+}
+
+#builds td{
+	border-right: 1px dashed #333;
+}
+
+#lands th{
+	font-family:微軟正黑體, sans-serif;
+	font-weight:bold;
+	border: 1px solid #000;
+	color:#000;
+}
+
+#lands td{
+	border-right: 1px dashed #333;
+}
+
+#finaldecision{
+	border:1px solid #000;
+	width:100%;
+}
+
+#finaldecision th{
+	border-right: 1px solid #000;
+	border-left: 1px solid #000;
+}
+
+#basedata {
+	border:1px solid #000;
+	width:100%;
+} 
+
+#basedata th{
+	font-family:微軟正黑體, sans-serif;
+	font-weight:bold;
+	border: 1px solid #000;
+	color:#000;
+} 
+
+#basedata td{
+	border-right: 1px dashed #333;
+}

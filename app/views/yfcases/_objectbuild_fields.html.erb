@@ -1,5 +1,5 @@
 <div class="nested-fields">
-    <div class="field">
+    <div class="field" style="border:1px solid #000;">
         <table>
             <tr>
                 <th><%= f.label :address,"地址" %></th>
@@ -28,7 +28,7 @@
                 <td><%= f.text_field :plusb, size: "4" %></td>
                 <td><%= f.text_field :objectbuildurl, size: "4" %></td>
                 <td><%= hidden_field_tag :mesaprice, value: @yfcase.id %></td>
-                <td><%= link_to_remove_association "刪除物件", f %></td>
+                <td><%= link_to_remove_association "刪除物件", f, class: "btn btn-danger btn-sm" %></td>
             </tr>
         </table>
     	 
