@@ -70,4 +70,9 @@ module ApplicationHelper
 		return result
 	end
 
+	def hellotest(value)
+		result=number_to_currency(value, unit: "", precision: 0 )
+		return result
+	end
+
 end

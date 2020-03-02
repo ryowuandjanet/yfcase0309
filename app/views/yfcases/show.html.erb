@@ -1,808 +1,651 @@
 <p id="notice"><%= notice %></p>
-<div id="layout_21207" align=center x:publishsource="Excel">
 
-<table border=0 cellpadding=0 cellspacing=0 width=975 class=xl6421207 style='border-collapse:collapse;table-layout:fixed;width:725pt'>
- <col class=xl6421207 width=39 span=25 style='mso-width-source:userset;mso-width-alt:1248;width:29pt'>
- <!-- YF評量表 -->
- <tr height=48 style='height:36.0pt'>
-  <td colspan=25 height=48 class=xl15121207 width=975 style='height:36.0pt;width:725pt'>YF評量表</td>
- </tr>
-
-   <% @yfcase.objectbuilds.each do |objectbuild| %>
-      <% @list = testvalue(objectbuild.totalprice.to_f / objectbuild.buildarea.to_f ,objectbuild.plusa,objectbuild.plusb).to_f %>
-   <% end %> 
-
- <tr height=10 style='mso-height-source:userset;height:7.5pt'>
-  <td height=10 class=xl6421207 style='height:7.5pt'></td>
-  <td class=xl6421207><%=  %></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
- </tr>
- <tr height=18 style='mso-height-source:userset;height:13.5pt'>
-  <td colspan=2 height=18 class=xl8721207 width=78 style='height:13.5pt;
-  width:58pt'>案號</td>
-  <td colspan=7 class=xl8921207 width=273 style='border-right:1.0pt solid black;
-  border-left:none;width:203pt'><%= @yfcase.casenumber %></td>
-  <td class=xl6421399></td>
-  <td colspan=2 class=xl8721207 width=78 style='width:58pt'>債務人</td>
-  <td colspan=5 class=xl9221207 width=195 style='border-right:1.0pt solid black;
-  border-left:none;width:145pt'><%= @yfcase.debtor %></td>
-  <td class=xl6421399></td>
-  <td colspan=2 class=xl8721207 width=78 style='width:58pt'>債權人</td>
-  <td colspan=5 class=xl9221207 width=195 style='border-right:1.0pt solid black;
-  border-left:none;width:145pt'><%= @yfcase.creditor %></td>
- </tr>
- <tr height=10 style='mso-height-source:userset;height:7.5pt'>
-  <td height=10 class=xl6421207 style='height:7.5pt'></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
- </tr>
- <tr height=18 style='mso-height-source:userset;height:13.5pt'>
-  <td colspan=2 height=18 class=xl8721207 width=78 style='height:13.5pt;
-  width:58pt'>地址</td>
-  <td colspan=23 class=xl8921207 width=897 style='border-right:1.0pt solid black;
-  border-left:none;width:667pt'><%= @yfcase.address %></td>
- </tr>
- <tr height=10 style='mso-height-source:userset;height:7.5pt'>
-  <td height=10 class=xl6421207 style='height:7.5pt'></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
- </tr>
- <tr height=34 style='mso-height-source:userset;height:26.1pt'>
-  <td colspan=7 height=34 class=xl10021207 width=273 style='border-right:.5pt solid black;
-  height:26.1pt;width:203pt'>地號</td>
-  <td colspan=2 class=xl10321207 width=78 style='border-left:none;width:58pt'>地號謄本</td>
-  <td colspan=3 class=xl10321207 width=117 style='border-left:none;width:87pt'>地坪(面積)<br>
-    平方公尺(坪)</td>
-  <td colspan=2 class=xl10321207 width=78 style='border-left:none;width:58pt'>持分</td>
-  <td colspan=3 class=xl10321207 width=117 style='border-right:1.0pt solid black;border-left:none;width:87pt'>
-    地坪(持分)<br>平方公尺(坪)
-  </td>
-  <td class=xl6421207></td>
-  <td colspan=3 class=xl10521207 width=117 style='border-right:1.0pt solid black;width:87pt'>
-    地坪(面積)<br>平方公尺(坪)
-  </td>
-  <td class=xl6421207></td>
-  <td colspan=3 class=xl10621207 width=117 style='border-right:1.0pt solid black;width:87pt'>
-    建坪(面積)<br>平方公尺(坪)
-  </td>
- </tr>
- <tr height=20 style='height:15.0pt'>
-    <td colspan=7 height=20 class=xl14921207 style='height:15.0pt'>
-        <% @yfcase.lands.each do |land| %>
-        <%= land.landnumber %><br>
-        <% end %>
-    </td>
-    <td colspan=2 class=xl14621207 style='border-left:none'>
-        <% @yfcase.lands.each do |land| %>
-          <% if land.landurl == "" %>
-            <%= link_to " " %> <br>
-          <% else%>
-            <%= link_to "連結", land.landurl, target: "_blank" %>　<br>
-          <% end %>
-        <% end %>
-    </td>
-    <td colspan=3 class=xl14521207 width=117 style='border-left:none;width:87pt'>
-        <% @yfcase.lands.each do |land| %>
-        <%= area(land.landarea,1,1,1).round(2) %> (<%= area(land.landarea,1,1,0.3025).round(2) %>) <br>
-        <% end %>
-    </td>
-    <td colspan=2 class=xl14721207 width=78 style='border-left:none;width:58pt'>
-        <% @yfcase.lands.each do |land| %>
-        <%= land.landholdingpointperson %>/<%= land.landholdingpointall %> <br>
-        <% end %>
-    </td>
-    <td colspan=3 class=xl14721207 width=117 style='border-right:1.0pt solid black;border-left:none;width:87pt'>
-        <% @yfcase.lands.each do |land| %>
-          <%= area(land.landarea,land.landholdingpointperson,land.landholdingpointall,1).round(2) %> (<%= area(land.landarea,land.landholdingpointperson,land.landholdingpointall,0.3025).round(2) %>) <br>
-        <% end %>
-    </td>
-    <td class=xl6421207></td>
-    <td colspan=3 class=xl9621207 width=117 style='border-right:1.0pt solid black;width:87pt'>
-    <% if @yfcase.lands.count ==0 %>
-        <%= " " %>
-    <% else %>
-        <%= number_to_currency(@landtotalarea, unit: "", precision: 2) %> (<%= number_to_currency(@landtotalarea * 0.3025, unit: "", precision: 2) %>) 
-    <% end %>
-
-    </td>
-    <td class=xl6421207>
-    </td>
-    <td colspan=3 class=xl9621207 width=117 style='border-right:1.0pt solid black;width:87pt'>
-    <% if @yfcase.builds.count ==0 %>
-        <%= " " %>
-    <% else %>
-        <%= number_to_currency(@buildtotalarea, unit: "", precision: 2) %> (<%= number_to_currency(@buildtotalarea * 0.3025, unit: "", precision: 2) %>)      
-    <% end %>
-    </td>
-</tr>
- <tr height=10 style='mso-height-source:userset;height:7.5pt'>
-  <td height=10 class=xl6421207 style='height:7.5pt'></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
- </tr>
- <tr height=36 style='mso-height-source:userset;height:27.6pt'>
-  <td colspan=7 height=36 class=xl10621207 width=273 style='height:27.6pt;
-  width:203pt'>建號</td>
-  <td colspan=2 class=xl10721207 width=78 style='border-left:none;width:58pt'>建號謄本</td>
-  <td colspan=3 class=xl10721207 width=117 style='border-left:none;width:87pt'>建坪(面積)<br>
-    平方公尺(坪)</td>
-  <td colspan=2 class=xl10721207 width=78 style='border-left:none;width:58pt'>持分</td>
-  <td colspan=3 class=xl10721207 width=117 style='border-left:none;width:87pt'>建坪(持分)<br>
-    平方公尺(坪)</td>
-  <td colspan=4 class=xl10721207 width=156 style='border-left:none;width:116pt'>建物型/使用</td>
-  <td colspan=4 class=xl10721207 width=156 style='border-right:1.0pt solid black;
-  border-left:none;width:116pt'>使用分區</td>
- </tr>
-<% @yfcase.builds.each do |build| %>
-  <tr height=20 style='height:15.0pt'>
-      <td colspan=7 height=20 class=xl14421207 width=273 style='height:15.0pt;width:203pt'>
-          <%= build.buildnumber %><br>
-      </td>
-      <td colspan=2 class=xl14621207 style='border-left:none'>
-          <% if build.buildurl == "" %>
-          <%= link_to " " %> <br>
-          <% else%>
-          <%= link_to "連結", build.buildurl, target: "_blank" %>　<br>
-          <% end %>
-      </td>
-      <td colspan=3 class=xl14521207 width=117 style='border-left:none;width:87pt'>
-          <%= area(build.buildarea,1,1,1).round(2) %> (
-          <%= area(build.buildarea,1,1,0.3025).round(2) %>)
-      </td>
-      <td colspan=2 class=xl14721207 width=78 style='border-left:none;width:58pt'>
-          <%= build.buildholdingpointperson %>/<%= build.buildholdingpointall %>
-      </td>
-      <td colspan=3 class=xl14721207 width=117 style='border-left:none;width:87pt'>
-          <%= area(build.buildarea,build.buildholdingpointperson,build.buildholdingpointall,1).round(2) %> (<%= area(build.buildarea,build.buildholdingpointperson,build.buildholdingpointall,0.3025).round(2) %>)
-      </td>
-      <td colspan=4 class=xl14521207 width=156 style='border-left:none;width:116pt'>
-          <%= build.buildtype %>
-      </td>
-      <td colspan=4 class=xl14521207 width=156 style='border-right:1.0pt solid black;border-left:none;width:116pt'>
-          <%= build.usearea %>
-      </td>
-  </tr>
-<% end %>
- <tr height=19 style='height:14.25pt'>
-  <td height=19 class=xl6421207 style='height:14.25pt'></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
- </tr>
- <tr height=19 style='height:14.25pt'>
-  <td colspan=2 height=19 class=xl7321207 width=78 style='height:14.25pt;
-  width:58pt'>拍賣日</td>
-  <td colspan=3 class=xl7521207 style='border-left:none'><%= @yfcase.auctionday %></td>
-  <td colspan=2 class=xl10921207 width=78 style='border-left:none;width:58pt'>底價(NT)</td>
-  <td colspan=2 class=xl10921207 width=78 style='border-left:none;width:58pt'>坪價(NT)</td>
-  <td colspan=2 class=xl10921207 width=78 style='border-left:none;width:58pt'>時價(NT)</td>
-  <td colspan=2 class=xl10921207 width=78 style='border-left:none;width:58pt'>CP</td>
-  <td colspan=2 class=xl10921207 width=78 style='border-left:none;width:58pt'>點閱</td>
-  <td colspan=2 class=xl10921207 width=78 style='border-left:none;width:58pt'>監控</td>
-  <td colspan=2 class=xl10921207 width=78 style='border-left:none;width:58pt'>建議加價</td>
-  <td colspan=2 class=xl10921207 width=78 style='border-left:none;width:58pt'>保証金</td>
-  <td colspan=4 class=xl10921207 width=156 style='border-right:1.0pt solid black;
-  border-left:none;width:116pt'>備註</td>
- </tr>
-<tr height=19 style='height:14.25pt'>
-    <% if @yfcase.auctionlevel == "第一拍" %>
-      <td height=19 class=xl7721207 width=39 style='height:14.25pt;border-top:none;width:29pt'>
-          V
-      </td>
-      <td colspan=4 class=xl7121207 width=156 style='border-left:none;width:116pt'>
-          第一拍
-      </td>
-      <td colspan=2 class=xl11421207 width=78 style='border-left:none;width:58pt'>
-        <% if @yfcase.floorprice == 0 %>
-          <%= " " %>
-        <% else %>
-          <%= number_to_currency(@yfcase.floorprice, unit: "", precision: 0 ) %>
-        <% end %>
-      </td>
-      <td colspan=2 class=xl11521207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
-        <% if @yfcase.floorprice == 0 || @yfcase.builds.count == 0 %>
-          <%= " " %>
-        <% else %>
-          <%= number_to_currency(@pingprice, unit: "", precision: 0 ) %>
-        <% end %>
-      </td>
-      <td colspan=2 class=xl11521207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
-        <% if @yfcase.objectbuilds.count == 0 %>
-          <%= " " %>
-        <% else %>
-          <%= number_to_currency(@marketprice, unit: "", precision: 0 ) %>
-        <% end %>
-      </td>
-      <td colspan=2 class=xl11521207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
-        <% if  @yfcase.floorprice == 0 || @yfcase.builds.count == 0 || @yfcase.objectbuilds.count == 0 %>
-          <%= " " %>
-        <% else %>
-          <%= (@marketprice / @pingprice).round(2) %>
-        <% end %>
-      </td>
-      <td colspan=2 class=xl11521207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
-          <%= @yfcase.click %>
-      </td>
-      <td colspan=2 class=xl11521207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
-          <%= @yfcase.monitor %>
-      </td>
-      <td colspan=2 class=xl11521207 width=114 style='border-left:1px #777777 dotted;width:94pt'>
-        <% if @yfcase.floorprice == 0 %>
-          <%= " " %>
-        <% else %>
-          (<%= @suggestedincrease*100 %>%)<br><%= number_to_currency(@suggestedincrease*@yfcase.floorprice, unit: "", precision: 0 ) %>
-        <% end %>
-      </td>
-      <td colspan=2 class=xl11521207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
-          <%= number_to_currency(@yfcase.margin, unit: "", precision: 0 ) %>
-      </td>
-      <td colspan=4 class=xl11521207 width=156 style='border-right:1.0pt solid black;border-left:1px #777777 dotted;width:116pt'>
-      </td>
-    <% else %>
-      <td height=19 class=xl7721207 width=39 style='height:14.25pt;border-top:none;width:29pt'> </td>
-      <td colspan=4 class=xl7121207 width=156 style='border-left:none;width:116pt'>第一拍</td>
-      <td colspan=2 class=xl11421207 width=78 style='border-left:none;width:58pt'> </td>
-      <td colspan=2 class=xl11521207 width=78 style='border-left:1px #777777 dotted;width:58pt'> </td>
-      <td colspan=2 class=xl11521207 width=78 style='border-left:1px #777777 dotted;width:58pt'> </td>
-      <td colspan=2 class=xl11521207 width=78 style='border-left:1px #777777 dotted;width:58pt'> </td>
-      <td colspan=2 class=xl11521207 width=78 style='border-left:1px #777777 dotted;width:58pt'>　</td>
-      <td colspan=2 class=xl11521207 width=78 style='border-left:1px #777777 dotted;width:58pt'>　</td>
-      <td colspan=2 class=xl11521207 width=78 style='border-left:1px #777777 dotted;width:58pt'> </td>
-      <td colspan=2 class=xl11521207 width=78 style='border-left:1px #777777 dotted;width:58pt'> </td>
-      <td colspan=4 class=xl11521207 width=156 style='border-right:1.0pt solid black;border-left:1px #777777 dotted;width:116pt'>　</td>
-    <% end %>
-</tr>
-<tr height=18 style='height:13.5pt'>
-    <% if @yfcase.auctionlevel == "第二拍" %>
-      <td height=18 class=xl7721207 width=39 style='height:13.5pt;border-top:none;width:29pt'>
-          V
-      </td>
-      <td colspan=4 class=xl7121207 width=156 style='border-left:none;width:116pt'>第二拍</td>
-      <td colspan=2 class=xl11721207 width=78 style='border-left:none;width:58pt'>
-        <% if @yfcase.floorprice == 0 %>
-          <%= " " %>
-        <% else %>
-          <%= number_to_currency(@yfcase.floorprice, unit: "", precision: 0 ) %>
-        <% end %>
-      </td>
-      <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
-        <% if @yfcase.floorprice == 0 || @yfcase.builds.count == 0 %>
-          <%= " " %>
-        <% else %>
-          <%= number_to_currency(@pingprice, unit: "", precision: 0 ) %>
-        <% end %>
-      </td>
-      <!-- 時價欄位 -->
-      <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
-        <% if @yfcase.objectbuilds.count == 0 %>
-          <%= " " %>
-        <% else %>
-          <%= number_to_currency(@marketprice, unit: "", precision: 0 ) %>
-        <% end %>
-      </td>
-      <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
-        <% if  @yfcase.floorprice == 0 || @yfcase.builds.count == 0 || @yfcase.objectbuilds.count == 0 %>
-          <%= " " %>
-        <% else %>
-          <%= (@marketprice / @pingprice).round(2) %>
-        <% end %>
-      </td>
-      <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
-          <%= @yfcase.click %>
-      </td>
-      <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
-          <%= @yfcase.monitor %>
-      </td>
-      <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
-        <% if @yfcase.floorprice == 0 %>
-          <%= " " %>
-        <% else %>
-          (<%= @suggestedincrease*100 %>%)<br><%= number_to_currency(@suggestedincrease*@yfcase.floorprice, unit: "", precision: 0 ) %>
-        <% end %>
-      </td>
-      <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
-          <%= number_to_currency(@yfcase.margin, unit: "", precision: 0 ) %>
-      </td>
-      <td colspan=4 class=xl11821207 width=156 style='border-right:1.0pt solid black;border-left:1px #777777 dotted;width:116pt'>　</td>
-    <% else %>
-      <td height=18 class=xl7721207 width=39 style='height:13.5pt;border-top:none;width:29pt'> </td>
-      <td colspan=4 class=xl7121207 width=156 style='border-left:none;width:116pt'>第二拍</td>
-      <td colspan=2 class=xl11721207 width=78 style='border-left:none;width:58pt'>　</td>
-      <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>　</td>
-      <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>　</td>
-      <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>　</td>
-      <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>　</td>
-      <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>　</td>
-      <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>　</td>
-      <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>　</td>
-      <td colspan=4 class=xl11821207 width=156 style='border-right:1.0pt solid black;border-left:1px #777777 dotted;width:116pt'>　</td>
-    <% end %>
-</tr>
- <tr height=18 style='height:13.5pt'>
-    <% if @yfcase.auctionlevel == "第三拍" %>
-      <td height=18 class=xl7721207 width=39 style='height:13.5pt;border-top:none;width:29pt'>V</td>
-      <td colspan=4 class=xl7121207 width=156 style='border-left:none;width:116pt'>第三拍</td>
-      <td colspan=2 class=xl11721207 width=78 style='border-left:none;width:58pt'>
-        <% if @yfcase.floorprice == 0 %>
-          <%= " " %>
-        <% else %>
-          <%= number_to_currency(@yfcase.floorprice, unit: "", precision: 0 ) %>
-        <% end %>
-      </td>
-      <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
-        <% if @yfcase.floorprice == 0 || @yfcase.builds.count == 0 %>
-          <%= " " %>
-        <% else %>
-          <%= number_to_currency(@pingprice, unit: "", precision: 0 ) %>
-        <% end %>
-      </td>
-      <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
-        <% if @yfcase.objectbuilds.count == 0 %>
-          <%= " " %>
-        <% else %>
-          <%= number_to_currency(@marketprice, unit: "", precision: 0 ) %>
-        <% end %>
-      </td>
-      <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
-        <% if  @yfcase.floorprice == 0 || @yfcase.builds.count == 0 || @yfcase.objectbuilds.count == 0 %>
-          <%= " " %>
-        <% else %>
-          <%= (@marketprice / @pingprice).round(2) %>
-        <% end %>
-      </td>
-      <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
-          <%= @yfcase.click %>
-      </td>
-      <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
-          <%= @yfcase.monitor %>
-      </td>
-      <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
-        <% if @yfcase.floorprice == 0 %>
-          <%= " " %>
-        <% else %>
-          (<%= @suggestedincrease*100 %>%)<br><%= number_to_currency(@suggestedincrease*@yfcase.floorprice, unit: "", precision: 0 ) %>
-        <% end %>
-      </td>
-      <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
-          <%= number_to_currency(@yfcase.margin, unit: "", precision: 0 ) %>
-      </td>
-      <td colspan=4 class=xl11821207 width=156 style='border-right:1.0pt solid black;border-left:1px #777777 dotted;width:116pt'>　</td>
-    <% else %>
-      <td height=18 class=xl7721207 width=39 style='height:13.5pt;border-top:none;width:29pt'> </td>
-      <td colspan=4 class=xl7121207 width=156 style='border-left:none;width:116pt'>第三拍</td>
-      <td colspan=2 class=xl11721207 width=78 style='border-left:none;width:58pt'>　</td>
-      <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>　</td>
-      <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>　</td>
-      <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>　</td>
-      <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>　</td>
-      <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>　</td>
-      <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>　</td>
-      <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>　</td>
-      <td colspan=4 class=xl11821207 width=156 style='border-right:1.0pt solid black;border-left:1px #777777 dotted;width:116pt'>　</td>
-    <% end %>
-</tr>
-<tr height=19 style='height:14.25pt'>
-    <% if @yfcase.auctionlevel == "第四拍" %>
-      <td height=19 class=xl7821207 width=39 style='height:14.25pt;border-top:none;width:29pt'>V</td>
-      <td colspan=4 class=xl7921207 width=156 style='border-left:none;width:116pt'>第四拍</td>
-      <td colspan=2 class=xl12021207 width=78 style='border-left:none;width:58pt'>
-        <% if @yfcase.floorprice == 0 %>
-          <%= " " %>
-        <% else %>
-          <%= number_to_currency(@yfcase.floorprice, unit: "", precision: 0 ) %>
-        <% end %>
-      </td>
-      <td colspan=2 class=xl12121207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
-        <% if @yfcase.floorprice == 0 || @yfcase.builds.count == 0 %>
-          <%= " " %>
-        <% else %>
-          <%= number_to_currency(@pingprice, unit: "", precision: 0 ) %>
-        <% end %>
-      </td>
-      <td colspan=2 class=xl12121207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
-        <% if @yfcase.objectbuilds.count == 0 %>
-          <%= " " %>
-        <% else %>
-          <%= number_to_currency(@marketprice, unit: "", precision: 0 ) %>
-        <% end %>
-      </td>
-      <td colspan=2 class=xl12121207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
-        <% if  @yfcase.floorprice == 0 || @yfcase.builds.count == 0 || @yfcase.objectbuilds.count == 0 %>
-          <%= " " %>
-        <% else %>
-          <%= (@marketprice / @pingprice).round(2) %>
-        <% end %>
-      </td>
-      <td colspan=2 class=xl12121207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
-          <%= @yfcase.click %>
-      </td>
-      <td colspan=2 class=xl12121207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
-          <%= @yfcase.monitor %>
-      </td>
-      <td colspan=2 class=xl12121207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
-        <% if @yfcase.floorprice == 0 %>
-          <%= " " %>
-        <% else %>
-          (<%= @suggestedincrease*100 %>%)<br><%= number_to_currency(@suggestedincrease*@yfcase.floorprice, unit: "", precision: 0 ) %>
-        <% end %>
-      </td>
-      <td colspan=2 class=xl12121207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
-          <%= number_to_currency(@yfcase.margin, unit: "", precision: 0 ) %>
-      </td>
-      <td colspan=4 class=xl12121207 width=156 style='border-right:1.0pt solid black;border-left:1px #777777 dotted;width:116pt'>　</td>
-    <% else %>
-      <td height=19 class=xl7821207 width=39 style='height:14.25pt;border-top:none;width:29pt'> </td>
-      <td colspan=4 class=xl7921207 width=156 style='border-left:none;width:116pt'>第四拍</td>
-      <td colspan=2 class=xl12021207 width=78 style='border-left:none;width:58pt'>　</td>
-      <td colspan=2 class=xl12121207 width=78 style='border-left:1px #777777 dotted;width:58pt'> </td>
-      <td colspan=2 class=xl12121207 width=78 style='border-left:1px #777777 dotted;width:58pt'> </td>
-      <td colspan=2 class=xl12121207 width=78 style='border-left:1px #777777 dotted;width:58pt'> </td>
-      <td colspan=2 class=xl12121207 width=78 style='border-left:1px #777777 dotted;width:58pt'>　</td>
-      <td colspan=2 class=xl12121207 width=78 style='border-left:1px #777777 dotted;width:58pt'>　</td>
-      <td colspan=2 class=xl12121207 width=78 style='border-left:1px #777777 dotted;width:58pt'>　</td>
-      <td colspan=2 class=xl12121207 width=78 style='border-left:1px #777777 dotted;width:58pt'>　</td>
-      <td colspan=4 class=xl12121207 width=156 style='border-right:1.0pt solid black;border-left:1px #777777 dotted;width:116pt'>　</td>
-    <% end %>
-</tr>
- <tr height=10 style='mso-height-source:userset;height:7.5pt'>
-  <td height=10 class=xl6421207 style='height:7.5pt'></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
- </tr>
- <tr height=23 style='mso-height-source:userset;height:17.45pt'>
-  <td colspan=5 height=23 class=xl8021207 width=195 style='height:17.45pt;width:145pt'>法拍公告(證物三)</td>
-  <td colspan=20 class=xl12321207 width=780 style='border-right:1.0pt solid black;border-left:none;width:580pt'>
-    <%= @yfcase.foreclosureannouncement %> <br>
-    <%= link_to @yfcase.foreclosureannouncementtext, @yfcase.foreclosureannouncementlink, target: "_blank" %>
-  </td>
- </tr>
- <tr height=23 style='mso-height-source:userset;height:17.45pt'>
-  <td colspan=5 height=23 class=xl8221207 width=195 style='height:17.45pt;width:145pt'>物件照片(證物四)</td>
-  <td colspan=20 class=xl12621207 width=780 style='border-right:1.0pt solid black;border-left:none;width:580pt'>
-    <%= link_to @yfcase.objectphotos, @yfcase.objectphotoslink, target: "_blank" %>
-  </td>
- </tr>
- <tr height=23 style='mso-height-source:userset;height:17.45pt'>
-  <td colspan=5 height=23 class=xl8221207 width=195 style='height:17.45pt;width:145pt'>實價登錄市價</td>
-  <td colspan=20 class=xl12621207 width=780 style='border-right:1.0pt solid black;border-left:none;width:580pt'>
-    <%= link_to @yfcase.registeredmarketpricetext, @yfcase.registeredmarketpricelink, target: "_blank" %>
-  </td>
- </tr>
- <tr height=18 style='height:13.5pt'>
-  <td colspan=5 height=18 class=xl8221207 width=195 style='height:13.5pt;width:145pt'>實價登錄地圖(證物五)</td>
-  <td colspan=20 class=xl12621207 width=780 style='border-right:1.0pt solid black;border-left:none;width:580pt'>
-    <%= link_to @yfcase.registrationmap, @yfcase.registrationmaplink, target: "_blank" %>
-  </td>
- </tr>
- <tr height=18 style='height:13.5pt'>
-  <td colspan=5 height=18 class=xl8221207 width=195 style='height:13.5pt;width:145pt'>實價登錄照片(證物六)</td>
-  <td colspan=20 class=xl12621207 width=780 style='border-right:1.0pt solid black;border-left:none;width:580pt'>
-    <%= link_to @yfcase.registrationphoto, @yfcase.registrationphotolink, target: "_blank" %>
-  </td>
- </tr>
- <tr height=18 style='height:13.5pt'>
-  <td colspan=5 height=18 class=xl8221207 width=195 style='height:13.5pt;width:145pt'>法拍記錄(證物七)</td>
-  <td colspan=20 class=xl12621207 width=780 style='border-right:1.0pt solid black;border-left:none;width:580pt'>
-    <%= link_to @yfcase.foreclosurerecord, @yfcase.foreclosurerecordlink, target: "_blank" %>
-  </td>
- </tr>
- <tr height=19 style='height:14.25pt'>
-  <td colspan=5 height=19 class=xl8321207 width=195 style='height:14.25pt;width:145pt'>備註</td>
-  <td colspan=20 class=xl12921207 width=780 style='border-right:1.0pt solid black;border-left:none;width:580pt'>
-    <%= link_to @yfcase.surveyremark %>
-  </td>
- </tr>
- <tr height=10 style='mso-height-source:userset;height:7.5pt'>
-  <td height=10 class=xl6421207 style='height:7.5pt'></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
- </tr>
- <tr height=18 style='height:13.5pt'>
-  <td colspan=2 height=18 class=xl13821207 width=78 style='height:13.5pt;width:58pt'>初勘日</td>
-  <td colspan=3 class=xl14021207 width=117 style='border-left:none;width:87pt'>
-    <%= @yfcase.firstsurveydate %>
-  </td>
-  <td colspan=20 rowspan=2 class=xl13221207 style='border-right:1.0pt solid black'>
-    <table>
-      <tr>
-        <th>附件</th>
-        <th>地址</th>
-        <th>總價(萬)</th>
-        <th>建坪(坪)</th>
-        <th>單價(萬)</th>
-        <th>屋齡(年)</th>
-        <th>單位</th>
-        <th>樓高</th>
- 
-        <th>勘查員A</th>
-        <th>加成A</th>
-        <th>勘查員B</th>
-        <th>加成B</th>
-        <th>計算</th>
-      </tr>
-      <% @yfcase.objectbuilds.each do |objectbuild| %>
+<!-- YF評量表 -->
+<h1 class="x110000">YF評量表</h1>
+<%= hellotest(Yfcase.first.floorprice) %>
+<!-- 基本資料 -->
+<div class="basedata">
+    <table class="table">
         <tr>
-          <td>
-            <% if objectbuild.objectbuildurl == "" %>
-              <%= link_to "" %>
-            <% else %>
-              <%= link_to "連結", objectbuild.objectbuildurl, target: "_blank" %>
-            <% end %>
-          </td>
-          <td><%= objectbuild.address %></td>
-          <td><%= objectbuild.totalprice %></td>
-          <td><%= objectbuild.buildarea %></td>
-          <td><%= holdingpoint(objectbuild.totalprice,objectbuild.buildarea).round(2) %></td>
-          <td><%= objectbuild.house %></td>
-          <td><%= objectbuild.unit %></td>
-          <td><%= objectbuild.floorheight %></td>
-    
-          <td><%= objectbuild.surveyora %></td>
-          <td><%= objectbuild.plusa %></td>
-          <td><%= objectbuild.surveyorb %></td>
-          <td><%= objectbuild.plusb %></td>
-
-          <td>
-            <% @totalmesa = testvalue(objectbuild.totalprice.to_f/objectbuild.buildarea.to_f,objectbuild.plusa,objectbuild.plusb)*10000 %>
-            <%= number_to_currency(@totalmesa, unit: "", precision: 0 ) %>
-          </td>
-
+            <th class="x110001">案號</th>
+            <td class="x120001">
+                <%= @yfcase.casenumber %>
+            </td>
+            <th class="x110002">債務人</th>
+            <td class="x120002">
+                <%= @yfcase.debtor %>
+            </td>
+            <th class="x110002">債權人</th>
+            <td class="x120002">
+                <%= @yfcase.creditor %>
+            </td>
         </tr>
-      <% end %>
+        <tr>
+            <th class="x110003">地址</th>
+            <td class="x120003">
+                <%= @yfcase.address %>
+            </td>
+        </tr>
     </table>
-  </td>
- </tr>
- <tr height=18 style='height:13.5pt'>
-  <td colspan=2 height=18 class=xl14121207 width=78 style='height:13.5pt;width:58pt'>會勘日</td>
-  <td colspan=3 class=xl14321207 width=117 style='border-left:none;width:87pt'>
-    <%= @yfcase.othersurveydate %>
-  </td>
- </tr>
- <tr height=28 style='mso-height-source:userset;height:21.6pt'>
-  <td colspan=5 height=28 class=xl8521207 width=195 style='height:21.6pt;width:145pt'>會勘決議</td>
-  <td colspan=20 class=xl13621207 width=780 style='border-right:1.0pt solid black;border-left:none;width:580pt'>
-    <%= @yfcase.surveyresolution %>
-  </td>
- </tr>
- <tr height=10 style='mso-height-source:userset;height:7.5pt'>
-  <td height=10 class=xl6421207 style='height:7.5pt'></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
-  <td class=xl6421207></td>
- </tr>
- <tr height=18 style='mso-height-source:userset;height:13.5pt'>
-  <td colspan=5 height=18 class=xl11121207 width=195 style='height:13.5pt;width:145pt'>結論</td>
-  <td colspan=5 class=xl11221207 width=195 style='border-right:2.0pt double black;border-left:none;width:145pt'>區域負責人</td>
-  <td colspan=5 class=xl11121207 width=195 style='border-left:none;width:145pt'>副署人員1</td>
-  <td colspan=5 class=xl11221207 width=195 style='border-left:none;width:145pt'>副署人員2</td>
-  <td colspan=5 class=xl11221207 width=195 style='border-right:2.0pt double black;border-left:none;width:145pt'>副署人員3</td>
- </tr>
- <tr height=18 style='mso-height-source:userset;height:13.5pt'>
-  <td colspan=5 rowspan=3 height=55 class=xl9821207 width=195 style='border-bottom:2.0pt double black;height:41.25pt;width:145pt'>
-    <%= @yfcase.finaldecisionconclusion %>
-  </td>
-  <td colspan=5 rowspan=3 class=xl9721207 width=195 style='border-right:2.0pt double black;border-bottom:2.0pt double black;width:145pt'>
-    <%= @yfcase.user.first_name %><%= @yfcase.user.last_name %>
-  </td>
-  <td colspan=5 rowspan=3 class=xl9821207 width=195 style='border-bottom:2.0pt double black;width:145pt'>
-    <%= @yfcase.finaldecisionsurveyordecide1 %>
-  </td>
-  <td colspan=5 rowspan=3 class=xl9721207 width=195 style='border-bottom:2.0pt double black;width:145pt'>
-    <%= @yfcase.finaldecisionsurveyordecide2 %>
-  </td>
-  <td colspan=5 rowspan=3 class=xl9721207 width=195 style='border-right:2.0pt double black;border-bottom:2.0pt double black;width:145pt'>
-    <%= @yfcase.finaldecisionsurveyordecide3 %>
-  </td>
- </tr>
- <tr height=18 style='height:13.5pt'>
- </tr>
- <tr height=19 style='height:14.25pt'>
- </tr>
- <![if supportMisalignedColumns]>
- <tr height=0 style='display:none'>
-  <td width=39 style='width:29pt'></td>
-  <td width=39 style='width:29pt'></td>
-  <td width=39 style='width:29pt'></td>
-  <td width=39 style='width:29pt'></td>
-  <td width=39 style='width:29pt'></td>
-  <td width=39 style='width:29pt'></td>
-  <td width=39 style='width:29pt'></td>
-  <td width=39 style='width:29pt'></td>
-  <td width=39 style='width:29pt'></td>
-  <td width=39 style='width:29pt'></td>
-  <td width=39 style='width:29pt'></td>
-  <td width=39 style='width:29pt'></td>
-  <td width=39 style='width:29pt'></td>
-  <td width=39 style='width:29pt'></td>
-  <td width=39 style='width:29pt'></td>
-  <td width=39 style='width:29pt'></td>
-  <td width=39 style='width:29pt'></td>
-  <td width=39 style='width:29pt'></td>
-  <td width=39 style='width:29pt'></td>
-  <td width=39 style='width:29pt'></td>
-  <td width=39 style='width:29pt'></td>
-  <td width=39 style='width:29pt'></td>
-  <td width=39 style='width:29pt'></td>
-  <td width=39 style='width:29pt'></td>
-  <td width=39 style='width:29pt'></td>
- </tr>
- <![endif]>
-</table>
 </div>
+<br>
+
+<!-- 土地 -->
+<div class="land">
+    <table class="table">
+        <tr>
+            <th>地號</th>
+            <th>地號謄本</th>
+            <th>地坪(面積)<br>平方公尺(坪)</th>
+            <th>持分</th>
+            <th>地坪(持分)<br>平方公尺(坪)</th>
+            <td></td>
+            <th>地坪(面積)<br>平方公尺(坪)</th>
+            <td></td>
+            <th>建坪(面積)<br>平方公尺(坪)</th>
+        </tr>
+        <tr>
+            <td>
+                <% @yfcase.lands.each do |land| %>
+                <%= land.landnumber %><br>
+                <% end %>
+            </td>
+            <td>
+                <% @yfcase.lands.each do |land| %>
+                <% if land.landurl == "" %>
+                <%= link_to " " %> <br>
+                <% else%>
+                <%= link_to "連結", land.landurl, target: "_blank" %>　<br>
+                <% end %>
+                <% end %>
+            </td>
+            <td>
+                <% @yfcase.lands.each do |land| %>
+                <%= area(land.landarea,1,1,1).round(2) %> (
+                <%= area(land.landarea,1,1,0.3025).round(2) %>) <br>
+                <% end %>
+            </td>
+            <td>
+                <% @yfcase.lands.each do |land| %>
+                <%= land.landholdingpointperson %>/
+                <%= land.landholdingpointall %> <br>
+                <% end %>
+            </td>
+            <td>
+                <% @yfcase.lands.each do |land| %>
+                <%= area(land.landarea,land.landholdingpointperson,land.landholdingpointall,1).round(2) %> (
+                <%= area(land.landarea,land.landholdingpointperson,land.landholdingpointall,0.3025).round(2) %>) <br>
+                <% end %>
+            </td>
+            <td></td>
+            <td>
+                <% if @yfcase.lands.count ==0 %>
+                <%= " " %>
+                <% else %>
+                <%= number_to_currency(@landtotalarea, unit: "", precision: 2) %> (
+                <%= number_to_currency(@landtotalarea * 0.3025, unit: "", precision: 2) %>)
+                <% end %>
+            </td>
+            <td></td>
+            <td>
+                <% if @yfcase.builds.count ==0 %>
+                <%= " " %>
+                <% else %>
+                <%= number_to_currency(@buildtotalarea, unit: "", precision: 2) %> (
+                <%= number_to_currency(@buildtotalarea * 0.3025, unit: "", precision: 2) %>)
+                <% end %>
+            </td>
+        </tr>
+    </table>
+</div>
+<br>  
+
+<!-- 建物 -->
+<div class="build">
+    <table class="table">
+        <tr>
+            <th>建號</th>
+            <th>建號謄本</th>
+            <th>建坪(面積)<br>平方公尺(坪)</th>
+            <th>持分</th>
+            <th>建坪(持分)<br>平方公尺(坪)</th>
+            <th>建物型/使用</th>
+            <th>使用分區</th>
+        </tr>
+        <% @yfcase.builds.each do |build| %>
+        <tr>
+            <td>
+                <%= build.buildnumber %>
+            </td>
+            <td>
+                <% if build.buildurl == "" %>
+                <%= link_to " " %> <br>
+                <% else%>
+                <%= link_to "連結", build.buildurl, target: "_blank" %>
+                <% end %>
+            </td>
+            <td>
+                <%= area(build.buildarea,1,1,1).round(2) %> (
+                <%= area(build.buildarea,1,1,0.3025).round(2) %>)
+            </td>
+            <td>
+                <%= build.buildholdingpointperson %>/
+                <%= build.buildholdingpointall %>
+            </td>
+            <td>
+                <%= area(build.buildarea,build.buildholdingpointperson,build.buildholdingpointall,1).round(2) %> (
+                <%= area(build.buildarea,build.buildholdingpointperson,build.buildholdingpointall,0.3025).round(2) %>)
+            </td>
+            <td>
+                <%= build.buildtype %>
+            </td>
+            <td>
+                <%= build.usearea %>
+            </td>
+        </tr>
+        <% end %>
+    </table>
+</div>
+<br>
+
+<!-- 拍賣結果 -->
+<div class="auction">
+    <table class="table">
+        <tr>
+            <th>拍賣日</th>
+            <td>
+                <%= @yfcase.auctionday %>
+            </td>
+            <th>底價(NT)</th>
+            <th>坪價(NT)</th>
+            <th>時價(NT)</th>
+            <th>CP</th>
+            <th>點閱</th>
+            <th>監控</th>
+            <th>建議加價</th>
+            <th>保証金</th>
+            <th>備註</th>
+        </tr>
+        <!-- 第一拍 -->
+        <tr>
+            <% if @yfcase.auctionlevel == "第一拍" %>
+              <!-- 拍別：第一拍 -->
+              <td>V</td>
+              <th>第一拍</th>
+              <!-- 第一拍：底價 -->
+              <td>
+                  <% if @yfcase.floorprice == 0 %>
+                  <%= " " %>
+                  <% else %>
+                  <%= number_to_currency(@yfcase.floorprice, unit: "", precision: 0 ) %>
+                  <% end %>
+              </td>
+              <!-- 第一拍：坪價 -->
+              <td>
+                  <% if @yfcase.floorprice == 0 || @yfcase.builds.count == 0 %>
+                  <%= " " %>
+                  <% else %>
+                  <%= number_to_currency(@pingprice, unit: "", precision: 0 ) %>
+                  <% end %>
+              </td>
+              <!-- 第一拍：時價 -->
+              <td>
+                  <% if @yfcase.objectbuilds.count == 0 %>
+                  <%= " " %>
+                  <% else %>
+                  <%= number_to_currency(@marketprice, unit: "", precision: 0 ) %>
+                  <% end %>
+              </td>
+              <!-- 第一拍：CP值 -->
+              <td>
+                  <% if  @yfcase.floorprice == 0 || @yfcase.builds.count == 0 || @yfcase.objectbuilds.count == 0 %>
+                  <%= " " %>
+                  <% else %>
+                  <%= (@marketprice / @pingprice).round(2) %>
+                  <% end %>
+              </td>
+              <!-- 第一拍：點閱 -->
+              <td>
+                  <%= @yfcase.click %>
+              </td>
+              <!-- 第一拍：監控 -->
+              <td>
+                  <%= @yfcase.monitor %>
+              </td>
+              <!-- 第一拍：建議加價 -->
+              <td>
+                  <% if @yfcase.floorprice == 0 %>
+                  <%= " " %>
+                  <% else %>
+                  (
+                  <%= @suggestedincrease*100 %>%)<br>
+                  <%= number_to_currency(@suggestedincrease*@yfcase.floorprice, unit: "", precision: 0 ) %>
+                  <% end %>
+              </td>
+              <!-- 第一拍：保証金 -->
+              <td>
+                  <%= number_to_currency(@yfcase.margin, unit: "", precision: 0 ) %>
+              </td>
+              <!-- 第一拍：備註 -->
+              <td>
+              </td>
+            <% else %>
+              <td> </td>
+              <th>第一拍</th>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+            <% end %>
+        </tr>
+
+        <!-- 第二拍 -->
+        <tr>
+            <% if @yfcase.auctionlevel == "第二拍" %>
+              <!-- 拍別：第二拍 -->
+              <td>V</td>
+              <th>第二拍</th>
+              <!-- 第二拍：底價 -->
+              <td>
+                  <% if @yfcase.floorprice == 0 %>
+                  <%= " " %>
+                  <% else %>
+                  <%= number_to_currency(@yfcase.floorprice, unit: "", precision: 0 ) %>
+                  <% end %>
+              </td>
+              <!-- 第二拍：坪價 -->
+              <td>
+                  <% if @yfcase.floorprice == 0 || @yfcase.builds.count == 0 %>
+                  <%= " " %>
+                  <% else %>
+                  <%= number_to_currency(@pingprice, unit: "", precision: 0 ) %>
+                  <% end %>
+              </td>
+              <!-- 第二拍：時價 -->
+              <td>
+                  <% if @yfcase.objectbuilds.count == 0 %>
+                  <%= " " %>
+                  <% else %>
+                  <%= number_to_currency(@marketprice, unit: "", precision: 0 ) %>
+                  <% end %>
+              </td>
+              <!-- 第二拍：CP值 -->
+              <td>
+                  <% if  @yfcase.floorprice == 0 || @yfcase.builds.count == 0 || @yfcase.objectbuilds.count == 0 %>
+                  <%= " " %>
+                  <% else %>
+                  <%= (@marketprice / @pingprice).round(2) %>
+                  <% end %>
+              </td>
+              <!-- 第二拍：點閱 -->
+              <td>
+                  <%= @yfcase.click %>
+              </td>
+              <!-- 第二拍：監控 -->
+              <td>
+                  <%= @yfcase.monitor %>
+              </td>
+              <!-- 第二拍：建議加價 -->
+              <td>
+                  <% if @yfcase.floorprice == 0 %>
+                  <%= " " %>
+                  <% else %>
+                  (
+                  <%= @suggestedincrease*100 %>%)<br>
+                  <%= number_to_currency(@suggestedincrease*@yfcase.floorprice, unit: "", precision: 0 ) %>
+                  <% end %>
+              </td>
+              <!-- 第二拍：保証金 -->
+              <td>
+                  <%= number_to_currency(@yfcase.margin, unit: "", precision: 0 ) %>
+              </td>
+              <!-- 第二拍：備註 -->
+              <td>
+              </td>
+            <% else %>
+              <td> </td>
+              <th>第二拍</th>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+            <% end %>
+        </tr>
+
+        <!-- 第三拍 -->
+        <tr>
+            <% if @yfcase.auctionlevel == "第三拍" %>
+              <!-- 拍別：第三拍 -->
+              <td>V</td>
+              <th>第三拍</th>
+              <!-- 第三拍：底價 -->
+              <td>
+                  <% if @yfcase.floorprice == 0 %>
+                  <%= " " %>
+                  <% else %>
+                  <%= number_to_currency(@yfcase.floorprice, unit: "", precision: 0 ) %>
+                  <% end %>
+              </td>
+              <!-- 第三拍：坪價 -->
+              <td>
+                  <% if @yfcase.floorprice == 0 || @yfcase.builds.count == 0 %>
+                  <%= " " %>
+                  <% else %>
+                  <%= number_to_currency(@pingprice, unit: "", precision: 0 ) %>
+                  <% end %>
+              </td>
+              <!-- 第三拍：時價 -->
+              <td>
+                  <% if @yfcase.objectbuilds.count == 0 %>
+                  <%= " " %>
+                  <% else %>
+                  <%= number_to_currency(@marketprice, unit: "", precision: 0 ) %>
+                  <% end %>
+              </td>
+              <!-- 第三拍：CP值 -->
+              <td>
+                  <% if  @yfcase.floorprice == 0 || @yfcase.builds.count == 0 || @yfcase.objectbuilds.count == 0 %>
+                  <%= " " %>
+                  <% else %>
+                  <%= (@marketprice / @pingprice).round(2) %>
+                  <% end %>
+              </td>
+              <!-- 第三拍：點閱 -->
+              <td>
+                  <%= @yfcase.click %>
+              </td>
+              <!-- 第三拍：監控 -->
+              <td>
+                  <%= @yfcase.monitor %>
+              </td>
+              <!-- 第三拍：建議加價 -->
+              <td>
+                  <% if @yfcase.floorprice == 0 %>
+                  <%= " " %>
+                  <% else %>
+                  (
+                  <%= @suggestedincrease*100 %>%)<br>
+                  <%= number_to_currency(@suggestedincrease*@yfcase.floorprice, unit: "", precision: 0 ) %>
+                  <% end %>
+              </td>
+              <!-- 第三拍：保証金 -->
+              <td>
+                  <%= number_to_currency(@yfcase.margin, unit: "", precision: 0 ) %>
+              </td>
+              <!-- 第三拍：備註 -->
+              <td>
+              </td>
+            <% else %>
+              <td> </td>
+              <th>第三拍</th>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+            <% end %>
+        </tr>
+
+        <!-- 第四拍 -->
+        <tr>
+            <% if @yfcase.auctionlevel == "第四拍" %>
+              <!-- 拍別：第四拍 -->
+              <td>V</td>
+              <th>第四拍</th>
+              <!-- 第四拍：底價 -->
+              <td>
+                  <% if @yfcase.floorprice == 0 %>
+                  <%= " " %>
+                  <% else %>
+                  <%= number_to_currency(@yfcase.floorprice, unit: "", precision: 0 ) %>
+                  <% end %>
+              </td>
+              <!-- 第四拍：坪價 -->
+              <td>
+                  <% if @yfcase.floorprice == 0 || @yfcase.builds.count == 0 %>
+                  <%= " " %>
+                  <% else %>
+                  <%= number_to_currency(@pingprice, unit: "", precision: 0 ) %>
+                  <% end %>
+              </td>
+              <!-- 第四拍：時價 -->
+              <td>
+                  <% if @yfcase.objectbuilds.count == 0 %>
+                  <%= " " %>
+                  <% else %>
+                  <%= number_to_currency(@marketprice, unit: "", precision: 0 ) %>
+                  <% end %>
+              </td>
+              <!-- 第四拍：CP值 -->
+              <td>
+                  <% if  @yfcase.floorprice == 0 || @yfcase.builds.count == 0 || @yfcase.objectbuilds.count == 0 %>
+                  <%= " " %>
+                  <% else %>
+                  <%= (@marketprice / @pingprice).round(2) %>
+                  <% end %>
+              </td>
+              <!-- 第四拍：點閱 -->
+              <td>
+                  <%= @yfcase.click %>
+              </td>
+              <!-- 第四拍：監控 -->
+              <td>
+                  <%= @yfcase.monitor %>
+              </td>
+              <!-- 第四拍：建議加價 -->
+              <td>
+                  <% if @yfcase.floorprice == 0 %>
+                  <%= " " %>
+                  <% else %>
+                  (
+                  <%= @suggestedincrease*100 %>%)<br>
+                  <%= number_to_currency(@suggestedincrease*@yfcase.floorprice, unit: "", precision: 0 ) %>
+                  <% end %>
+              </td>
+              <!-- 第四拍：保証金 -->
+              <td>
+                  <%= number_to_currency(@yfcase.margin, unit: "", precision: 0 ) %>
+              </td>
+              <!-- 第四拍：備註 -->
+              <td>
+              </td>
+            <% else %>
+              <td> </td>
+              <th>第四拍</th>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+            <% end %>
+        </tr>
+
+    </table>
+</div>
+<br>
+
+<!-- 勘查結果 -->
+<div class="attachment">
+    <table class="table">
+        <tr>
+            <th>初勘日</th>
+            <td>
+                <%= @yfcase.firstsurveydate %>
+            </td>
+        </tr>
+        <tr>
+            <th>會勘日</th>
+            <td>
+                <%= @yfcase.othersurveydate %>
+            </td>
+        </tr>
+        <tr>
+            <th>法拍公告(證物三)</th>
+            <td>
+                <%= @yfcase.foreclosureannouncement %> <br>
+                <%= link_to @yfcase.foreclosureannouncementtext, @yfcase.foreclosureannouncementlink, target: "_blank" %>
+            </td>
+        </tr>
+        <tr>
+            <th>物件照片(證物四)</th>
+            <td>
+                <%= link_to @yfcase.objectphotos, @yfcase.objectphotoslink, target: "_blank" %>
+            </td>
+        </tr>
+        <tr>
+            <th>實價登錄市價</th>
+            <td>
+                <table>
+                    <tr>
+                        <th>附件</th>
+                        <th>地址</th>
+                        <th>總價(萬)</th>
+                        <th>建坪(坪)</th>
+                        <th>單價(萬)</th>
+                        <th>屋齡(年)</th>
+                        <th>單位</th>
+                        <th>樓高</th>
+                        <th>勘查員A</th>
+                        <th>加成A</th>
+                        <th>勘查員B</th>
+                        <th>加成B</th>
+                        <th>計算</th>
+                    </tr>
+                    <% @yfcase.objectbuilds.each do |objectbuild| %>
+                    <tr>
+                        <td>
+                            <% if objectbuild.objectbuildurl == "" %>
+                            <%= link_to "" %>
+                            <% else %>
+                            <%= link_to "連結", objectbuild.objectbuildurl, target: "_blank" %>
+                            <% end %>
+                        </td>
+                        <td>
+                            <%= objectbuild.address %>
+                        </td>
+                        <td>
+                            <%= objectbuild.totalprice %>
+                        </td>
+                        <td>
+                            <%= objectbuild.buildarea %>
+                        </td>
+                        <td>
+                            <%= holdingpoint(objectbuild.totalprice,objectbuild.buildarea).round(2) %>
+                        </td>
+                        <td>
+                            <%= objectbuild.house %>
+                        </td>
+                        <td>
+                            <%= objectbuild.unit %>
+                        </td>
+                        <td>
+                            <%= objectbuild.floorheight %>
+                        </td>
+                        <td>
+                            <%= objectbuild.surveyora %>
+                        </td>
+                        <td>
+                            <%= objectbuild.plusa %>
+                        </td>
+                        <td>
+                            <%= objectbuild.surveyorb %>
+                        </td>
+                        <td>
+                            <%= objectbuild.plusb %>
+                        </td>
+                        <td>
+                            <% @totalmesa = testvalue(objectbuild.totalprice.to_f/objectbuild.buildarea.to_f,objectbuild.plusa,objectbuild.plusb)*10000 %>
+                            <%= number_to_currency(@totalmesa, unit: "", precision: 0 ) %>
+                        </td>
+                    </tr>
+                    <% end %>
+                </table>
+                <%= link_to @yfcase.registeredmarketpricetext, @yfcase.registeredmarketpricelink, target: "_blank" %>
+            </td>
+        </tr>
+        <tr>
+            <th>實價登錄地圖(證物五)</th>
+            <td>
+                <%= link_to @yfcase.registrationmap, @yfcase.registrationmaplink, target: "_blank" %>
+            </td>
+        </tr>
+        <tr>
+            <th>實價登錄照片(證物六)</th>
+            <td>
+                <%= link_to @yfcase.registrationphoto, @yfcase.registrationphotolink, target: "_blank" %>
+            </td>
+        </tr>
+        <tr>
+            <th>法拍記錄(證物七)</th>
+            <td>
+                <%= link_to @yfcase.foreclosurerecord, @yfcase.foreclosurerecordlink, target: "_blank" %>
+            </td>
+        </tr>
+        <tr>
+            <th>備註</th>
+            <td>
+                <%= link_to @yfcase.surveyremark %>
+            </td>
+        </tr>
+        <tr>
+            <th>會勘決議</th>
+            <td>
+                <%= @yfcase.surveyresolution %>
+            </td>
+        </tr>
+    </table>
+</div>
+<br>
+
+<!-- 最終判定 -->
+<div class="finaldecision">
+    <table class="table">
+        <tr>
+            <th>結論</th>
+            <th>區域負責人</th>
+            <th>副署人員1</th>
+            <th>副署人員2</th>
+            <th>副署人員3</th>
+        </tr>
+        <tr>
+            <td>
+                <%= @yfcase.finaldecisionconclusion %>
+            </td>
+            <td>
+                <%= @yfcase.user.first_name %>
+                <%= @yfcase.user.last_name %>
+            </td>
+            <td>
+                <%= @yfcase.finaldecisionsurveyordecide1 %>
+            </td>
+            <td>
+                <%= @yfcase.finaldecisionsurveyordecide2 %>
+            </td>
+            <td>
+                <%= @yfcase.finaldecisionsurveyordecide3 %>
+            </td>
+        </tr>
+    </table>
+</div>
+
 <br>
 <% if user_signed_in? %>
   <div id="showitem">
@@ -810,4 +653,5 @@
     <%= link_to '返回', yfcases_path,class: "btn btn-info" %>
   </div>
 <% end %>
+
 
