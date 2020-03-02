@@ -87,17 +87,21 @@
      <th>超連結文字</th>
      <th>超連結路徑</th>
    </tr> 
+
+
   <tr>
-    <th style="width:20%">
+    <th rowspan="2" style="width:20%">
       <%= f.label :foreclosureannouncement,"法拍公告(證物三)", :style => "width: 100%" %>
     </th>
-    <td style="width:30%">
-      <%= f.text_field :foreclosureannouncement, :style => "width: 100%" %>
-    </td>
-    <td  style="width:50%">
-      <%= f.text_field :foreclosureannouncementlink, :style => "width: 100%" %>
-    </td>
+    <td><%= f.text_field :foreclosureannouncementtext, :style => "width: 100%" %></td>
+    <td><%= f.text_field :foreclosureannouncementlink, :style => "width: 100%" %></td>
   </tr>
+  <tr>
+    <td colspan="2"><%= f.text_area :foreclosureannouncement, size: "125x6" %></td>
+  </tr>
+
+
+
   <tr>
     <th style="width:20%"><%= f.label :objectphotos,"物件照片(證物四)", :style => "width: 100%" %></th>
     <td><%= f.text_field :objectphotos, :style => "width: 100%" %></td>
@@ -161,7 +165,7 @@
 
 
 
-  <div class="field">
+<!--   <div class="field">
     <%= f.label :finaldecisionsurveyordecide1,"勘查員1" %>
     <%= f.text_field :finaldecisionsurveyordecide1 %>
   </div>
@@ -172,10 +176,11 @@
   <div class="field">
     <%= f.label :finaldecisionsurveyordecide3,"勘查員3" %>
     <%= f.text_field :finaldecisionsurveyordecide3 %>
-  </div>
+  </div> -->
 
+  <br>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "更新YF評量表" %>
   </div>
 <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200227064345) do
+ActiveRecord::Schema.define(version: 20200302091850) do
 
   create_table "builds", force: :cascade do |t|
     t.string   "buildnumber"
@@ -62,6 +62,22 @@ ActiveRecord::Schema.define(version: 20200227064345) do
 
   add_index "objectbuilds", ["yfcase_id"], name: "index_objectbuilds_on_yfcase_id"
 
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "role"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
   create_table "yfcases", force: :cascade do |t|
     t.string   "casenumber"
     t.string   "address"
@@ -75,7 +91,7 @@ ActiveRecord::Schema.define(version: 20200227064345) do
     t.string   "debtor"
     t.date     "firstsurveydate"
     t.date     "othersurveydate"
-    t.string   "foreclosureannouncement"
+    t.text     "foreclosureannouncement"
     t.string   "objectphotos"
     t.text     "registeredmarketprice"
     t.string   "registrationmap"
@@ -99,6 +115,10 @@ ActiveRecord::Schema.define(version: 20200227064345) do
     t.string   "registrationphotolink"
     t.string   "foreclosurerecordlink"
     t.string   "registeredmarketpricetext"
+    t.integer  "user_id"
+    t.string   "foreclosureannouncementtext"
   end
+
+  add_index "yfcases", ["user_id"], name: "index_yfcases_on_user_id"
 
 end

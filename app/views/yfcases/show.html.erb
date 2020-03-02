@@ -339,7 +339,7 @@
         <% if @yfcase.floorprice == 0 %>
           <%= " " %>
         <% else %>
-          (<%= @suggestedincrease*100 %>%)<%= number_to_currency(@suggestedincrease*@yfcase.floorprice, unit: "", precision: 0 ) %>
+          (<%= @suggestedincrease*100 %>%)<br><%= number_to_currency(@suggestedincrease*@yfcase.floorprice, unit: "", precision: 0 ) %>
         <% end %>
       </td>
       <td colspan=2 class=xl11521207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
@@ -406,7 +406,7 @@
         <% if @yfcase.floorprice == 0 %>
           <%= " " %>
         <% else %>
-          (<%= @suggestedincrease*100 %>%)<%= number_to_currency(@suggestedincrease*@yfcase.floorprice, unit: "", precision: 0 ) %>
+          (<%= @suggestedincrease*100 %>%)<br><%= number_to_currency(@suggestedincrease*@yfcase.floorprice, unit: "", precision: 0 ) %>
         <% end %>
       </td>
       <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
@@ -469,7 +469,7 @@
         <% if @yfcase.floorprice == 0 %>
           <%= " " %>
         <% else %>
-          (<%= @suggestedincrease*100 %>%)<%= number_to_currency(@suggestedincrease*@yfcase.floorprice, unit: "", precision: 0 ) %>
+          (<%= @suggestedincrease*100 %>%)<br><%= number_to_currency(@suggestedincrease*@yfcase.floorprice, unit: "", precision: 0 ) %>
         <% end %>
       </td>
       <td colspan=2 class=xl11821207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
@@ -491,7 +491,7 @@
     <% end %>
 </tr>
 <tr height=19 style='height:14.25pt'>
-    <% if @yfcase.auctionlevel == "第四拍" %>\
+    <% if @yfcase.auctionlevel == "第四拍" %>
       <td height=19 class=xl7821207 width=39 style='height:14.25pt;border-top:none;width:29pt'>V</td>
       <td colspan=4 class=xl7921207 width=156 style='border-left:none;width:116pt'>第四拍</td>
       <td colspan=2 class=xl12021207 width=78 style='border-left:none;width:58pt'>
@@ -532,7 +532,7 @@
         <% if @yfcase.floorprice == 0 %>
           <%= " " %>
         <% else %>
-          (<%= @suggestedincrease*100 %>%)<%= number_to_currency(@suggestedincrease*@yfcase.floorprice, unit: "", precision: 0 ) %>
+          (<%= @suggestedincrease*100 %>%)<br><%= number_to_currency(@suggestedincrease*@yfcase.floorprice, unit: "", precision: 0 ) %>
         <% end %>
       </td>
       <td colspan=2 class=xl12121207 width=78 style='border-left:1px #777777 dotted;width:58pt'>
@@ -583,7 +583,8 @@
  <tr height=23 style='mso-height-source:userset;height:17.45pt'>
   <td colspan=5 height=23 class=xl8021207 width=195 style='height:17.45pt;width:145pt'>法拍公告(證物三)</td>
   <td colspan=20 class=xl12321207 width=780 style='border-right:1.0pt solid black;border-left:none;width:580pt'>
-    <%= link_to @yfcase.foreclosureannouncement, @yfcase.foreclosureannouncementlink, target: "_blank" %>
+    <%= @yfcase.foreclosureannouncement %> <br>
+    <%= link_to @yfcase.foreclosureannouncementtext, @yfcase.foreclosureannouncementlink, target: "_blank" %>
   </td>
  </tr>
  <tr height=23 style='mso-height-source:userset;height:17.45pt'>
@@ -595,7 +596,6 @@
  <tr height=23 style='mso-height-source:userset;height:17.45pt'>
   <td colspan=5 height=23 class=xl8221207 width=195 style='height:17.45pt;width:145pt'>實價登錄市價</td>
   <td colspan=20 class=xl12621207 width=780 style='border-right:1.0pt solid black;border-left:none;width:580pt'>
-    <%= @yfcase.registeredmarketprice %> <br>
     <%= link_to @yfcase.registeredmarketpricetext, @yfcase.registeredmarketpricelink, target: "_blank" %>
   </td>
  </tr>
@@ -620,7 +620,7 @@
  <tr height=19 style='height:14.25pt'>
   <td colspan=5 height=19 class=xl8321207 width=195 style='height:14.25pt;width:145pt'>備註</td>
   <td colspan=20 class=xl12921207 width=780 style='border-right:1.0pt solid black;border-left:none;width:580pt'>
-    備註
+    <%= link_to @yfcase.surveyremark %>
   </td>
  </tr>
  <tr height=10 style='mso-height-source:userset;height:7.5pt'>
@@ -696,7 +696,8 @@
           <td><%= objectbuild.plusb %></td>
 
           <td>
-            <%= testvalue(objectbuild.totalprice.to_f/objectbuild.buildarea.to_f,objectbuild.plusa,objectbuild.plusb) %>
+            <% @totalmesa = testvalue(objectbuild.totalprice.to_f/objectbuild.buildarea.to_f,objectbuild.plusa,objectbuild.plusb)*10000 %>
+            <%= number_to_currency(@totalmesa, unit: "", precision: 0 ) %>
           </td>
 
         </tr>
@@ -754,7 +755,9 @@
   <td colspan=5 rowspan=3 height=55 class=xl9821207 width=195 style='border-bottom:2.0pt double black;height:41.25pt;width:145pt'>
     <%= @yfcase.finaldecisionconclusion %>
   </td>
-  <td colspan=5 rowspan=3 class=xl9721207 width=195 style='border-right:2.0pt double black;border-bottom:2.0pt double black;width:145pt'>區域負責人</td>
+  <td colspan=5 rowspan=3 class=xl9721207 width=195 style='border-right:2.0pt double black;border-bottom:2.0pt double black;width:145pt'>
+    <%= @yfcase.user.first_name %><%= @yfcase.user.last_name %>
+  </td>
   <td colspan=5 rowspan=3 class=xl9821207 width=195 style='border-bottom:2.0pt double black;width:145pt'>
     <%= @yfcase.finaldecisionsurveyordecide1 %>
   </td>
@@ -801,8 +804,10 @@
 </table>
 </div>
 <br>
-<div id="showitem">
-  <%= link_to 'Edit', edit_yfcase_path(@yfcase),class: "btn btn-primary" %> |
-  <%= link_to 'Back', yfcases_path,class: "btn btn-info" %>
-</div>
+<% if user_signed_in? %>
+  <div id="showitem">
+    <%= link_to '編輯', edit_yfcase_path(@yfcase),class: "btn btn-primary" %> |
+    <%= link_to '返回', yfcases_path,class: "btn btn-info" %>
+  </div>
+<% end %>
 

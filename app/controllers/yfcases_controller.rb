@@ -1,6 +1,7 @@
 class YfcasesController < ApplicationController
   include ApplicationHelper
   before_action :set_yfcase, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /yfcases
   # GET /yfcases.json
@@ -17,7 +18,7 @@ class YfcasesController < ApplicationController
     @buildtotalarea = @yfcase.builds.map { |n| [n.buildarea.to_f * (n.buildholdingpointperson.to_f / n.buildholdingpointall.to_f)] }.flatten.sum 
 
     # 坪價(萬)
-    @pingprice = @yfcase.floorprice.to_f / @buildtotalarea.to_f
+    @pingprice = @yfcase.floorprice.to_f / (@buildtotalarea*0.3025).to_f
 
     # 時價(萬)
     marketpricecount = @yfcase.objectbuilds.count
@@ -33,7 +34,7 @@ class YfcasesController < ApplicationController
 
   # GET /yfcases/new
   def new
-    @yfcase = Yfcase.new(floorprice:0,margin: 0, click: 0, monitor: 0)
+    @yfcase = current_user.yfcases.build(floorprice:0,margin: 0, click: 0, monitor: 0)
   end
 
   # GET /yfcases/1/edit
@@ -43,7 +44,8 @@ class YfcasesController < ApplicationController
   # POST /yfcases
   # POST /yfcases.json
   def create
-    @yfcase = Yfcase.new(yfcase_params)
+    @yfcase = current_user.yfcases.build(yfcase_params)
+    @yfcase.user=current_user
     @bb = 2.to_f+1.to_f
 
     respond_to do |format|
@@ -93,7 +95,7 @@ class YfcasesController < ApplicationController
         :creditor,:debtor, \
         :auctionday,:auctionlevel,:floorprice,:margin,:click,:monitor,\
         :firstsurveydate ,:othersurveydate ,:surveyrecord ,:foreclosureannouncement ,:objectphotos ,:registeredmarketprice,:registeredmarketpricetext ,:registrationmap ,:registrationphoto ,:foreclosurerecord ,:surveyremark, \
-        :foreclosureannouncementlink,:objectphotoslink,:registeredmarketpricelink,:registrationmaplink,:registrationphotolink,:foreclosurerecordlink, \
+        :foreclosureannouncementlink,:foreclosureannouncementtext,:objectphotoslink,:registeredmarketpricelink,:registrationmaplink,:registrationphotolink,:foreclosurerecordlink, \
         :surveyresolution , \
         :finaldecisionheader ,:finaldecisionconclusion , \
         :finaldecisionsurveyordecide1 ,:finaldecisionsurveyordecide2 ,:finaldecisionsurveyordecide3 ,:finaldecisionsurveyordecide4 ,:finaldecisionsurveyordecide5 , \
