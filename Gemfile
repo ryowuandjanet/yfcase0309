@@ -30,6 +30,7 @@ gem 'bootstrap-sass', '~> 3.4.1'
 gem 'sassc-rails', '>= 2.1.0'
 gem 'font-awesome-sass', '4.7.0'
 gem 'devise'
+gem 'jquery-ui-rails','~> 4.0.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

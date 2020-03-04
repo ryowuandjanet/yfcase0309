@@ -12,6 +12,7 @@
   <% end %>
 
 <h3>基本資料</h3>
+
 <table id="basedata">
   <tr>
     <th><%= f.label :casenumber,"案號" %></th>
@@ -28,20 +29,51 @@
 </table>
  
 <br>
+<h3>拍賣資訊</h3>
 <table style="border:1px solid #000;width:100%;">
   <tr>
-    <th style="width:5%"><%= f.label :auctionday,"拍賣日" %></th>
-    <td style="width:17%"><%= f.date_select :auctionday,use_month_numbers: true %></td>
     <th style="width:5%"><%= f.label :auctionlevel,"拍別" %></th>
-    <td style="width:7%"><%= f.select(:auctionlevel,Yfcase::AUCTION_LIST) %></td>
+    <th style="width:5%"><%= f.label :auctionday,"拍賣日" %></th>
     <th style="width:9%"><%= f.label :floorprice,"底價(NT)" %></th>
-    <td style="width:11%"><%= f.number_field :floorprice, :style => "width: 150px" %></td>
     <th style="width:5%"><%= f.label :click,"點閱" %></th>
-    <td style="width:10%"><%= f.number_field :click, :style => "width: 100px" %></td>
     <th style="width:5%"><%= f.label :monitor,"監控" %></th>
-    <td style="width:10%"><%= f.number_field :monitor, :style => "width: 100px" %></td>
     <th style="width:5%"><%= f.label :margin,"保証金" %></th>
-    <td style="width:11%"><%= f.number_field :margin , :style => "width: 150px" %></td>
+  </tr>
+
+  <tr>
+    <th><%= f.label :auctionlevel1,"第一拍" %></th>
+    <td><%= f.text_field :auctionday1, class: "datepicker" %></td>
+    <td><%= f.number_field :floorprice1, in: 0..100000000, :required => true %></td>
+    <td><%= f.number_field :click1 %></td>
+    <td><%= f.number_field :monitor1 %></td>
+    <td><%= f.number_field :margin1 %></td>
+  </tr>
+
+  <tr>
+    <th><%= f.label :auctionlevel2,"第二拍" %></th>
+    <td><%= f.text_field :auctionday2, class: "datepicker" %></td>
+    <td><%= f.number_field :floorprice2, in: 0..100000000, :required => true %></td>
+    <td><%= f.number_field :click2 %></td>
+    <td><%= f.number_field :monitor2 %></td>
+    <td><%= f.number_field :margin2 %></td>
+  </tr>
+
+  <tr>
+    <th><%= f.label :auctionlevel3,"第三拍" %></th>
+    <td><%= f.text_field :auctionday3, class: "datepicker" %></td>
+    <td><%= f.number_field :floorprice3, in: 0..100000000, :required => true %></td>
+    <td><%= f.number_field :click3 %></td>
+    <td><%= f.number_field :monitor3 %></td>
+    <td><%= f.number_field :margin3 %></td>
+  </tr>
+
+  <tr>
+    <th><%= f.label :auctionlevel4,"第四拍" %></th>
+    <td><%= f.text_field :auctionday4, class: "datepicker" %></td>
+    <td><%= f.number_field :floorprice4, in: 0..100000000, :required => true %></td>
+    <td><%= f.number_field :click4 %></td>
+    <td><%= f.number_field :monitor4 %></td>
+    <td><%= f.number_field :margin4 %></td>
   </tr>
 </table>
 
@@ -184,3 +216,13 @@
     <%= f.submit "更新YF評量表" %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+
+  $('.datepicker').datepicker({
+    dateFormat: "yy-mm-dd",
+    changeMonth: true,
+    changeYear: true
+  });
+
+</script>

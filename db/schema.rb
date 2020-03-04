@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200302091850) do
+ActiveRecord::Schema.define(version: 20200304013522) do
 
   create_table "builds", force: :cascade do |t|
     t.string   "buildnumber"
@@ -117,6 +117,26 @@ ActiveRecord::Schema.define(version: 20200302091850) do
     t.string   "registeredmarketpricetext"
     t.integer  "user_id"
     t.string   "foreclosureannouncementtext"
+    t.date     "auctionday1"
+    t.integer  "floorprice1"
+    t.integer  "click1"
+    t.integer  "monitor1"
+    t.integer  "margin1"
+    t.date     "auctionday2"
+    t.integer  "floorprice2"
+    t.integer  "click2"
+    t.integer  "monitor2"
+    t.integer  "margin2"
+    t.date     "auctionday3"
+    t.integer  "floorprice3"
+    t.integer  "click3"
+    t.integer  "monitor3"
+    t.integer  "margin3"
+    t.date     "auctionday4"
+    t.integer  "floorprice4"
+    t.integer  "click4"
+    t.integer  "monitor4"
+    t.integer  "margin4"
   end
 
   add_index "yfcases", ["user_id"], name: "index_yfcases_on_user_id"

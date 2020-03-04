@@ -18,18 +18,16 @@ class YfcasesController < ApplicationController
     @buildtotalarea = @yfcase.builds.map { |n| [n.buildarea.to_f * (n.buildholdingpointperson.to_f / n.buildholdingpointall.to_f)] }.flatten.sum 
 
     # 坪價(萬)
-    @pingprice = @yfcase.floorprice.to_f / (@buildtotalarea*0.3025).to_f
+    @pingprice1 = @yfcase.floorprice1.to_f / (@buildtotalarea*0.3025).to_f
+    @pingprice2 = @yfcase.floorprice2.to_f / (@buildtotalarea*0.3025).to_f
+    @pingprice3 = @yfcase.floorprice3.to_f / (@buildtotalarea*0.3025).to_f
+    @pingprice4 = @yfcase.floorprice4.to_f / (@buildtotalarea*0.3025).to_f
 
     # 時價(萬)
     marketpricecount = @yfcase.objectbuilds.count
     marketpricesum=@yfcase.objectbuilds.map { |n| [(testvalue(n.totalprice.to_f / n.buildarea.to_f ,n.plusa,n.plusb))] }.flatten
     @marketprice = marketpricesum.map!{|e| e.to_f}.sum.fdiv(marketpricesum.size) * 10000
     @marketpriceplusa = @yfcase.objectbuilds.map { |n| [n.totalprice.to_f*n.plusa.to_f,n.totalprice.to_f*n.plusb.to_f] }.flatten
-
-
-
-    # 建議加價 (%)
-    @suggestedincrease = suggestedincrease(@yfcase.click,@yfcase.monitor)
   end
 
   # GET /yfcases/new
@@ -94,6 +92,10 @@ class YfcasesController < ApplicationController
       params.require(:yfcase).permit(:casenumber, :address, \
         :creditor,:debtor, \
         :auctionday,:auctionlevel,:floorprice,:margin,:click,:monitor,\
+        :auctionday1,:floorprice1,:margin1,:click1,:monitor1,\
+        :auctionday2,:floorprice2,:margin2,:click2,:monitor2,\
+        :auctionday3,:floorprice3,:margin3,:click3,:monitor3,\
+        :auctionday4,:floorprice4,:margin4,:click4,:monitor4,\
         :firstsurveydate ,:othersurveydate ,:surveyrecord ,:foreclosureannouncement ,:objectphotos ,:registeredmarketprice,:registeredmarketpricetext ,:registrationmap ,:registrationphoto ,:foreclosurerecord ,:surveyremark, \
         :foreclosureannouncementlink,:foreclosureannouncementtext,:objectphotoslink,:registeredmarketpricelink,:registrationmaplink,:registrationphotolink,:foreclosurerecordlink, \
         :surveyresolution , \
