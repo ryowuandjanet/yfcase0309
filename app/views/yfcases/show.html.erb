@@ -2,7 +2,7 @@
 
 <!-- YF評量表 -->
 <h1 class="x110000">YF評量表</h1>
-<%= currency_helper(Yfcase.first.floorprice,2) %>
+
 <!-- 基本資料 -->
 <div class="basedata">
     <table class="table">
@@ -23,7 +23,7 @@
         <tr>
             <th class="x110003">地址</th>
             <td class="x120003">
-                <%= @yfcase.address %>
+                (<%= @yfcase.township.try(:zip_code) %>)<%= @yfcase.county.try(:name) %><%= @yfcase.township.try(:name) %><%= @yfcase.address %>
             </td>
         </tr>
     </table>

@@ -20,7 +20,11 @@
                     <%= link_to "建立YF評量表", new_yfcase_path %>
                 </li>
                 <li>
+                    
                     <%= link_to "登出", destroy_user_session_path, method: :delete %>
+                </li>
+                <li>
+                    (<%= current_user.first_name %><%= current_user.last_name %>)
                 </li>
             </ul>
             <% else %>

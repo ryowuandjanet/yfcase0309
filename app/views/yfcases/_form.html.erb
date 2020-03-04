@@ -19,14 +19,13 @@
     <td><%= f.text_field :casenumber, :style => "width: 100%" %></td>
     <th><%= f.label :address,"地址" %></th>
     <td>
-      <%= f.text_field :address, :style => "width: 100%" %>
-      </td>
-      <td>
-        
       <%= f.collection_select :county_id, County.order(:name), :id, :name, include_blank: true %>
-            </td>
-      <td>
-      <%= f.grouped_collection_select :township_id, County.order(:name), :township, :name, :id, :name, include_blank: true %>    
+    </td>
+    <td>
+      <%= f.grouped_collection_select :township_id, County.order(:name), :township, :name, :id, :name, include_blank: true %>
+    </td>
+    <td>
+      <%= f.text_field :address, :style => "width: 100%" %>
     </td>
   </tr>
   <tr>

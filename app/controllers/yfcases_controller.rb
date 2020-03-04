@@ -99,6 +99,7 @@ class YfcasesController < ApplicationController
         :firstsurveydate ,:othersurveydate ,:surveyrecord ,:foreclosureannouncement ,:objectphotos ,:registeredmarketprice,:registeredmarketpricetext ,:registrationmap ,:registrationphoto ,:foreclosurerecord ,:surveyremark, \
         :foreclosureannouncementlink,:foreclosureannouncementtext,:objectphotoslink,:registeredmarketpricelink,:registrationmaplink,:registrationphotolink,:foreclosurerecordlink, \
         :surveyresolution , \
+        :county_id, :township_id, \
         :finaldecisionheader ,:finaldecisionconclusion , \
         :finaldecisionsurveyordecide1 ,:finaldecisionsurveyordecide2 ,:finaldecisionsurveyordecide3 ,:finaldecisionsurveyordecide4 ,:finaldecisionsurveyordecide5 , \
         lands_attributes: [:id, :landnumber, :landurl, :landarea, :landholdingpointperson, :landholdingpointall, :_destroy], \
