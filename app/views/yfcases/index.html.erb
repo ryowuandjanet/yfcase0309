@@ -21,7 +21,9 @@
         <!-- 案號 -->
         <td><%= yfcase.casenumber %></td>
         <!-- 住址 -->
-        <td><%= yfcase.address %></td>
+        <td>
+          <%= yfcase.township.try(:zip_code) %> <%= yfcase.county.try(:name) %><%= yfcase.township.try(:name) %><%= yfcase.address %>
+        </td>
         <!-- 地號 -->
         <td>
           <% yfcase.lands.each do |land| %>
@@ -49,7 +51,7 @@
           <%= link_to yfcase, class: "btn btn-success btn-sm", style: "color:black;" do %>
             <%= icon('eye', class: 'fa-2x') %>
           <% end %>
-        <% if user_signed_in? %>
+        <% if yfcase.editable_by?(current_user) %>
           <%= link_to edit_yfcase_path(yfcase),class: "btn btn-info btn-sm", style: "color:black;" do %>
             <%= icon('pencil', class: 'fa-2x') %>
           <% end %>

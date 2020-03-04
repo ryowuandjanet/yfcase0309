@@ -5,6 +5,11 @@ class Yfcase < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :county
 	belongs_to :township
+	belongs_to :owner, class_name: "User", foreign_key: :user_id
+
+	def editable_by?(user)
+		user && user == owner
+	end
 
 
 	AUCTION_LIST=["","第一拍","第二拍","第三拍","第四拍"]

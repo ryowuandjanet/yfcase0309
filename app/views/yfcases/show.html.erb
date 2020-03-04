@@ -23,7 +23,7 @@
         <tr>
             <th class="x110003">地址</th>
             <td class="x120003">
-                (<%= @yfcase.township.try(:zip_code) %>)<%= @yfcase.county.try(:name) %><%= @yfcase.township.try(:name) %><%= @yfcase.address %>
+                <%= @yfcase.township.try(:zip_code) %> <%= @yfcase.county.try(:name) %><%= @yfcase.township.try(:name) %><%= @yfcase.address %>
             </td>
         </tr>
     </table>

@@ -32,7 +32,7 @@ class YfcasesController < ApplicationController
 
   # GET /yfcases/new
   def new
-    @yfcase = current_user.yfcases.build(floorprice:0,margin: 0, click: 0, monitor: 0)
+    @yfcase = current_user.yfcases.build(floorprice1:0,floorprice2:0,floorprice3:0,floorprice4:0,margin: 0, click: 0, monitor: 0)
   end
 
   # GET /yfcases/1/edit
@@ -84,7 +84,8 @@ class YfcasesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.k
     def set_yfcase
-      @yfcase = Yfcase.find(params[:id])
+      # @yfcase = Yfcase.find(params[:id])
+      @yfcase= current_user.yfcases.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
