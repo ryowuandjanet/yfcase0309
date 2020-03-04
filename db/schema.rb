@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200304013522) do
+ActiveRecord::Schema.define(version: 20200304091717) do
 
   create_table "builds", force: :cascade do |t|
     t.string   "buildnumber"
@@ -27,6 +27,10 @@ ActiveRecord::Schema.define(version: 20200304013522) do
   end
 
   add_index "builds", ["yfcase_id"], name: "index_builds_on_yfcase_id"
+
+  create_table "counties", force: :cascade do |t|
+    t.string "name"
+  end
 
   create_table "lands", force: :cascade do |t|
     t.string   "landnumber"
@@ -61,6 +65,14 @@ ActiveRecord::Schema.define(version: 20200304013522) do
   end
 
   add_index "objectbuilds", ["yfcase_id"], name: "index_objectbuilds_on_yfcase_id"
+
+  create_table "townships", force: :cascade do |t|
+    t.integer "county_id"
+    t.string  "name"
+    t.string  "zip_code"
+  end
+
+  add_index "townships", ["county_id"], name: "index_townships_on_county_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -137,8 +149,16 @@ ActiveRecord::Schema.define(version: 20200304013522) do
     t.integer  "click4"
     t.integer  "monitor4"
     t.integer  "margin4"
+    t.integer  "country_id"
+    t.integer  "state_id"
+    t.integer  "county_id"
+    t.integer  "township_id"
   end
 
+  add_index "yfcases", ["country_id"], name: "index_yfcases_on_country_id"
+  add_index "yfcases", ["county_id"], name: "index_yfcases_on_county_id"
+  add_index "yfcases", ["state_id"], name: "index_yfcases_on_state_id"
+  add_index "yfcases", ["township_id"], name: "index_yfcases_on_township_id"
   add_index "yfcases", ["user_id"], name: "index_yfcases_on_user_id"
 
 end
