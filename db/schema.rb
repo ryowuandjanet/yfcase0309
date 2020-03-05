@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200305065116) do
+ActiveRecord::Schema.define(version: 20200305154845) do
 
   create_table "builds", force: :cascade do |t|
     t.string   "buildnumber"
@@ -65,6 +65,25 @@ ActiveRecord::Schema.define(version: 20200305065116) do
   end
 
   add_index "objectbuilds", ["yfcase_id"], name: "index_objectbuilds_on_yfcase_id"
+
+  create_table "personnals", force: :cascade do |t|
+    t.boolean  "creditor"
+    t.boolean  "debtor"
+    t.boolean  "landowner"
+    t.boolean  "buildowner"
+    t.string   "name"
+    t.date     "birthday"
+    t.string   "address"
+    t.string   "telphone"
+    t.string   "mobile"
+    t.text     "remark"
+    t.integer  "yfcase_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "identitycard"
+  end
+
+  add_index "personnals", ["yfcase_id"], name: "index_personnals_on_yfcase_id"
 
   create_table "townships", force: :cascade do |t|
     t.integer "county_id"

@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  creditor: false
+  debtor: false
+  landowner: false
+  buildowner: false
+  name: MyString
+  birthday: 2020-03-05
+  address: MyString
+  telphone: MyString
+  mobile: MyString
+  remark: MyText
+  yfcase_id: 
+
+two:
+  creditor: false
+  debtor: false
+  landowner: false
+  buildowner: false
+  name: MyString
+  birthday: 2020-03-05
+  address: MyString
+  telphone: MyString
+  mobile: MyString
+  remark: MyText
+  yfcase_id: 

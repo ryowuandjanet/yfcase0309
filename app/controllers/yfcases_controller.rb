@@ -107,6 +107,7 @@ class YfcasesController < ApplicationController
         :finaldecisionsurveyordecide1 ,:finaldecisionsurveyordecide2 ,:finaldecisionsurveyordecide3 ,:finaldecisionsurveyordecide4 ,:finaldecisionsurveyordecide5 , \
         lands_attributes: [:id, :landnumber, :landurl, :landarea, :landholdingpointperson, :landholdingpointall, :_destroy], \
         builds_attributes: [:id, :buildnumber,:buildurl,:buildarea, :buildholdingpointperson, :buildholdingpointall, :buildtype,:usearea, :_destroy], \
-        objectbuilds_attributes: [:id, :address, :totalprice, :buildarea, :unitprice, :house, :unit, :floorheight, :surveyora, :surveyorb, :plusa, :plusb, :objectbuildurl, :mesaprice, :_destroy])
+        objectbuilds_attributes: [:id, :address, :totalprice, :buildarea, :unitprice, :house, :unit, :floorheight, :surveyora, :surveyorb, :plusa, :plusb, :objectbuildurl, :mesaprice, :_destroy], \
+      personnals_attributes: [:id, :creditor, :debtor, :landowner, :buildowner, :name, :identitycard, :birthday, :address, :telphone, :mobile, :remark, :_destroy])
     end
 end

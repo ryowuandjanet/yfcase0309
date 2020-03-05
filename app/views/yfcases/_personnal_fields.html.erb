@@ -1,0 +1,34 @@
+<div class="nested-fields">
+    <div class="field" style="border:1px solid #000;">
+        <table>
+            <tr>
+                <th style="width:4%"><%= f.label :creditor,"債務人", :style => "width: 100%" %></th>
+                <th style="width:4%"><%= f.label :debtor,"債權人", :style => "width: 100%" %></th>
+                <th style="width:4%"><%= f.label :landowner,"土地共有人", :style => "width: 100%" %></th>
+                <th style="width:4%"><%= f.label :buildowner,"建物共有人", :style => "width: 100%" %></th>
+                <th style="width:10%"><%= f.label :name,"姓名", :style => "width: 100%" %></th>
+                <th style="width:10%"><%= f.label :identitycard,"身分証", :style => "width: 100%" %></th>
+                <th style="width:10%"><%= f.label :birthday,"生日", :style => "width: 100%" %></th>
+                <th style="width:20%"><%= f.label :address,"地址", :style => "width: 100%" %></th>
+                <th style="width:10%"><%= f.label :telphone,"市內電話", :style => "width: 100%" %></th>
+                <th style="width:10%"><%= f.label :mobile,"手機", :style => "width: 100%" %></th>
+                <th style="width:10%"><%= f.label :remark,"備註", :style => "width: 100%" %></th>
+                <th style="width:4%">項目</th>
+            </tr>
+            <tr>
+            	<td><%= f.check_box :creditor, :style => "width: 100%" %></td>
+                <td><%= f.check_box :debtor, :style => "width: 100%" %></td>
+                <td><%= f.check_box :landowner, :style => "width: 100%" %></td>
+                <td><%= f.check_box :buildowner, :style => "width: 100%" %></td>
+                <td><%= f.text_field :name, :style => "width: 100%" %></td>
+                <td><%= f.text_field :identitycard, :style => "width: 100%" %></td>
+                <td><%= f.date_field :birthday, :style => "width: 100%" %></td>
+                <td><%= f.text_field :address, :style => "width: 100%" %></td>
+                <td><%= f.text_field :telphone, :style => "width: 100%" %></td>
+                <td><%= f.text_field :mobile, :style => "width: 100%" %></td>
+                <td><%= f.text_field :remark, :style => "width: 100%" %></td>
+            	<td><%= link_to_remove_association "刪除", f, class: "btn btn-danger btn-sm" %></td>
+            </tr>
+        </table>  	 
+    </div>
+</div>

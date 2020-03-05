@@ -3,6 +3,7 @@ class Yfcase < ActiveRecord::Base
 	has_many :builds,dependent: :delete_all
 	has_many :objectbuilds,dependent: :delete_all
 	has_many :buildchecklists,dependent: :delete_all
+	has_many :personnals,dependent: :delete_all
 	belongs_to :user
 	belongs_to :county
 	belongs_to :township
@@ -20,6 +21,7 @@ class Yfcase < ActiveRecord::Base
 	accepts_nested_attributes_for :lands,reject_if: proc { |attributes| attributes['landnumber'].blank? },allow_destroy: true
 	accepts_nested_attributes_for :builds,reject_if: proc { |attributes| attributes['buildnumber'].blank? },allow_destroy: true
 	accepts_nested_attributes_for :objectbuilds, reject_if: proc { |attributes| attributes['address'].blank? },allow_destroy: true
+	accepts_nested_attributes_for :personnals, reject_if: proc { |attributes| attributes['name'].blank? },allow_destroy: true
 	validates :casenumber, presence: true
 end
 

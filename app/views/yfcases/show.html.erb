@@ -3,7 +3,12 @@
 <!-- YF評量表 -->
 <h1 class="x110000">YF評量表</h1>
 
-<%= @yfcase.occupyneighbouringland %>
+<% @yfcase.personnals.where(debtor: true).find_each(batch_size: 1) do |personnal| %>
+        <%= personnal.name %>
+<% end %>
+
+<% leowu=@yfcase.personnals.where(debtor: true).select(:name).take(1) %>
+<%= leowu %>
 
 <!-- 基本資料 -->
 <div class="basedata">

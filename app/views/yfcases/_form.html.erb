@@ -14,30 +14,42 @@
 <h3>基本資料</h3>
 
 <table id="basedata">
-  <tr>
-    <th><%= f.label :casenumber,"案號" %></th>
-    <td><%= f.text_field :casenumber, :style => "width: 100%" %></td>
-    <th><%= f.label :address,"地址" %></th>
-    <td>
-      <%= f.collection_select :county_id, County.order(:name), :id, :name, include_blank: true %>
-    </td>
-    <td>
-      <%= f.grouped_collection_select :township_id, County.order(:name), :township, :name, :id, :name, include_blank: true %>
-    </td>
-    <td>
-      <%= f.text_field :address, :style => "width: 100%" %>
-    </td>
-  </tr>
-  <tr>
-    <th style="border-right: 1px solid #000;"><%= f.label :debtor,"債務人" %></th>
-    <td style="border-right: 1px solid #000;"><%= f.text_field :debtor, :style => "width: 100%" %></td>
-    <th style="border-right: 1px solid #000;"><%= f.label :creditor,"債權人" %></th>
-    <td style="border-right: 1px solid #000;"><%= f.text_field :creditor, :style => "width: 50%" %>
-      <button>選擇債務人/債權人/土地共有人/建物共有人
-      </button>
-    </td>
-  </tr>
+    <tr>
+        <th>
+            <%= f.label :casenumber,"案號" %>
+        </th>
+        <td>
+            <%= f.text_field :casenumber, :style => "width: 100%" %>
+        </td>
+        <th>
+            <%= f.label :address,"地址" %>
+        </th>
+        <td>
+            <%= f.collection_select :county_id, County.order(:name), :id, :name, include_blank: true %>
+        </td>
+        <td>
+            <%= f.grouped_collection_select :township_id, County.order(:name), :township, :name, :id, :name, include_blank: true %>
+        </td>
+        <td>
+            <%= f.text_field :address, :style => "width: 100%" %>
+        </td>
+    </tr>
 </table>
+  <br>
+
+
+ <div class="field">
+    <h3>相關人員</h3>
+    <div id="relatedpersonnels">
+        <%= f.fields_for :personnals do |personnal| %>
+            <%= render 'personnal_fields', f: personnal %>
+        <% end %>
+        <div class="links">
+            <%= link_to_add_association '新增相關人員', f, :personnals, class: "btn btn-success btn-sm" %>
+        </div>
+    </div>
+  </div>
+
  
 <br>
 <h3>拍賣資訊</h3>
@@ -204,8 +216,7 @@
   <tr>
     <th><%= f.label :finaldecisionconclusion,"結論" %></th>
     <td><%= f.select(:finaldecisionconclusion,Yfcase::JUDGMENT_LIST) %></td>
-    <th><%= f.label :finaldecisionheader,"區域負責人" %></th>
-    <td><%= f.text_field :finaldecisionheader, :style => "width: 100%" %></td>
+
   </tr>
 
 </table>
