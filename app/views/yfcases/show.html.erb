@@ -524,89 +524,88 @@
         <!-- 第一行 -->
         <tr>
             <td>
-                <%= @yfcase.occupyneighbouringland == true ? '是' : '否'  %>
-
+                <%= buttonyeson(@yfcase.occupyneighbouringland) %>
             </td>
             <th>01.建物坐落是否無占用鄰地</th>
             <td>
-                <%= @yfcase.vegetablemarket == true ? '是' : '否'  %>
+                <%= buttonyeson(@yfcase.vegetablemarket) %>
             </td>
             <th>09.是否鄰近菜市場</th>
         </tr>
         <!-- 第二行 -->
         <tr>
             <td>
-                <%= @yfcase.register == true ? '是' : '否'  %>
+                <%= buttonyeson(@yfcase.register) %>
             </td>
             <th>02.建物是否無未保存登記建物</th>
             <td>
-                <%= @yfcase.store == true ? '是' : '否'  %>
+                <%= buttonyeson(@yfcase.store) %>
             </td>
             <th>10.是否鄰近大賣場</th>
         </tr>
         <!-- 第三行 -->
         <tr>
             <td>
-                <%= @yfcase.parkingspace == true ? '是' : '否'  %>
+                <%= buttonyeson(@yfcase.parkingspace) %>
             </td>
             <th>03.大樓是否有停車位(機車/汽車)</th>
             <td>
-                <%= @yfcase.school == true ? '是' : '否'  %>
+                <%= buttonyeson(@yfcase.school) %>
             </td>
             <th>11.是否鄰近學校</th>
         </tr>
         <!-- 第四行 -->
         <tr>
             <td>
-                <%= @yfcase.managementfee == true ? '是' : '否'  %>
+                <%= buttonyeson(@yfcase.managementfee) %>
             </td>
             <th>04.大樓公寓是否有無積欠管理費</th>
             <td>
-                <%= @yfcase.park == true ? '是' : '否'  %>
+                <%= buttonyeson(@yfcase.park) %>
             </td>
             <th>12.是否鄰近公園</th>
         </tr>
         <!-- 第五行 -->
         <tr>
             <td>
-                <%= @yfcase.occupy == true ? '是' : '否'  %>
+                <%= buttonyeson(@yfcase.occupy) %>
             </td>
             <th>05.有無出租或出借或佔用</th>
             <td>
-                <%= @yfcase.postoffice == true ? '是' : '否'  %>
+                <%= buttonyeson(@yfcase.postoffice) %>
             </td>
             <th>13.是否鄰近郵局或常用機關</th>
         </tr>
         <!-- 第六行 -->
         <tr>
             <td>
-                <%= @yfcase.leak == true ? '是' : '否'  %>
+                <%= buttonyeson(@yfcase.leak) %>
             </td>
             <th>06.建物是否無嚴重漏水現象</th>
             <td>
-                <%= @yfcase.mainroad == true ? '是' : '否'  %>
+                <%= buttonyeson(@yfcase.mainroad) %>
             </td>
             <th>14.是否鄰近幹道</th>
         </tr>
         <!-- 第七行 -->
         <tr>
             <td>
-                <%= @yfcase.easyparking == true ? '是' : '否'  %>
+                <%= buttonyeson(@yfcase.easyparking) %>
             </td>
             <th>07.建物前或附近是否停車方便</th>
             <td>
-                <%= @yfcase.waterandpowerfailure == true ? '是' : '否'  %>
+                <%= buttonyeson(@yfcase.waterandpowerfailure) %>
             </td>
             <th>15.是否斷水斷電</th>
         </tr>
         <!-- 第八行 -->
         <tr>
             <td>
-                <%= @yfcase.railway == true ? '是' : '否'  %>
+                <%= buttonyeson(@yfcase.railway) %>
             </td>
             <th>08.是否鄰近捷運站或台鐵站</th>
             <td>
-                <%= @yfcase.goodvision == true ? '是' : '否'  %>
+                <%= buttonyeson(@yfcase.goodvision) %>
             </td>
             <th>16.建物採光視野是否良好</th>
         </tr>

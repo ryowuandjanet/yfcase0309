@@ -97,4 +97,22 @@ module ApplicationHelper
 		data.html_safe
 	end
 
+	def buttonyeson(bool)
+		if bool == true
+			data = "
+				<span style='color: Blue;'><i class='fa fa-check-circle fa-2x'></i></span>
+				<span style='color: gray;'><i class='fa fa-times-circle fa-2x'></i></span>
+			"
+			data.html_safe
+		else
+			data = "
+				<span style='color: gray;'><i class='fa fa-times-circle fa-2x'></i></span>
+				<span style='color: Blue;'><i class='fa fa-check-circle fa-2x'></i></span>
+			"
+			data.html_safe
+		end
+	end
+
+
+
 end
