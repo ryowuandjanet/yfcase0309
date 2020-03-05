@@ -1,6 +1,6 @@
 class YfcasesController < ApplicationController
   include ApplicationHelper
-  before_action :set_yfcase, only: [:show, :edit, :update, :destroy]
+  before_action :set_yfcase, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
   # GET /yfcases
@@ -12,6 +12,7 @@ class YfcasesController < ApplicationController
   # GET /yfcases/1
   # GET /yfcases/1.json
   def show
+    @yfcase = Yfcase.find(params[:id])
     # 地坪總面積 (平方公尺)
     @landtotalarea = @yfcase.lands.map{ |n| [n.landarea.to_f * (n.landholdingpointperson.to_f / n.landholdingpointall.to_f)] }.flatten.sum
     # 建坪總面積 (平方公尺)
@@ -101,6 +102,7 @@ class YfcasesController < ApplicationController
         :foreclosureannouncementlink,:foreclosureannouncementtext,:objectphotoslink,:registeredmarketpricelink,:registrationmaplink,:registrationphotolink,:foreclosurerecordlink, \
         :surveyresolution , \
         :county_id, :township_id, \
+        :occupyneighbouringland, :register, :parkingspace, :managementfee, :occupy, :leak, :easyparking, :railway, :vegetablemarket, :store, :school, :park, :postoffice, :mainroad, :waterandpowerfailure, :goodvision, :buildchecklisttext, :buildchecklisturl, :buildchecklistremark, \
         :finaldecisionheader ,:finaldecisionconclusion , \
         :finaldecisionsurveyordecide1 ,:finaldecisionsurveyordecide2 ,:finaldecisionsurveyordecide3 ,:finaldecisionsurveyordecide4 ,:finaldecisionsurveyordecide5 , \
         lands_attributes: [:id, :landnumber, :landurl, :landarea, :landholdingpointperson, :landholdingpointall, :_destroy], \

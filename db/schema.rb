@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200304091717) do
+ActiveRecord::Schema.define(version: 20200305065116) do
 
   create_table "builds", force: :cascade do |t|
     t.string   "buildnumber"
@@ -153,6 +153,25 @@ ActiveRecord::Schema.define(version: 20200304091717) do
     t.integer  "state_id"
     t.integer  "county_id"
     t.integer  "township_id"
+    t.boolean  "occupyneighbouringland"
+    t.boolean  "register"
+    t.boolean  "parkingspace"
+    t.boolean  "managementfee"
+    t.boolean  "occupy"
+    t.boolean  "leak"
+    t.boolean  "easyparking"
+    t.boolean  "railway"
+    t.boolean  "vegetablemarket"
+    t.boolean  "store"
+    t.boolean  "school"
+    t.boolean  "park"
+    t.boolean  "postoffice"
+    t.boolean  "mainroad"
+    t.boolean  "waterandpowerfailure"
+    t.boolean  "goodvision"
+    t.string   "buildchecklisttext"
+    t.string   "buildchecklisturl"
+    t.text     "buildchecklistremark"
   end
 
   add_index "yfcases", ["country_id"], name: "index_yfcases_on_country_id"

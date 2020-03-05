@@ -83,5 +83,18 @@ module ApplicationHelper
 		return result
 	end
 
+	# 在建物查檢表的頁面(template)以yesno的方式來呈現
+	def buttonyes
+		data = "
+			<div class='onoffswitch'>
+			    <input type='checkbox' name='onoffswitch' class='onoffswitch-checkbox' id='myonoffswitch' checked>
+			    <label class='onoffswitch-label' for='myonoffswitch'>
+			        <span class='onoffswitch-inner'></span>
+			        <span class='onoffswitch-switch'></span>
+			    </label>
+			</div>
+		"
+		data.html_safe
+	end
 
 end
