@@ -650,7 +650,7 @@
 </div>
 
 <br>
-<% if user_signed_in? %>
+<% if @yfcase.editable_by?(current_user) %>
   <div id="showitem">
     <%= link_to '編輯', edit_yfcase_path(@yfcase),class: "btn btn-primary" %> |
     <%= link_to '返回', yfcases_path,class: "btn btn-info" %>

@@ -32,7 +32,10 @@
     <th style="border-right: 1px solid #000;"><%= f.label :debtor,"債務人" %></th>
     <td style="border-right: 1px solid #000;"><%= f.text_field :debtor, :style => "width: 100%" %></td>
     <th style="border-right: 1px solid #000;"><%= f.label :creditor,"債權人" %></th>
-    <td style="border-right: 1px solid #000;"><%= f.text_field :creditor, :style => "width: 100%" %></td>
+    <td style="border-right: 1px solid #000;"><%= f.text_field :creditor, :style => "width: 50%" %>
+      <button>選擇債務人/債權人/土地共有人/建物共有人
+      </button>
+    </td>
   </tr>
 </table>
  
