@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  persona: MyString
+  persionb: MyString
+  personaplus: 9.99
+  personbplus: 9.99
+  objectbuild_id: 
+
+two:
+  persona: MyString
+  persionb: MyString
+  personaplus: 9.99
+  personbplus: 9.99
+  objectbuild_id: 
