@@ -437,8 +437,10 @@
                         <th>勘查員B</th>
                         <th>加成B</th>
                         <th>計算</th>
-                        <th>加成A</th>
-                        <th>加成B</th>
+                        <% if user_signed_in? %>
+                            <th>加成A</th>
+                            <th>加成B</th>
+                        <% end %>
                     </tr>
                     <% @yfcase.objectbuilds.each do |objectbuild| %>
                     <tr>
@@ -507,20 +509,22 @@
                             <% @totalmesa = testvalue(objectbuild.totalprice.to_f/objectbuild.buildarea.to_f,@plusa,@plusb)*10000 %>
                             <%= number_to_currency(@totalmesa, unit: "", precision: 0 ) %>
                         </td>
-                        <td>
-                            <% if objectbuild.plusrateas.first == nil %>
-                                 <%= link_to "勘查員A", new_yfcase_objectbuild_plusratea_path(@yfcase,objectbuild),class: "btn btn-success btn-sm" %>
-                            <% else %>
-                                <%= link_to "勘查員A", yfcase_path(@yfcase), :disabled => true, class: "btn btn-success btn-sm" %>
-                            <% end %>
-                        </td>
-                        <td>
-                            <% if objectbuild.plusratebs.first == nil %>
-                                 <%= link_to "勘查員B", new_yfcase_objectbuild_plusrateb_path(@yfcase,objectbuild),class: "btn btn-danger btn-sm" %>
-                            <% else %>
-                                 <%= link_to "勘查員B", yfcase_path(@yfcase), :disabled => true,class: "btn btn-danger btn-sm" %>
-                            <% end %>
-                        </td>
+                        <% if user_signed_in? %>
+                            <td>
+                                <% if objectbuild.plusrateas.first == nil %>
+                                     <%= link_to "勘查員A", new_yfcase_objectbuild_plusratea_path(@yfcase,objectbuild),class: "btn btn-primary btn-sm" %>
+                                <% else %>
+                                    <%= link_to "勘查員A", yfcase_path(@yfcase), :disabled => true, class: "btn btn-danger btn-sm", style: "border:1px solid gray;background-color:gray;" %>
+                                <% end %>
+                            </td>
+                            <td>
+                                <% if objectbuild.plusratebs.first == nil %>
+                                     <%= link_to "勘查員B", new_yfcase_objectbuild_plusrateb_path(@yfcase,objectbuild),class: "btn btn-primary btn-sm" %>
+                                <% else %>
+                                     <%= link_to "勘查員B", yfcase_path(@yfcase), :disabled => true,class: "btn btn-danger btn-sm", style: "border:1px solid gray;background-color:gray;" %>
+                                <% end %>
+                            </td>
+                        <% end %>
                     </tr>
                     <% end %>
                 </table>
@@ -673,9 +677,42 @@
         <tr>
             <th>結論</th>
             <th>區域負責人</th>
-            <th>副署人員1</th>
-            <th>副署人員2</th>
-            <th>副署人員3</th>
+            <th>
+                副署人員1
+                <% if @yfcase.finaldecisionconclusion == " " %>
+                    <%= ' ' %>
+                <% else %>
+                    <% if @yfcase.subsigntrueas.first == nil && %>
+                         <%= link_to "副署人員1", new_yfcase_subsigntruea_path(@yfcase),class: "btn btn-primary btn-sm" %>
+                    <% else %>
+                         <%= link_to "副署人員1", yfcase_path(@yfcase), :disabled => true,class: "btn btn-danger btn-sm", style: "border:1px solid gray;background-color:gray;" %>
+                    <% end %>
+                <% end %>    
+            </th>
+            <th>
+                副署人員2
+                <% if @yfcase.finaldecisionconclusion == " " %>
+                    <%= ' ' %>
+                <% else %>
+                    <% if @yfcase.subsigntruebs.first == nil %>
+                         <%= link_to "副署人員2", new_yfcase_subsigntrueb_path(@yfcase),class: "btn btn-primary btn-sm" %>
+                    <% else %>
+                         <%= link_to "副署人員2", yfcase_path(@yfcase), :disabled => true,class: "btn btn-danger btn-sm", style: "border:1px solid gray;background-color:gray;" %>
+                    <% end %>
+                <% end %>
+            </th>
+            <th>
+                副署人員3
+                <% if @yfcase.finaldecisionconclusion == " " %>
+                    <%= ' ' %>
+                <% else %>
+                    <% if @yfcase.subsigntruecs.first == nil %>
+                         <%= link_to "副署人員3", new_yfcase_subsigntruec_path(@yfcase),class: "btn btn-primary btn-sm" %>
+                    <% else %>
+                         <%= link_to "副署人員3", yfcase_path(@yfcase), :disabled => true,class: "btn btn-danger btn-sm", style: "border:1px solid gray;background-color:gray;" %>
+                    <% end %>
+                <% end %>
+            </th>
         </tr>
         <tr>
             <td>
@@ -686,13 +723,25 @@
                 <%= @yfcase.user.last_name %>
             </td>
             <td>
-                <%= @yfcase.finaldecisionsurveyordecide1 %>
+                <% if @yfcase.subsigntrueas.first == nil %>
+                    <%= ' ' %>
+                <% else %>
+                    <%= @yfcase.subsigntrueas.first.signtruea %>
+                <% end %>
             </td>
             <td>
-                <%= @yfcase.finaldecisionsurveyordecide2 %>
+                <% if @yfcase.subsigntruebs.first == nil %>
+                    <%= ' ' %>
+                <% else %>
+                    <%= @yfcase.subsigntruebs.first.signtrueb %>
+                <% end %>
             </td>
             <td>
-                <%= @yfcase.finaldecisionsurveyordecide3 %>
+                <% if @yfcase.subsigntruecs.first == nil %>
+                    <%= ' ' %>
+                <% else %>
+                    <%= @yfcase.subsigntruecs.first.signtruec %>
+                <% end %>
             </td>
         </tr>
     </table>

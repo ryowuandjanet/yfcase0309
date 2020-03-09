@@ -40,6 +40,11 @@
 
  <div class="field">
     <h3>相關人員</h3>
+    <div> 
+      <%= f.check_box :co_owner %>
+      <%= f.label :co_owner,"土地 / 建物共有人是否一致", style: "color:red;" %>
+    </div>
+
     <div id="relatedpersonnels">
         <%= f.fields_for :personnals do |personnal| %>
             <%= render 'personnal_fields', f: personnal %>

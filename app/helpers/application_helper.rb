@@ -51,6 +51,14 @@ module ApplicationHelper
 		return result
 	end
 
+	# 判斷人員是否已有簽署(副署人員1,副署人員2,副署人員3,區域負責人)
+	def subsigntrue_yes_no(b)
+		a =  yfcase.user.try(:first_name) && yfcase.user.try(:last_name) 
+		result=(a != b)
+		return result
+	end
+
+
 
 
 

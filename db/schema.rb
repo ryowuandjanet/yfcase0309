@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200309031428) do
+ActiveRecord::Schema.define(version: 20200309065513) do
 
   create_table "builds", force: :cascade do |t|
     t.string   "buildnumber"
@@ -104,6 +104,33 @@ ActiveRecord::Schema.define(version: 20200309031428) do
   end
 
   add_index "plusratebs", ["objectbuild_id"], name: "index_plusratebs_on_objectbuild_id"
+
+  create_table "subsigntrueas", force: :cascade do |t|
+    t.string   "signtruea"
+    t.integer  "yfcase_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "subsigntrueas", ["yfcase_id"], name: "index_subsigntrueas_on_yfcase_id"
+
+  create_table "subsigntruebs", force: :cascade do |t|
+    t.string   "signtrueb"
+    t.integer  "yfcase_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "subsigntruebs", ["yfcase_id"], name: "index_subsigntruebs_on_yfcase_id"
+
+  create_table "subsigntruecs", force: :cascade do |t|
+    t.string   "signtruec"
+    t.integer  "yfcase_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "subsigntruecs", ["yfcase_id"], name: "index_subsigntruecs_on_yfcase_id"
 
   create_table "townships", force: :cascade do |t|
     t.integer "county_id"
@@ -211,6 +238,7 @@ ActiveRecord::Schema.define(version: 20200309031428) do
     t.string   "buildchecklisttext"
     t.string   "buildchecklisturl"
     t.text     "buildchecklistremark"
+    t.boolean  "co_owner"
   end
 
   add_index "yfcases", ["country_id"], name: "index_yfcases_on_country_id"

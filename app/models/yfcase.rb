@@ -4,6 +4,9 @@ class Yfcase < ActiveRecord::Base
 	has_many :objectbuilds,dependent: :delete_all
 	has_many :buildchecklists,dependent: :delete_all
 	has_many :personnals,dependent: :delete_all
+	has_many :subsigntrueas,dependent: :delete_all
+	has_many :subsigntruebs,dependent: :delete_all
+	has_many :subsigntruecs,dependent: :delete_all
 	belongs_to :user
 	belongs_to :county
 	belongs_to :township
