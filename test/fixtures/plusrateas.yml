@@ -2,10 +2,10 @@
 
 one:
   persona: MyString
-  personplusa: 9.99
+  plusa: 9.99
   objectbuild_id: 
 
 two:
   persona: MyString
-  personplusa: 9.99
+  plusa: 9.99
   objectbuild_id: 

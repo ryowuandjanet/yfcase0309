@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ObjectplusrateTest < ActiveSupport::TestCase
+class PlusratebTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

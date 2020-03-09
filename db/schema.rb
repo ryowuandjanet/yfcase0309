@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200306075050) do
+ActiveRecord::Schema.define(version: 20200309031428) do
 
   create_table "builds", force: :cascade do |t|
     t.string   "buildnumber"
@@ -66,18 +66,6 @@ ActiveRecord::Schema.define(version: 20200306075050) do
 
   add_index "objectbuilds", ["yfcase_id"], name: "index_objectbuilds_on_yfcase_id"
 
-  create_table "objectplusrates", force: :cascade do |t|
-    t.string   "persona"
-    t.string   "persionb"
-    t.decimal  "personaplus",    precision: 4, scale: 2
-    t.decimal  "personbplus",    precision: 4, scale: 2
-    t.integer  "objectbuild_id"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-  end
-
-  add_index "objectplusrates", ["objectbuild_id"], name: "index_objectplusrates_on_objectbuild_id"
-
   create_table "personnals", force: :cascade do |t|
     t.boolean  "creditor"
     t.boolean  "debtor"
@@ -97,15 +85,25 @@ ActiveRecord::Schema.define(version: 20200306075050) do
 
   add_index "personnals", ["yfcase_id"], name: "index_personnals_on_yfcase_id"
 
-  create_table "plusas", force: :cascade do |t|
+  create_table "plusrateas", force: :cascade do |t|
     t.string   "persona"
-    t.decimal  "personplusa",    precision: 5, scale: 2
+    t.decimal  "plusa",          precision: 4, scale: 2
     t.integer  "objectbuild_id"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
   end
 
-  add_index "plusas", ["objectbuild_id"], name: "index_plusas_on_objectbuild_id"
+  add_index "plusrateas", ["objectbuild_id"], name: "index_plusrateas_on_objectbuild_id"
+
+  create_table "plusratebs", force: :cascade do |t|
+    t.string   "personb"
+    t.decimal  "plusb",          precision: 4, scale: 2
+    t.integer  "objectbuild_id"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+  end
+
+  add_index "plusratebs", ["objectbuild_id"], name: "index_plusratebs_on_objectbuild_id"
 
   create_table "townships", force: :cascade do |t|
     t.integer "county_id"

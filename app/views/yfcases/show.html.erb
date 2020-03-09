@@ -3,13 +3,7 @@
 <!-- YF評量表 -->
 <h1 class="x110000">YF評量表</h1>
 
-<% @yfcase.personnals.where(debtor: true).find_each(batch_size: 1) do |personnal| %>
-        <%= personnal.name %>
-<% end %>
 
-<%= @yfcase.personnals.where(debtor: true).count %>
-
-<%= @yfcase.personnals.where(debtor: true).first.name %>
 
 <!-- 基本資料 -->
 <div class="basedata">
@@ -444,6 +438,7 @@
                         <th>加成B</th>
                         <th>計算</th>
                         <th>加成A</th>
+                        <th>加成B</th>
                     </tr>
                     <% @yfcase.objectbuilds.each do |objectbuild| %>
                     <tr>
@@ -476,45 +471,54 @@
                             <%= objectbuild.floorheight %>
                         </td>
                         <td>
-                            <%= objectbuild.surveyora %>
-                            <% if objectbuild.objectplusrates == [] %>
+                            <% if objectbuild.plusrateas.first == nil %>
                                 <%= ' ' %>
                             <% else %>
-                                <% @persona= objectbuild.objectplusrates.first.persona %>
+                                <% @persona= objectbuild.plusrateas.first.persona %>
                                 <%= @persona %>
                             <% end %>
                         </td>
                         <td>
-                            <%= objectbuild.plusa %>
-                            <% if objectbuild.objectplusrates == [] %>
+                            <% if objectbuild.plusrateas.first == nil %>
                                 <%= ' ' %>
                             <% else %>
-                                <% @personaplus=objectbuild.objectplusrates.first.personaplus %>
-                                <%= @personaplus %>
+                                <% @plusa=objectbuild.plusrateas.first.plusa %>
+                                <%= @plusa %>
                             <% end %>
                             <!-- undefined method `personaplus' for nil:NilClass -->
                         </td>
                         <td>
-                            <%= objectbuild.surveyorb %>
-                        </td>
-                        <td>
-                            <%= objectbuild.plusb %>
-                            <% if objectbuild.objectplusrates == [] %>
+                            <% if objectbuild.plusratebs.first == nil %>
                                 <%= ' ' %>
                             <% else %>
-                                <% @personbplus=objectbuild.objectplusrates.first.personbplus %>
-                                <%= @personbplus %>
+                                <% @personb= objectbuild.plusratebs.first.personb %>
+                                <%= @personb %>
                             <% end %>
                         </td>
                         <td>
-                            <% @totalmesa = testvalue(objectbuild.totalprice.to_f/objectbuild.buildarea.to_f,@personaplus,@personbplus)*10000 %>
+                            <% if objectbuild.plusratebs.first == nil %>
+                                <%= ' ' %>
+                            <% else %>
+                                <% @plusb=objectbuild.plusratebs.first.plusb %>
+                                <%= @plusb %>
+                            <% end %>
+                        </td>
+                        <td>
+                            <% @totalmesa = testvalue(objectbuild.totalprice.to_f/objectbuild.buildarea.to_f,@plusa,@plusb)*10000 %>
                             <%= number_to_currency(@totalmesa, unit: "", precision: 0 ) %>
                         </td>
                         <td>
-                            <% if objectbuild.objectplusrates == [] %>
-                                 <%= link_to "勘查員A", new_yfcase_objectbuild_objectplusrate_path(@yfcase,objectbuild),class: "btn btn-danger btn-sm" %>
+                            <% if objectbuild.plusrateas.first == nil %>
+                                 <%= link_to "勘查員A", new_yfcase_objectbuild_plusratea_path(@yfcase,objectbuild),class: "btn btn-success btn-sm" %>
                             <% else %>
-                                <%= link_to "勘查員A", new_yfcase_objectbuild_objectplusrate_path(@yfcase,objectbuild), :disabled => true, class: "btn btn-danger btn-sm" %>
+                                <%= link_to "勘查員A", yfcase_path(@yfcase), :disabled => true, class: "btn btn-success btn-sm" %>
+                            <% end %>
+                        </td>
+                        <td>
+                            <% if objectbuild.plusratebs.first == nil %>
+                                 <%= link_to "勘查員B", new_yfcase_objectbuild_plusrateb_path(@yfcase,objectbuild),class: "btn btn-danger btn-sm" %>
+                            <% else %>
+                                 <%= link_to "勘查員B", yfcase_path(@yfcase), :disabled => true,class: "btn btn-danger btn-sm" %>
                             <% end %>
                         </td>
                     </tr>

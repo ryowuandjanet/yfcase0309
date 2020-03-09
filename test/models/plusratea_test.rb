@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ObjectbuildPlusasControllerTest < ActionController::TestCase
+class PlusrateaTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

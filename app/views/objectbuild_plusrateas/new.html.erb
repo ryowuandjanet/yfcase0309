@@ -1,0 +1,14 @@
+<h2>New</h2>
+<%= current_user.first_name %><%= current_user.last_name %>
+<%= form_for @plusratea , :url => yfcase_objectbuild_plusrateas_path( @yfcase,@objectbuild ) do |f| %>
+<div class="form-group">
+    <%= f.label :plusa %>
+    <%= f.number_field :plusa, in: 0..10, :step => 0.01, :required => true , :class => "form-control" %>
+    <%= f.hidden_field :persona, :value => "#{current_user.first_name}#{current_user.last_name}" %>
+</div>
+
+<div class="form-group">
+    <%= f.submit :class => "btn btn-primary" %>
+</div>
+<% end %>
+<%= link_to "back", yfcase_path(@yfcase) %>

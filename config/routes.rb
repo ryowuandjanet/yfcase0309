@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 	devise_for :users
 	resources :yfcases do
 		resources :objectbuilds do 
-			resources :objectplusrates, :controller => "objectbuild_objectplusrates"
-			# resources :plusas, :controller => "objectbuild_plusas"
+			resources :plusrateas, :controller => "objectbuild_plusrateas"
+			resources :plusratebs, :controller => "objectbuild_plusratebs"
 		end
 	end
 	root to: "yfcases#index"
