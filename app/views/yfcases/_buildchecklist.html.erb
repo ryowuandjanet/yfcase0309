@@ -1,34 +1,60 @@
 <div id="test">
-    <%= f.label :occupyneighbouringland,"01.建物坐落是否無占用鄰地" %>
-    <%= f.check_box :occupyneighbouringland %>
-    <%= f.label :vegetablemarket,"09.是否鄰近菜市場" %>
-    <%= f.check_box :vegetablemarket %>
-    <%= f.label :register,"02.建物是否無未保存登記建物" %>
-    <%= f.check_box :register %>
-    <%= f.label :store,"10.是否鄰近大賣場" %>
-    <%= f.check_box :store %>
-    <%= f.label :parkingspace,"03.大樓是否有停車位(機車/汽車)" %>
-    <%= f.check_box :parkingspace %>
-    <%= f.label :school,"11.是否鄰近學校" %>
-    <%= f.check_box :school %>
-    <%= f.label :managementfee,"04.大樓公寓是否有無積欠管理費" %>
-    <%= f.check_box :managementfee %>
-    <%= f.label :park,"12.是否鄰近公園" %>
-    <%= f.check_box :park %>
-    <%= f.label :occupy,"05.有無出租或出借或佔用" %>
-    <%= f.check_box :occupy %>
-    <%= f.label :postoffice,"13.是否鄰近郵局或常用機關" %>
-    <%= f.check_box :postoffice %>
-    <%= f.label :leak,"06.建物是否無嚴重漏水現象" %>
-    <%= f.check_box :leak %>
-    <%= f.label :mainroad,"14.是否鄰近幹道" %>
-    <%= f.check_box :mainroad %>
-    <%= f.label :easyparking,"07.建物前或附近是否停車方便" %>
-    <%= f.check_box :easyparking %>
-    <%= f.label :waterandpowerfailure,"15.是否斷水斷電" %>
-    <%= f.check_box :waterandpowerfailure %>
-    <%= f.label :railway,"08.是否鄰近捷運站或台鐵站" %>
-    <%= f.check_box :railway %>
-    <%= f.label :goodvision,"16.建物採光視野是否良好" %>
-    <%= f.check_box :goodvision %>
+    <table class="table table-bordered">
+        <tr class="info">
+            <th>是 / 否</th>
+            <th>查檢項目</th>
+            <th>是 / 否</th>
+            <th>查檢項目</th>
+        </tr>
+        <tr>
+            <td><%= f.check_box :occupyneighbouringland %></td>
+            <td><%= f.label :occupyneighbouringland,"01.建物坐落是否無占用鄰地" %></td>
+            <td><%= f.check_box :vegetablemarket %></td>
+            <td><%= f.label :vegetablemarket,"09.是否鄰近菜市場" %></td>
+        </tr>
+        <tr class="warning">
+            <td><%= f.check_box :register %></td>
+            <td><%= f.label :register,"02.建物是否無未保存登記建物" %></td>
+            <td><%= f.check_box :store %></td>
+            <td><%= f.label :store,"10.是否鄰近大賣場" %></td>
+        </tr>
+        <tr>
+            <td><%= f.check_box :parkingspace %></td>
+            <td><%= f.label :parkingspace,"03.大樓是否有停車位(機車/汽車)" %></td>
+            <td><%= f.check_box :school %></td>
+            <td><%= f.label :school,"11.是否鄰近學校" %></td>
+        </tr>
+        <tr class="warning">
+            <td><%= f.check_box :managementfee %></td>
+            <td><%= f.label :managementfee,"04.大樓公寓是否有無積欠管理費" %></td>
+            <td> <%= f.check_box :park %></td>
+            <td><%= f.label :park,"12.是否鄰近公園" %></td>
+        </tr>
+
+        <tr>
+            <td><%= f.check_box :occupy %></td>
+            <td><%= f.label :occupy,"05.有無出租或出借或佔用" %></td>
+            <td><%= f.check_box :postoffice %></td>
+            <td><%= f.label :postoffice,"13.是否鄰近郵局或常用機關" %></td>
+        </tr>
+        <tr class="warning">
+            <td><%= f.check_box :leak %></td>
+            <td><%= f.label :leak,"06.建物是否無嚴重漏水現象" %></td>
+            <td><%= f.check_box :mainroad %></td>
+            <td><%= f.label :mainroad,"14.是否鄰近幹道" %></td>
+        </tr>
+
+        <tr>
+            <td><%= f.check_box :easyparking %></td>
+            <td><%= f.label :easyparking,"07.建物前或附近是否停車方便" %></td>
+            <td><%= f.check_box :waterandpowerfailure %></td>
+            <td><%= f.label :waterandpowerfailure,"15.是否斷水斷電" %></td>
+        </tr>
+        <tr class="warning">
+            <td><%= f.check_box :railway %></td>
+            <td><%= f.label :railway,"08.是否鄰近捷運站或台鐵站" %></td>
+            <td><%= f.check_box :goodvision %></td>
+            <td><%= f.label :goodvision,"16.建物採光視野是否良好" %></td>
+        </tr>
+    </table>
 </div>

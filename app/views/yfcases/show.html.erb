@@ -4,7 +4,6 @@
 <h1 class="x110000">YF評量表</h1>
 
 
-
 <!-- 基本資料 -->
 <div class="basedata">
     <table class="table">
@@ -16,9 +15,11 @@
             <th class="x110002">債務人</th>
             <td class="x120002">
                 <% if @yfcase.personnals.where(debtor: true).count > 1 %>
-                    <%= @yfcase.personnals.where(debtor: true).first.name %> ...共<%= @yfcase.personnals.where(debtor: true).count %>名
+                    <%= @yfcase.personnals.where(debtor: true).first.name %> ...共<%= @yfcase.personnals.where(debtor: true).count %>名<br>
+                    <%= (@yfcase.co_owner == true ) ? '土地/建物共有人一致' : ' ' %>
                 <% elsif @yfcase.personnals.where(debtor: true).count == 1 %>
-                    <%= @yfcase.personnals.where(debtor: true).first.name %>
+                    <%= @yfcase.personnals.where(debtor: true).first.name %><br>
+                    <%= (@yfcase.co_owner == true ) ? '土地/建物共有人一致' : ' ' %>
                 <% else %>
                     <%= ' ' %>
                 <% end %>

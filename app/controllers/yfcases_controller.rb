@@ -102,7 +102,7 @@ class YfcasesController < ApplicationController
         :auctionday4,:floorprice4,:margin4,:click4,:monitor4,\
         :firstsurveydate ,:othersurveydate ,:surveyrecord ,:foreclosureannouncement ,:objectphotos ,:registeredmarketprice,:registeredmarketpricetext ,:registrationmap ,:registrationphoto ,:foreclosurerecord ,:surveyremark, \
         :foreclosureannouncementlink,:foreclosureannouncementtext,:objectphotoslink,:registeredmarketpricelink,:registrationmaplink,:registrationphotolink,:foreclosurerecordlink, \
-        :surveyresolution , \
+        :surveyresolution , :co_owner, \
         :county_id, :township_id, \
         :occupyneighbouringland, :register, :parkingspace, :managementfee, :occupy, :leak, :easyparking, :railway, :vegetablemarket, :store, :school, :park, :postoffice, :mainroad, :waterandpowerfailure, :goodvision, :buildchecklisttext, :buildchecklisturl, :buildchecklistremark, \
         :finaldecisionheader ,:finaldecisionconclusion , \
