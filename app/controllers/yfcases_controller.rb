@@ -25,9 +25,11 @@ class YfcasesController < ApplicationController
     @pingprice4 = @yfcase.floorprice4.to_f / (@buildtotalarea*0.3025).to_f
 
     # 時價(萬)
+
     marketpricecount = @yfcase.objectbuilds.count
     marketpricesum=@yfcase.objectbuilds.map { |n| [(testvalue(n.totalprice.to_f / n.buildarea.to_f ,n.plusa,n.plusb))] }.flatten
     @marketprice = marketpricesum.map!{|e| e.to_f}.sum.fdiv(marketpricesum.size) * 10000
+
     @marketpriceplusa = @yfcase.objectbuilds.map { |n| [n.totalprice.to_f*n.plusa.to_f,n.totalprice.to_f*n.plusb.to_f] }.flatten
   end
 

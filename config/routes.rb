@@ -7,6 +7,12 @@ Rails.application.routes.draw do
 		resources :objectbuilds do 
 			resources :plusrateas, :controller => "objectbuild_plusrateas"
 			resources :plusratebs, :controller => "objectbuild_plusratebs"
+			member do
+				get :editplusratea, :controller => "yfcase_objectbuilds"
+				get :editplusrateb, :controller => "yfcase_objectbuilds"
+				patch :updateplusratea , :controller => "yfcase_objectbuilds"
+				patch :updateplusrateb , :controller => "yfcase_objectbuilds"
+			end
 		end
 	end
 	root to: "yfcases#index"

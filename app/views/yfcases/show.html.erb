@@ -292,10 +292,10 @@
             <td>
                 <%= @yfcase.floorprice3 == 0 ? ' ' : currency_helper(@yfcase.floorprice3,0) %>
                 <!-- 第三拍建議底價 -->
-                <% if @yfcase.floorprice2 != 0 %>
-                    <br><small style="color:red;"><%= currency_helper(@yfcase.floorprice2 * 0.8 ,0) %></small>
-                <% elsif @yfcase.floorprice1 != 0 %>
+                <% if @yfcase.floorprice1 != 0 %>
                     <br><small style="color:red;"><%= currency_helper(@yfcase.floorprice1 * 0.8 * 0.8 ,0) %></small>
+                <% elsif @yfcase.floorprice2 != 0 %>
+                    <br><small style="color:red;"><%= currency_helper(@yfcase.floorprice2 * 0.8 ,0) %></small>
                 <% else %>
                     <%= " " %>
                 <% end %> 
@@ -346,12 +346,12 @@
             <td>
                 <%= @yfcase.floorprice4 == 0 ? ' ' : currency_helper(@yfcase.floorprice4,0) %>
                 <!-- 第四拍建議底價 -->
-                <% if @yfcase.floorprice3 != 0 %>
-                    <br><small style="color:red;"><%= currency_helper(@yfcase.floorprice3 * 0.8 ,0) %></small>
+                <% if @yfcase.floorprice1 != 0 %>
+                    <br><small style="color:red;"><%= currency_helper(@yfcase.floorprice1 * 0.8 * 0.8 * 0.8 ,0) %></small>
                 <% elsif @yfcase.floorprice2 != 0 %>
                     <br><small style="color:red;"><%= currency_helper(@yfcase.floorprice2 * 0.8 * 0.8 ,0) %></small>
-                <% elsif @yfcase.floorprice1 != 0 %>
-                    <br><small style="color:red;"><%= currency_helper(@yfcase.floorprice1 * 0.8 * 0.8 * 0.8 ,0) %></small>
+                <% elsif @yfcase.floorprice3 != 0 %>
+                    <br><small style="color:red;"><%= currency_helper(@yfcase.floorprice3 * 0.8 ,0) %></small>
                 <% else %>
                     <%= " " %>
                 <% end %>
@@ -423,8 +423,8 @@
         <tr>
             <th>實價登錄市價</th>
             <td>
-                <table>
-                    <tr>
+                <table class="table table-bordered">
+                    <tr class="danger">
                         <th>附件</th>
                         <th>地址</th>
                         <th>總價(萬)</th>
@@ -433,23 +433,25 @@
                         <th>屋齡(年)</th>
                         <th>單位</th>
                         <th>樓高</th>
-                        <th>勘查員A</th>
+                        <% if user_signed_in? %>
+                            <th>勘查員A</th>
+                        <% end %>
+                        <th>人員A</th>
                         <th>加成A</th>
-                        <th>勘查員B</th>
+                        <% if user_signed_in? %>
+                            <th>勘查員B</th>
+                        <% end %>
+                        <th>人員B</th>
                         <th>加成B</th>
                         <th>計算</th>
-                        <% if user_signed_in? %>
-                            <th>加成A</th>
-                            <th>加成B</th>
-                        <% end %>
                     </tr>
                     <% @yfcase.objectbuilds.each do |objectbuild| %>
                     <tr>
                         <td>
                             <% if objectbuild.objectbuildurl == "" %>
-                            <%= link_to "" %>
+                                <%= link_to "" %>
                             <% else %>
-                            <%= link_to "連結", objectbuild.objectbuildurl, target: "_blank" %>
+                                <%= link_to "連結", objectbuild.objectbuildurl, target: "_blank" %>
                             <% end %>
                         </td>
                         <td>
@@ -473,62 +475,48 @@
                         <td>
                             <%= objectbuild.floorheight %>
                         </td>
+
+                            <% if user_signed_in? %>
+                                <td>
+                                    <% if objectbuild.plusa == nil %>
+                                        <%= link_to "勘查員A", editplusratea_yfcase_objectbuild_path(@yfcase,objectbuild),class: "btn btn-primary bt-sm" %>
+                                    <% else %>
+                                        <%= link_to "勘查員A","#", disabled: true,class: "btn btn-default bt-sm", style: "color:#777;border:1px solid #777;" %>
+                                    <% end %>
+                                </td>
+                            <% end %>  
+
                         <td>
-                            <% if objectbuild.plusrateas.first == nil %>
-                                <%= ' ' %>
-                            <% else %>
-                                <% @persona= objectbuild.plusrateas.first.persona %>
-                                <%= @persona %>
-                            <% end %>
+                           <%= objectbuild.surveyora %>
                         </td>
                         <td>
-                            <% if objectbuild.plusrateas.first == nil %>
-                                <%= ' ' %>
-                            <% else %>
-                                <% @plusa=objectbuild.plusrateas.first.plusa %>
-                                <%= @plusa %>
+                            <% @plusa=objectbuild.plusa %>
+                            <%= @plusa %>
+                        </td>
+                            <% if user_signed_in? %>
+                                <td>
+                                    <% if objectbuild.plusb == nil %>
+                                        <%= link_to "勘查員B", editplusrateb_yfcase_objectbuild_path(@yfcase,objectbuild),class: "btn btn-primary bt-sm" %>
+                                    <% else %>
+                                        <%= link_to "勘查員B","#", disabled: true,class: "btn btn-default bt-sm", style: "color:#777;border:1px solid #777;" %>
+                                    <% end %>
+                                </td>
                             <% end %>
-                            <!-- undefined method `personaplus' for nil:NilClass -->
+                        <td>
+                            <%= objectbuild.surveyorb %>
                         </td>
                         <td>
-                            <% if objectbuild.plusratebs.first == nil %>
-                                <%= ' ' %>
-                            <% else %>
-                                <% @personb= objectbuild.plusratebs.first.personb %>
-                                <%= @personb %>
-                            <% end %>
-                        </td>
-                        <td>
-                            <% if objectbuild.plusratebs.first == nil %>
-                                <%= ' ' %>
-                            <% else %>
-                                <% @plusb=objectbuild.plusratebs.first.plusb %>
-                                <%= @plusb %>
-                            <% end %>
+                            <% @plusb=objectbuild.plusb %>
+                            <%= @plusb %>
                         </td>
                         <td>
                             <% @totalmesa = testvalue(objectbuild.totalprice.to_f/objectbuild.buildarea.to_f,@plusa,@plusb)*10000 %>
                             <%= number_to_currency(@totalmesa, unit: "", precision: 0 ) %>
                         </td>
-                        <% if user_signed_in? %>
-                            <td>
-                                <% if objectbuild.plusrateas.first == nil %>
-                                     <%= link_to "勘查員A", new_yfcase_objectbuild_plusratea_path(@yfcase,objectbuild),class: "btn btn-primary btn-sm" %>
-                                <% else %>
-                                    <%= link_to "勘查員A", yfcase_path(@yfcase), :disabled => true, class: "btn btn-danger btn-sm", style: "border:1px solid gray;background-color:gray;" %>
-                                <% end %>
-                            </td>
-                            <td>
-                                <% if objectbuild.plusratebs.first == nil %>
-                                     <%= link_to "勘查員B", new_yfcase_objectbuild_plusrateb_path(@yfcase,objectbuild),class: "btn btn-primary btn-sm" %>
-                                <% else %>
-                                     <%= link_to "勘查員B", yfcase_path(@yfcase), :disabled => true,class: "btn btn-danger btn-sm", style: "border:1px solid gray;background-color:gray;" %>
-                                <% end %>
-                            </td>
-                        <% end %>
                     </tr>
                     <% end %>
                 </table>
+
                 <%= link_to @yfcase.registeredmarketpricetext, @yfcase.registeredmarketpricelink, target: "_blank" %>
             </td>
         </tr>
@@ -565,7 +553,7 @@
     </table>
 </div>
 <br>
-<%= buttonyes %>
+
 <!-- 建物查檢表 -->
 <div class="buildchecklist">
     <table class="table">
@@ -755,5 +743,3 @@
     <%= link_to '返回', yfcases_path,class: "btn btn-info" %>
   </div>
 <% end %>
-
-
