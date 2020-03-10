@@ -59,6 +59,8 @@ module ApplicationHelper
 			x * 1
 		elsif b == nil
 			x * a
+		elsif a == nil
+			x * b
 		else
 			x * ((a+b)/2)
 		end
@@ -113,6 +115,19 @@ module ApplicationHelper
 		end
 	end
 
-
+	def bootstrap_class_for_flash(flash_type)
+	    case flash_type
+	    when 'success'
+	      'alert-success'
+	    when 'error'
+	      'alert-danger'
+	    when 'alert'
+	      'alert-warning'
+	    when 'notice'
+	      'alert-info'
+	    else
+	      flash_type.to_s
+	    end
+	  end
 
 end
