@@ -21,45 +21,84 @@ body{
 }
 
 
+
 .x110000 {
 	color:red;
 	text-align:center;
 }
 
-.x110001 {
+.basedata th {
+	margin: 3px;
+	padding: 3px;
 	width: 100px;
-	border-right:1px dashed #000;
-	border-bottom:1px dashed #000;
 	text-align: center;
 }
 
-.x110002 {
-	width: 100px;
-	border-right:1px dashed #000;
-	border-left:1px dashed #000;
-	border-bottom:1px dashed #000;
+.basedata td {
+	margin: 3px;
+	padding: 3px;
+}
+
+.land th {
+	margin: 3px;
+	padding: 3px;
+	width: 170px;
 	text-align: center;
 }
 
-.x110003 {
-	width: 100px;
-	border-right:1px dashed #000;
-	border-top:1px dashed #000;
+.land td {
+	margin: 3px;
+	padding: 3px;
+}
+
+.build th {
+	margin: 3px;
+	padding: 3px;
+	width: 170px;
 	text-align: center;
 }
 
-.x120001 {
-	width:auto;
+.build td {
+	margin: 3px;
+	padding: 3px;
 }
 
-.x120002 {
-	width:150px;
+
+
+.attachment th {
+	margin: 3px;
+	padding: 3px;
+	width: 170px;
+	text-align: center;
 }
 
-.x120003 {
-	width:auto;
+.attachment td {
+	margin: 3px;
+	padding: 3px;
 }
 
+.auction th {
+	margin: 3px;
+	padding: 3px;
+	text-align: center;
+}
+
+.auction td {
+	margin: 3px;
+	padding: 3px;
+}
+
+.buildchecklist th {
+	margin: 3px;
+	padding: 3px;
+	width: 100px;
+}
+
+.buildchecklist td {
+	margin: 3px;
+	padding: 3px;
+	text-align: center;
+}
 
 
 .onoffswitch {

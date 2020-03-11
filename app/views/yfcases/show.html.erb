@@ -8,12 +8,12 @@
 <div class="basedata">
     <table class="table">
         <tr>
-            <th class="x110001">案號</th>
-            <td class="x120001">
+            <th style="border-bottom:1px dashed #000;">案號</th>
+            <td style="border-bottom:1px dashed #000;">
                 <%= @yfcase.casenumber %>
             </td>
-            <th class="x110002">債務人</th>
-            <td class="x120002">
+            <th style="border-bottom:1px dashed #000;">債務人</th>
+            <td style="border-bottom:1px dashed #000;">
                 <% if @yfcase.personnals.where(debtor: true).count > 1 %>
                     <%= @yfcase.personnals.where(debtor: true).first.name %> ...共<%= @yfcase.personnals.where(debtor: true).count %>名<br>
                     <%= (@yfcase.co_owner == true ) ? '土地/建物共有人一致' : ' ' %>
@@ -24,8 +24,8 @@
                     <%= ' ' %>
                 <% end %>
             </td>
-            <th class="x110002">債權人</th>
-            <td class="x120002">
+            <th class="x110002" style="border-bottom:1px dashed #000;">債權人</th>
+            <td class="x120002" style="border-bottom:1px dashed #000;">
                 <% if @yfcase.personnals.where(creditor: true).count > 1 %>
                     <%= @yfcase.personnals.where(creditor: true).first.name %> ...共<%= @yfcase.personnals.where(creditor: true).count %>名
                 <% elsif @yfcase.personnals.where(creditor: true).count == 1 %>
@@ -558,10 +558,10 @@
 <div class="buildchecklist">
     <table class="table">
         <tr>
-            <th>有(是) / 無(否)</th>
-            <th>查檢內容</th>
-            <th>有(是) / 無(否)</th>
-            <th>查檢內容</th>
+            <th style="width:10%;">有(是) / 無(否)</th>
+            <th style="width:40%;">查檢內容</th>
+            <th style="width:10%;">有(是) / 無(否)</th>
+            <th style="width:40%;">查檢內容</th>
         </tr>
         <!-- 第一行 -->
         <tr>
