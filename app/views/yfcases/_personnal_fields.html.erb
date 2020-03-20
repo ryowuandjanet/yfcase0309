@@ -1,34 +1,55 @@
 <div class="nested-fields">
     <div class="field" style="border:1px solid #000;">
         <table>
-            <tr>
-                <th style="width:4%"><%= f.label :creditor,"債務人", :style => "width: 100%" %></th>
-                <th style="width:4%"><%= f.label :debtor,"債權人", :style => "width: 100%" %></th>
-                <th style="width:4%"><%= f.label :landowner,"土地共有人", :style => "width: 100%" %></th>
-                <th style="width:4%"><%= f.label :buildowner,"建物共有人", :style => "width: 100%" %></th>
-                <th style="width:10%"><%= f.label :name,"姓名", :style => "width: 100%" %></th>
-                <th style="width:10%"><%= f.label :identitycard,"身分証", :style => "width: 100%" %></th>
-                <th style="width:10%"><%= f.label :birthday,"生日", :style => "width: 100%" %></th>
-                <th style="width:20%"><%= f.label :address,"地址", :style => "width: 100%" %></th>
-                <th style="width:10%"><%= f.label :telphone,"市內電話", :style => "width: 100%" %></th>
-                <th style="width:10%"><%= f.label :mobile,"手機", :style => "width: 100%" %></th>
-                <th style="width:10%"><%= f.label :remark,"備註", :style => "width: 100%" %></th>
-                <th style="width:4%">項目</th>
-            </tr>
-            <tr>
-                <td><%= f.check_box :debtor, :style => "width: 100%" %></td>
-            	<td><%= f.check_box :creditor, :style => "width: 100%" %></td>
-                <td><%= f.check_box :landowner, :style => "width: 100%" %></td>
-                <td><%= f.check_box :buildowner, :style => "width: 100%" %></td>
-                <td><%= f.text_field :name, :style => "width: 100%" %></td>
-                <td><%= f.text_field :identitycard, :style => "width: 100%" %></td>
-                <td><%= f.date_field :birthday, :style => "width: 100%" %></td>
-                <td><%= f.text_field :address, :style => "width: 100%" %></td>
-                <td><%= f.text_field :telphone, :style => "width: 100%" %></td>
-                <td><%= f.text_field :mobile, :style => "width: 100%" %></td>
-                <td><%= f.text_field :remark, :style => "width: 100%" %></td>
-            	<td><%= link_to_remove_association "刪除", f, class: "btn btn-danger btn-sm" %></td>
-            </tr>
-        </table>  	 
+            <table class="table">
+                <tr>
+                    <td scope="col" style="width:15%;">
+                        <div class="form-check">
+                            <%= f.check_box :debtor %> 債務人
+                        </div>
+                        <div class="form-check">
+                            <%= f.check_box :creditor %> 債權人
+                        </div>
+                        <div class="form-check">
+                            <%= f.check_box :landowner %> 土地共有人
+                        </div>
+                        <div class="form-check">
+                            <%= f.check_box :buildowner %> 建物共有人
+                        </div>
+                        <div class="form-row">
+                        </div>
+                    </td>
+                    <td scope="col" style="width:85%;">
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <%= f.input :name, label: "姓名" %>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <%= f.input :identitycard, label: "身分証(統一編號)" %>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <%= f.input :birthday, label: "生日" %>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <%= f.input :telphone, label: "市內電話" %>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <%= f.input :mobile, label: "手機號碼" %>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <%= f.input :remark, label: "備註" %>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <%= f.input :address, label: '地址' %>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </table>
     </div>
 </div>

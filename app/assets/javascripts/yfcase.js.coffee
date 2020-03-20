@@ -1,4 +1,4 @@
- $ ->
+$ ->
   filter_township = ->
     county = $('#yfcase_county_id :selected').text()
     escaped_county = county.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1')
@@ -18,5 +18,4 @@
     filter_township()
   $('#yfcase_county_id').change ->
     filter_township()
-
 

@@ -33,6 +33,7 @@ gem 'devise'
 gem 'jquery-ui-rails','~> 4.0.0'
 gem 'materialize-sass'
 gem 'material_icons' 
+gem 'simple_form'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
