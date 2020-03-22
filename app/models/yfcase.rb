@@ -10,6 +10,8 @@ class Yfcase < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :county
 	belongs_to :township
+	belongs_to :section
+	belongs_to :smallsection
 	belongs_to :owner, class_name: "User", foreign_key: :user_id
 
 	def editable_by?(user)

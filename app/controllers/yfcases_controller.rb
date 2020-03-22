@@ -31,11 +31,21 @@ class YfcasesController < ApplicationController
     @marketprice = marketpricesum.map!{|e| e.to_f}.sum.fdiv(marketpricesum.size) * 10000
 
     @marketpriceplusa = @yfcase.objectbuilds.map { |n| [n.totalprice.to_f*n.plusa.to_f,n.totalprice.to_f*n.plusb.to_f] }.flatten
+    respond_to do |format|
+      format.html
+      format.pdf do 
+        pdf = YfcasePdf.new(@yfcase)
+        send_data pdf.render, 
+        filename: "yfcase_#{@yfcase.casenumber}.pdf",
+        type: "application/pdf",
+        disposition: "inline"
+      end
+    end
   end
 
   # GET /yfcases/new
   def new
-    @yfcase = current_user.yfcases.build(floorprice1:0,floorprice2:0,floorprice3:0,floorprice4:0,margin: 0, click: 0, monitor: 0)
+    @yfcase = current_user.yfcases.build()
   end
 
   # GET /yfcases/1/edit
@@ -95,9 +105,7 @@ class YfcasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def yfcase_params
-      params.require(:yfcase).permit(:casenumber, :address, \
-        :creditor,:debtor, \
-        :auctionday,:auctionlevel,:floorprice,:margin,:click,:monitor,\
+      params.require(:yfcase).permit(:casenumber, :address, :creditor,:debtor, \
         :auctionday1,:floorprice1,:margin1,:click1,:monitor1,\
         :auctionday2,:floorprice2,:margin2,:click2,:monitor2,\
         :auctionday3,:floorprice3,:margin3,:click3,:monitor3,\
@@ -105,7 +113,7 @@ class YfcasesController < ApplicationController
         :firstsurveydate ,:othersurveydate ,:surveyrecord ,:foreclosureannouncement ,:objectphotos ,:registeredmarketprice,:registeredmarketpricetext ,:registrationmap ,:registrationphoto ,:foreclosurerecord ,:surveyremark, \
         :foreclosureannouncementlink,:foreclosureannouncementtext,:objectphotoslink,:registeredmarketpricelink,:registrationmaplink,:registrationphotolink,:foreclosurerecordlink, \
         :surveyresolution , :co_owner, \
-        :county_id, :township_id, \
+        :county_id, :township_id, :section_id, :smallsection_id, \
         :occupyneighbouringland, :register, :parkingspace, :managementfee, :occupy, :leak, :easyparking, :railway, :vegetablemarket, :store, :school, :park, :postoffice, :mainroad, :waterandpowerfailure, :goodvision, :buildchecklisttext, :buildchecklisturl, :buildchecklistremark, \
         :finaldecisionheader ,:finaldecisionconclusion , \
         :finaldecisionsurveyordecide1 ,:finaldecisionsurveyordecide2 ,:finaldecisionsurveyordecide3 ,:finaldecisionsurveyordecide4 ,:finaldecisionsurveyordecide5 , \

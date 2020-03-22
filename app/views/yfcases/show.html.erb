@@ -183,7 +183,7 @@
         <tr>
             <!-- 拍別：第一拍 -->
             <td>
-                <%= @yfcase.floorprice1 == 0 ? ' ' : @yfcase.auctionday1 %>
+                <%= @yfcase.floorprice1 == nil ? ' ' : @yfcase.auctionday1 %>
             </td>
             <th>第一拍</th>
             <th>0.92</th>
@@ -191,35 +191,35 @@
             <th>1.44</th>
             <!-- 第一拍：底價 -->
             <td>
-                <%= @yfcase.floorprice1 == 0 ? ' ' : currency_helper(@yfcase.floorprice1,0) %>
+                <%= @yfcase.floorprice1 == nil ? ' ' : currency_helper(@yfcase.floorprice1,0) %>
             </td>
             <!-- 第一拍：坪價 -->
             <td>
-                <%= (@yfcase.floorprice1 == 0 || @yfcase.builds.count == 0) ? ' ' : currency_helper(@pingprice1,0) %>
+                <%= (@yfcase.floorprice1 == nil || @yfcase.builds.count == 0) ? ' ' : currency_helper(@pingprice1,0) %>
             </td>
             <!-- 第一拍：時價 -->
             <td>
-                <%= (@yfcase.floorprice1 == 0 || @yfcase.objectbuilds.count == 0) ? ' ' : currency_helper(@marketprice,0) %>
+                <%= (@yfcase.floorprice1 == nil || @yfcase.objectbuilds.count == 0) ? ' ' : currency_helper(@marketprice,0) %>
             </td>
             <!-- 第一拍：CP值 -->
             <td>
-                <%= (@yfcase.floorprice1 == 0 || @yfcase.builds.count == 0 || @yfcase.objectbuilds.count == 0) ? ' ' : (@marketprice / @pingprice1).round(2) %>
+                <%= (@yfcase.floorprice1 == nil || @yfcase.builds.count == 0 || @yfcase.objectbuilds.count == 0) ? ' ' : (@marketprice / @pingprice1).round(2) %>
             </td>
             <!-- 第一拍：點閱 -->
             <td>
-                <%= @yfcase.floorprice1 == 0 ? ' ' : @yfcase.click1 %>
+                <%= @yfcase.floorprice1 == nil ? ' ' : @yfcase.click1 %>
             </td>
             <!-- 第一拍：監控 -->
             <td>
-                <%= @yfcase.floorprice1 == 0 ? ' ' : @yfcase.monitor1 %>
+                <%= @yfcase.floorprice1 == nil ? ' ' : @yfcase.monitor1 %>
             </td>
             <!-- 第一拍：建議加價 -->
             <td>
-                <%= @yfcase.floorprice1 == 0 ? ' ' : suggestedincrease(@yfcase.floorprice1,@yfcase.click1,@yfcase.monitor1) %>
+                <%= @yfcase.floorprice1 == nil ? ' ' : suggestedincrease(@yfcase.floorprice1,@yfcase.click1,@yfcase.monitor1) %>
             </td>
             <!-- 第一拍：保証金 -->
             <td>
-                <%= @yfcase.floorprice1 == 0 ? ' ' : currency_helper(@yfcase.margin1,0) %>
+                <%= @yfcase.floorprice1 == nil ? ' ' : currency_helper(@yfcase.margin1,0) %>
             </td>
             <!-- 第一拍：備註 -->
             <td>
@@ -229,7 +229,7 @@
         <tr>
             <!-- 拍別：第二拍 -->
             <td>
-                <%= @yfcase.floorprice2 == 0 ? ' ' : @yfcase.auctionday2 %>
+                <%= @yfcase.floorprice2 == nil ? ' ' : @yfcase.auctionday2 %>
             </td>
             <th>第二拍</th>
             <th>1.15</th>
@@ -237,9 +237,9 @@
             <th>1.80</th>
             <!-- 第二拍：底價 -->
             <td>
-                <%= @yfcase.floorprice2 == 0 ? ' ' : currency_helper(@yfcase.floorprice2,0) %>
+                <%= @yfcase.floorprice2 == nil ? ' ' : currency_helper(@yfcase.floorprice2,0) %>
                 <!-- 第二拍建議底價 -->
-                <% if @yfcase.floorprice1 != 0 %>
+                <% if @yfcase.floorprice1 != nil %>
                     <br><small style="color:red;"><%= currency_helper(@yfcase.floorprice1 * 0.8 ,0) %></small>
                 <% else %>
                     <%= " " %>
@@ -247,31 +247,31 @@
             </td>
             <!-- 第二拍：坪價 -->
             <td>
-                <%= (@yfcase.floorprice2 == 0 || @yfcase.builds.count == 0) ? ' ' : currency_helper(@pingprice2,0) %>
+                <%= (@yfcase.floorprice2 == nil || @yfcase.builds.count == 0) ? ' ' : currency_helper(@pingprice2,0) %>
             </td>
             <!-- 第二拍：時價 -->
             <td>
-                <%= (@yfcase.floorprice2 == 0 || @yfcase.objectbuilds.count == 0) ? ' ' : currency_helper(@marketprice,0) %>
+                <%= (@yfcase.floorprice2 == nil || @yfcase.objectbuilds.count == 0) ? ' ' : currency_helper(@marketprice,0) %>
             </td>
             <!-- 第二拍：CP值 -->
             <td>
-                <%= (@yfcase.floorprice2 == 0 || @yfcase.builds.count == 0 || @yfcase.objectbuilds.count == 0) ? ' ' : (@marketprice / @pingprice2).round(2) %>
+                <%= (@yfcase.floorprice2 == nil || @yfcase.builds.count == 0 || @yfcase.objectbuilds.count == 0) ? ' ' : (@marketprice / @pingprice2).round(2) %>
             </td>
             <!-- 第二拍：點閱 -->
             <td>
-                <%= @yfcase.floorprice2 == 0 ? ' ' : @yfcase.click2 %>
+                <%= @yfcase.floorprice2 == nil ? ' ' : @yfcase.click2 %>
             </td>
             <!-- 第二拍：監控 -->
             <td>
-                <%= @yfcase.floorprice2 == 0 ? ' ' : @yfcase.monitor2 %>
+                <%= @yfcase.floorprice2 == nil ? ' ' : @yfcase.monitor2 %>
             </td>
             <!-- 第二拍：建議加價 -->
             <td>
-                <%= @yfcase.floorprice2 == 0 ? ' ' : suggestedincrease(@yfcase.floorprice2,@yfcase.click2,@yfcase.monitor2) %>
+                <%= @yfcase.floorprice2 == nil ? ' ' : suggestedincrease(@yfcase.floorprice2,@yfcase.click2,@yfcase.monitor2) %>
             </td>
             <!-- 第二拍：保証金 -->
             <td>
-                <%= @yfcase.floorprice2 == 0 ? ' ' : currency_helper(@yfcase.margin2,0) %>
+                <%= @yfcase.floorprice2 == nil ? ' ' : currency_helper(@yfcase.margin2,0) %>
             </td>
             <!-- 第二拍：備註 -->
             <td>
@@ -282,7 +282,7 @@
         <tr>
             <!-- 拍別：第三拍 -->
             <td>
-                <%= @yfcase.floorprice3 == 0 ? ' ' : @yfcase.auctionday3 %>
+                <%= @yfcase.floorprice3 == nil ? ' ' : @yfcase.auctionday3 %>
             </td>
             <th>第三拍</th>
             <th>1.44</th>
@@ -290,11 +290,11 @@
             <th>2.25</th>
             <!-- 第三拍：底價 -->
             <td>
-                <%= @yfcase.floorprice3 == 0 ? ' ' : currency_helper(@yfcase.floorprice3,0) %>
+                <%= @yfcase.floorprice3 == nil ? ' ' : currency_helper(@yfcase.floorprice3,0) %>
                 <!-- 第三拍建議底價 -->
-                <% if @yfcase.floorprice1 != 0 %>
+                <% if @yfcase.floorprice1 != nil %>
                     <br><small style="color:red;"><%= currency_helper(@yfcase.floorprice1 * 0.8 * 0.8 ,0) %></small>
-                <% elsif @yfcase.floorprice2 != 0 %>
+                <% elsif @yfcase.floorprice2 != nil %>
                     <br><small style="color:red;"><%= currency_helper(@yfcase.floorprice2 * 0.8 ,0) %></small>
                 <% else %>
                     <%= " " %>
@@ -302,31 +302,31 @@
             </td>
             <!-- 第三拍：坪價 -->
             <td>
-                <%= (@yfcase.floorprice3 == 0 || @yfcase.builds.count == 0) ? ' ' : currency_helper(@pingprice3,0) %>
+                <%= (@yfcase.floorprice3 == nil || @yfcase.builds.count == 0) ? ' ' : currency_helper(@pingprice3,0) %>
             </td>
             <!-- 第三拍：時價 -->
             <td>
-                <%= (@yfcase.floorprice3 == 0 || @yfcase.objectbuilds.count == 0) ? ' ' : currency_helper(@marketprice,0) %>
+                <%= (@yfcase.floorprice3 == nil || @yfcase.objectbuilds.count == 0) ? ' ' : currency_helper(@marketprice,0) %>
             </td>
             <!-- 第三拍：CP值 -->
             <td>
-                <%= (@yfcase.floorprice3 == 0 || @yfcase.builds.count == 0 || @yfcase.objectbuilds.count == 0) ? ' ' : (@marketprice / @pingprice3).round(2) %>
+                <%= (@yfcase.floorprice3 == nil || @yfcase.builds.count == 0 || @yfcase.objectbuilds.count == 0) ? ' ' : (@marketprice / @pingprice3).round(2) %>
             </td>
             <!-- 第三拍：點閱 -->
             <td>
-                <%= @yfcase.floorprice3 == 0 ? ' ' : @yfcase.click3 %>
+                <%= @yfcase.floorprice3 == nil ? ' ' : @yfcase.click3 %>
             </td>
             <!-- 第三拍：監控 -->
             <td>
-                <%= @yfcase.floorprice3 == 0 ? ' ' : @yfcase.monitor3 %>
+                <%= @yfcase.floorprice3 == nil ? ' ' : @yfcase.monitor3 %>
             </td>
             <!-- 第三拍：建議加價 -->
             <td>
-                <%= @yfcase.floorprice3 == 0 ? ' ' : suggestedincrease(@yfcase.floorprice3,@yfcase.click3,@yfcase.monitor3) %>
+                <%= @yfcase.floorprice3 == nil ? ' ' : suggestedincrease(@yfcase.floorprice3,@yfcase.click3,@yfcase.monitor3) %>
             </td>
             <!-- 第三拍：保証金 -->
             <td>
-                <%= @yfcase.floorprice3 == 0 ? ' ' : currency_helper(@yfcase.margin3,0) %>
+                <%= @yfcase.floorprice3 == nil ? ' ' : currency_helper(@yfcase.margin3,0) %>
             </td>
             <!-- 第三拍：備註 -->
             <td>
@@ -336,7 +336,7 @@
         <tr>
             <!-- 拍別：第四拍 -->
             <td>
-                <%= @yfcase.floorprice4 == 0 ? ' ' : @yfcase.auctionday4 %>
+                <%= @yfcase.floorprice4 == nil ? ' ' : @yfcase.auctionday4 %>
             </td>
             <th>第四拍</th>
             <th>1.80</th>
@@ -344,13 +344,13 @@
             <th>2.81</th>
             <!-- 第四拍：底價 -->
             <td>
-                <%= @yfcase.floorprice4 == 0 ? ' ' : currency_helper(@yfcase.floorprice4,0) %>
+                <%= @yfcase.floorprice4 == nil ? ' ' : currency_helper(@yfcase.floorprice4,0) %>
                 <!-- 第四拍建議底價 -->
-                <% if @yfcase.floorprice1 != 0 %>
+                <% if @yfcase.floorprice1 != nil %>
                     <br><small style="color:red;"><%= currency_helper(@yfcase.floorprice1 * 0.8 * 0.8 * 0.8 ,0) %></small>
-                <% elsif @yfcase.floorprice2 != 0 %>
+                <% elsif @yfcase.floorprice2 != nil %>
                     <br><small style="color:red;"><%= currency_helper(@yfcase.floorprice2 * 0.8 * 0.8 ,0) %></small>
-                <% elsif @yfcase.floorprice3 != 0 %>
+                <% elsif @yfcase.floorprice3 != nil %>
                     <br><small style="color:red;"><%= currency_helper(@yfcase.floorprice3 * 0.8 ,0) %></small>
                 <% else %>
                     <%= " " %>
@@ -358,31 +358,31 @@
             </td>
             <!-- 第四拍：坪價 -->
             <td>
-                <%= (@yfcase.floorprice4 == 0 || @yfcase.builds.count == 0) ? ' ' : currency_helper(@pingprice4,0) %>
+                <%= (@yfcase.floorprice4 == nil || @yfcase.builds.count == 0) ? ' ' : currency_helper(@pingprice4,0) %>
             </td>
             <!-- 第四拍：時價 -->
             <td>
-                <%= (@yfcase.floorprice4 == 0 || @yfcase.objectbuilds.count == 0) ? ' ' : currency_helper(@marketprice,0) %>
+                <%= (@yfcase.floorprice4 == nil || @yfcase.objectbuilds.count == 0) ? ' ' : currency_helper(@marketprice,0) %>
             </td>
             <!-- 第四拍：CP值 -->
             <td>
-                <%= (@yfcase.floorprice4 == 0 || @yfcase.builds.count == 0 || @yfcase.objectbuilds.count == 0) ? ' ' : (@marketprice / @pingprice4).round(2) %>
+                <%= (@yfcase.floorprice4 == nil || @yfcase.builds.count == 0 || @yfcase.objectbuilds.count == 0) ? ' ' : (@marketprice / @pingprice4).round(2) %>
             </td>
             <!-- 第四拍：點閱 -->
             <td>
-                <%= @yfcase.floorprice4 == 0 ? ' ' : @yfcase.click4 %>
+                <%= @yfcase.floorprice4 == nil ? ' ' : @yfcase.click4 %>
             </td>
             <!-- 第四拍：監控 -->
             <td>
-                <%= @yfcase.floorprice4 == 0 ? ' ' : @yfcase.monitor4 %>
+                <%= @yfcase.floorprice4 == nil ? ' ' : @yfcase.monitor4 %>
             </td>
             <!-- 第四拍：建議加價 -->
             <td>
-                <%= @yfcase.floorprice4 == 0 ? ' ' : suggestedincrease(@yfcase.floorprice4,@yfcase.click4,@yfcase.monitor4) %>
+                <%= @yfcase.floorprice4 == nil ? ' ' : suggestedincrease(@yfcase.floorprice4,@yfcase.click4,@yfcase.monitor4) %>
             </td>
             <!-- 第四拍：保証金 -->
             <td>
-                <%= @yfcase.floorprice4 == 0 ? ' ' : currency_helper(@yfcase.margin4,0) %>
+                <%= @yfcase.floorprice4 == nil ? ' ' : currency_helper(@yfcase.margin4,0) %>
             </td>
             <!-- 第四拍：備註 -->
             <td>
@@ -739,6 +739,7 @@
 <br>
 <% if @yfcase.editable_by?(current_user) %>
   <div id="showitem">
+    <%= link_to '轉換成PDF', yfcase_path(@yfcase, format: "pdf"),class: "btn btn-secondary" %>
     <%= link_to '編輯', edit_yfcase_path(@yfcase),class: "btn btn-primary" %> |
     <%= link_to '返回', yfcases_path,class: "btn btn-info" %>
   </div>

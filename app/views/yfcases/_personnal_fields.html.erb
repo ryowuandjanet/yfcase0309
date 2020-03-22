@@ -22,29 +22,29 @@
                     <td scope="col" style="width:85%;">
                         <div class="form-row">
                             <div class="form-group col-md-3">
-                                <%= f.input :name, label: "姓名" %>
+                                <%= f.text_field :name, label: "姓名" %>
                             </div>
                             <div class="form-group col-md-3">
-                                <%= f.input :identitycard, label: "身分証(統一編號)" %>
+                                <%= f.text_field :identitycard, label: "身分証(統一編號)" %>
                             </div>
                             <div class="form-group col-md-6">
-                                <%= f.input :birthday, label: "生日" %>
+                                <%= f.date_field :birthday, label: "生日" %>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <%= f.input :telphone, label: "市內電話" %>
+                                <%= f.text_field :telphone, label: "市內電話" %>
                             </div>
                             <div class="form-group col-md-4">
-                                <%= f.input :mobile, label: "手機號碼" %>
+                                <%= f.text_field :mobile, label: "手機號碼" %>
                             </div>
                             <div class="form-group col-md-4">
-                                <%= f.input :remark, label: "備註" %>
+                                <%= f.text_field :remark, label: "備註" %>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-12">
-                                <%= f.input :address, label: '地址' %>
+                                <%= f.text_field :address, label: '地址' %>
                             </div>
                         </div>
                     </td>

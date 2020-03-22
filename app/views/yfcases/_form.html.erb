@@ -1,4 +1,4 @@
-<%= simple_form_for(@yfcase) do |f| %>
+<%= form_for(@yfcase) do |f| %>
 <% if @yfcase.errors.any? %>
 <div id="error_explanation">
     <h2>
@@ -12,25 +12,6 @@
     </ul>
 </div>
 <% end %>
-
-<div class="container" style="width:600px;">
-    
-    <select name="country" id="country" class="form-control input-lg">
-        <option value="">Select country</option>
-    </select>
-    <br />
-    <select name="state" id="state" class="form-control input-lg">
-        <option value="">Select state</option>
-    </select>
-    <br />
-    <select name="city" id="city" class="form-control input-lg">
-        <option value="">Select city</option>
-    </select>
-    <br />
-    <select name="area" id="area" class="form-control input-lg">
-        <option value="">Select area</option>
-    </select>
-</div>
 
 
 <div class="accordion" id="accordionExample">
@@ -48,23 +29,33 @@
                 <form>
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <%= f.input :casenumber, label: '案號 : ', input_html: { class: 'form-control' }, error: '此欄位為必填值' %>
+                            <%= f.label :casenumber, "案號" %>
+                            <%= f.text_field :casenumber, class: 'form-control'  %>
                         </div>
                     </div>
                     <br>
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <%= f.label :address,"縣市", id: "address" %>
-                            <%= f.collection_select :county_id, County.order(:name), :id, :name, include_blank: true, :prompt => '請輸入縣市' %>
+                        <div class="form-group col-md-3">
+                            <%= f.label :county_id,"縣市" %>
+                            <%= f.collection_select :county_id, County.order(:name), :id, :name, include_blank: true, :prompt => '請輸入縣市', class: 'form-control' %>
+                        </div>s
+                        <div class="form-group col-md-3">
+                            <%= f.label :township_id,"鄉鎮區"%>
+                            <%= f.grouped_collection_select :township_id, County.order(:name), :township, :name, :id, :name, include_blank: true, :prompt => '請輸入鄉鎮區', class: 'form-control' %>
                         </div>
-                        <div class="form-group col-md-6">
-                            <%= f.label "鄉鎮區", id: "address" %>
-                            <%= f.grouped_collection_select :township_id, County.order(:name), :township, :name, :id, :name, include_blank: true %>
+                        <div class="form-group col-md-3">
+                            <%= f.label :section_id,"段號" %>
+                            <%= f.grouped_collection_select :section_id, Township.order(:name), :sections, :name, :id, :name, include_blank: true, :prompt => '請輸入段號', class: 'form-control' %>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <%= f.label :smallsection_id,"小段" %>
+                            <%= f.grouped_collection_select :smallsection_id, Section.order(:name), :smallsections, :name, :id, :name, include_blank: true, :prompt => '請輸入小段', class: 'form-control' %>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <%= f.input :address, label: '其他後續地址欄位 : ', placeholder: '在此輸入其他地址資訊', input_html: { class: 'form-control' } %>
+                            <%= f.label :address, "其他後續地址欄位" %>
+                            <%= f.text_field :address , placeholder: '在此輸入其他地址資訊', class: 'form-control' %>
                         </div>
                     </div>
                 </form>
@@ -106,9 +97,9 @@
                 </button>
             </h2>
         </div>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+        <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordionExample">
             <div class="card-body">
-                <form>
+           
                     <div class="form-row" style="background-color:PaleGoldenRod;">
                         <div class="col-2">
                             拍別
@@ -209,7 +200,7 @@
                             <%= f.number_field :margin4, class: "form-control" %>
                         </div>
                     </div>
-                </form>
+               
             </div>
         </div>
     </div>
@@ -273,7 +264,7 @@
                 </button>
             </h2>
         </div>
-        <div id="collapseSix" class="collapse show" aria-labelledby="headingSix" data-parent="#accordionExample">
+        <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
             <div class="card-body">
                 <div class="form-row">
                     <div class="form-group col-md-2">

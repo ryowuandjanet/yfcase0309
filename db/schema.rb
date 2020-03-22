@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200309065513) do
+ActiveRecord::Schema.define(version: 20200322165700) do
 
   create_table "builds", force: :cascade do |t|
     t.string   "buildnumber"
@@ -104,6 +104,24 @@ ActiveRecord::Schema.define(version: 20200309065513) do
   end
 
   add_index "plusratebs", ["objectbuild_id"], name: "index_plusratebs_on_objectbuild_id"
+
+  create_table "sections", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "township_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "sections", ["township_id"], name: "index_sections_on_township_id"
+
+  create_table "smallsections", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "section_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "smallsections", ["section_id"], name: "index_smallsections_on_section_id"
 
   create_table "subsigntrueas", force: :cascade do |t|
     t.string   "signtruea"
@@ -239,10 +257,14 @@ ActiveRecord::Schema.define(version: 20200309065513) do
     t.string   "buildchecklisturl"
     t.text     "buildchecklistremark"
     t.boolean  "co_owner"
+    t.integer  "section_id"
+    t.integer  "smallsection_id"
   end
 
   add_index "yfcases", ["country_id"], name: "index_yfcases_on_country_id"
   add_index "yfcases", ["county_id"], name: "index_yfcases_on_county_id"
+  add_index "yfcases", ["section_id"], name: "index_yfcases_on_section_id"
+  add_index "yfcases", ["smallsection_id"], name: "index_yfcases_on_smallsection_id"
   add_index "yfcases", ["state_id"], name: "index_yfcases_on_state_id"
   add_index "yfcases", ["township_id"], name: "index_yfcases_on_township_id"
   add_index "yfcases", ["user_id"], name: "index_yfcases_on_user_id"

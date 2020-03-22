@@ -34,6 +34,8 @@ gem 'jquery-ui-rails','~> 4.0.0'
 gem 'materialize-sass'
 gem 'material_icons' 
 gem 'simple_form'
+gem 'prawn', '~> 1.2.1'
+gem 'prawn-table', '~> 0.1.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
